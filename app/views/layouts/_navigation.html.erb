@@ -1,20 +1,20 @@
 <div class="col-md-4">
 	<div class="leftSide">
-		<div class="logo"><%= link_to(image_tag('logo.png', class: "logo"), '') %></div>
+		<div class="logo"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), '') %></div>
 		<% if user_signed_in? %>
 			<div class="userInfo">
 				<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>
-				<%= link_to 'Edit', edit_user_registration_path %> | 
-				<%= link_to 'Logout', destroy_user_session_path, :method => :delete %> |
+				<%= link_to 'Edit', edit_user_registration_path, class: "clearFixer" %> | 
+				<%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "clearFixer" %> |
 				<%= link_to 'CMS', admins_path %></div>
 			</div>
 		<% end %>
 		<div class="navigationWrapper">
 			<ul id="menu" class="navigation clearfix">
-				<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton" %></li>
-				<li class="navButton"><%= link_to 'Releases', '', :class => "navigationButton" %></li>
-				<li class="navButton"><%= link_to 'Placements', '', :class => "navigationButton" %></li>
-				<li class="navButton"><%= link_to 'Contact', '', :class => "navigationButton" %></li>
+				<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton clearFixer" %></li>
+				<li class="navButton"><%= link_to 'Releases', '', :class => "navigationButton clearFixer" %></li>
+				<li class="navButton"><%= link_to 'Placements', '', :class => "navigationButton clearFixer" %></li>
+				<li class="navButton"><%= link_to 'Contact', '', :class => "navigationButton clearFixer" %></li>
 			</ul>
 		</div>
 		<div class="social">

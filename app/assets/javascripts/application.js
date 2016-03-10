@@ -24,9 +24,31 @@
 //= require jquery.slicknav
 //= require jquery.prettySocial
 
+
 $(document).ready(function(){
 	
-	console.log('ready');
+	var position = 0
+	$("#artistScrollPosition").animate({ scrollTop: window.position });
+	
+	$(".lazy").lazyload({
+		effect : "fadeIn"
+	});
+	
+	$(".clearFixer").click(function(){
+		window.position = 0
+	});
+	
+	$('.positionButton').click(function() {
+		var id = $(this).prev('.modal-object-id').val();
+		var artistPosition = $("#artistScrollPosition").scrollTop();
+		window.position = artistPosition
+		console.log(window.position);
+	});
+	
+	$('.closeIcon').click(function(){
+		scrollToHere = window.position
+		console.log(scrollToHere);
+	});
 	
 	if($(window).width() > 992){
     	$('.artist').hover(function(){
@@ -38,10 +60,6 @@ $(document).ready(function(){
     } else {
 		$('.info-wrapper').show();
 	}
-	
-	$(".lazy").lazyload({
-		effect : "fadeIn"
-	});
 	
 	$('.delete_post').on('click', function() {
 		if(confirm('Are you sure you want to delete this record')){
