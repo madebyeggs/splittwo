@@ -25,6 +25,7 @@ gem 'ranked-model'
 gem "font-awesome-rails"
 gem 'meta-tags'
 gem 'friendly_id', '~> 5.1.0'
+gem 'rest_in_place'
 
 group :development, :test do
   gem 'byebug'

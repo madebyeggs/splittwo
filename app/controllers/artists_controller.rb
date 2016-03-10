@@ -21,9 +21,13 @@ class ArtistsController < ApplicationController
       if @artist.update_attributes(artist_params)
         respond_to do |format|
          format.html { redirect_to admins_path }
+         format.json { render :json => @artist }
         end
       else
-        render :action => 'edit'
+        respond_to do |format|
+          format.html { render :action  => :edit } # edit.html.erb
+          format.json { render :nothing =>  true }
+        end
       end
     end
 

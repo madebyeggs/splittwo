@@ -2,6 +2,8 @@
 .col-md-8 {height:100%}
 .col-md-4b {padding:3px;float:left;}
 
+input {color:#000000;}
+
 textarea.form-control {
   height: 200px;
 }

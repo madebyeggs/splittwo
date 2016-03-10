@@ -19,21 +19,35 @@
 				<th>Soundcloud</th>
       			<th>FB URL</th>
 				<th>Twitter Name</th>
-				<th>Image?</th>
-				<th>FB Image?</th>
+				<th>Image? | FB Image?</th>
 				<th></th>
     		</tr>
   		</thead>
   		<tbody>
     		<% @artists.each do |artist| %>
       			<tr data-item-id=<%= "#{artist.id}" %> class="item">
-        			<td><%= artist.name %></td>
-					<td><%= truncate(artist.description, :length => 44, :separator => ' ') %></td>
-					<td><%= artist.soundcloud %></td>
-					<td><%= artist.fb_url %></td>
-					<td><%= artist.twitter_name %></td>
-					<td><% if artist.image? %>Yes<% else %>No<% end %></td>
-					<td><% if artist.fb_image? %>Yes<% else %>No<% end %></td>
+        			<td>
+						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="name" data-placeholder="">
+					  		<%= artist.name %>
+						</span>
+					</td>
+					<td><%= truncate(artist.description, :length => 66, :separator => ' ') %></td>
+					<td>
+						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="soundcloud" data-placeholder="">
+							<%= artist.soundcloud %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="fb_url" data-placeholder="ADD FACEBOOK URL">
+							<%= artist.fb_url %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="twitter_name" data-placeholder="ADD TWITTER NAME">
+							<%= artist.twitter_name %>
+						</span>
+					</td>
+					<td><% if artist.image? %>Yes<% else %>No<% end %> | <% if artist.fb_image? %>Yes<% else %>No<% end %></td>
 					<td>
 						<%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-success" %>
 						<%= link_to 'Delete', artist, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-success" %>
