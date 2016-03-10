@@ -23,6 +23,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'ranked-model'
 gem "font-awesome-rails"
 gem 'meta-tags'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'

@@ -1,5 +1,8 @@
 class Artist < ActiveRecord::Base
   
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   require 'csv'
   
   def self.import(file)

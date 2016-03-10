@@ -56,7 +56,7 @@ class ArtistsController < ApplicationController
     end
     
     def show
-      @artist = Artist.find(params[:id])
+      @artist = Artist.find_by_slug(params[:id])
       set_meta_tags og: {
         url: "#{@currentUrl}",
         image: "#{@artist.fb_image}",
