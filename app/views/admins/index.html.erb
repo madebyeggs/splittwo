@@ -27,23 +27,23 @@
     		<% @artists.each do |artist| %>
       			<tr data-item-id=<%= "#{artist.id}" %> class="item">
         			<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="name" data-placeholder="">
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="name" data-placeholder="">
 					  		<%= artist.name %>
 						</span>
 					</td>
 					<td><%= truncate(artist.description, :length => 66, :separator => ' ') %></td>
 					<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="soundcloud" data-placeholder="">
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="soundcloud" data-placeholder="">
 							<%= artist.soundcloud %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="fb_url" data-placeholder="ADD FACEBOOK URL">
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="fb_url" data-placeholder="ADD FACEBOOK URL">
 							<%= artist.fb_url %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.id %>" data-object="artist" data-attribute="twitter_name" data-placeholder="ADD TWITTER NAME">
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="twitter_name" data-placeholder="ADD TWITTER NAME">
 							<%= artist.twitter_name %>
 						</span>
 					</td>
