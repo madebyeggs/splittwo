@@ -1,0 +1,39 @@
+<div class="col-md-12">
+	<div class="col-md-2 logo">
+		<%= link_to image_tag('logo.png'), root_path %>
+	</div>
+</div>
+<div class="col-md-11 cmsTable">
+	<h2 class="titles">Artists</h2>
+	<table class="table table-bordered table-striped" id="sortable">
+  		<thead>
+    		<tr>
+      			<th width="10%">Name</th>
+      			<th width="20%">Description</th>
+				<th width="10%">Soundcloud</th>
+      			<th width="10%">Vimeo</th>
+				<th width="5%">Image</th>
+				<th width="5%">Image for FB</th>
+				<th width="20%">FB Url</th>
+				<th width="16%">Twitter Name</th>
+				<th width="4%"></th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<% @artists.each do |artist| %>
+      			<tr data-item-id=<%= "#{artist.id}" %> class="item">
+        			<td width="10%"><%= artist.name %></td>
+					<td width="20%"><%= artist.description %></td>
+					<td width="10%"><%= artist.soundcloud %></td>
+					<td width="10%"><%= artist.vimeo %></td>
+					<td width="5%"><% if artist.image? %>Yes<% else %>No<% end %></td>
+					<td width="5%"><% if artist.fb_image? %>Yes<% else %>No<% end %></td>
+					<td width="20%"><%= artist.fb_url %></td>
+					<td width="16%"><%= artist.twitter_name %></td>
+					<td width="4%"><%= link_to 'Edit', edit_project_path(project), class: "btn btn-success" %></td>
+      			</tr>
+    		<% end %>
+  		</tbody>
+	</table>
+  	<%= link_to 'New Artist', new_artist_path, class: "btn btn-success"  %>
+</div>

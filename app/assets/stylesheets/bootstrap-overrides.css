@@ -1,0 +1,7 @@
+.col-md-6, .col-md-4, .col-md-8, .col-md-12 {margin:0px;padding:0px;}
+.col-md-8 {height:100%}
+.col-md-4 {padding:3px;}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #363636;
+}
