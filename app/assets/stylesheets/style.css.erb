@@ -1,29 +1,65 @@
-html, body {background-color:#000000;height:100%;}
+/*GENERAL*/
+
+html, body {background-color:#000000;height:100%;color:#ffffff;}
 p, h1, h2, h3, h4, h5 {color:#ffffff;}
 h2 {font-size:24px;text-transform:uppercase;}
-a, a:hover {text-decoration:none;color:#ffffff;}
+a, a:hover, a:visited {text-decoration:none;color:#ffffff;}
+.canScroll {height:100vh;overflow-y: auto;}
 .form-group, em.form-group {font-size:18px;}
 .deviseStyling {margin:105px 0px 0px 25px}
+.marginTopOverride {margin:15px 0px 0px 25px}
 .userInfo {position:absolute;width:270px;top:10px;left:10px;font-size:14px;color:#ffffff;font-style:italic;}
+.cmsTable {padding:0px 20px;}
+.csvInput {float:left;margin:20px 0px 25px -155px;}
+.marginCsv {margin:-10px 0px 0px 0px;}
+.marginCsv2 {margin:-10px 0px 0px 0px;}
+.inline {float:left;}
+
+.fa {color:#ffffff;margin-right:5px;}
+.socialLinks {font-size:20px!important;margin-right:-5px;}
+.links {margin:-50px 0px -30px 0px;}
+.spacer {margin-top:-15px!important;margin-bottom:22px!important;}
 
 .leftSide {width:100%;padding-top:120px;}
 .rightSide {height:100%;border-left:1px solid #3e3e3e;width:100%;padding:0px;margin:0px 0 0px 0;font-size:4em;color:#ffffff;font-family:'Raleway'}
 
-///NAVIGATION
+.closeIcon {
+	display:inline;
+	float:right;
+	margin-top:15px;
+	width: 48px;
+	height: 48px;
+	background: url(<%= asset_path 'bg-close.png' %>) center no-repeat;
+	background-size:48px 48px;
+	cursor: pointer;
+	z-index: 8040;
+}
 
+/*FONT SIZES*/
+
+.descriptionSize1, .descriptionSize1 i, .descriptionSize1 h3 {font-size:15px!important;font-style:none!important;font-weight:normal!important;}
+.titleSize1 {font-size:16px!important;text-transform:uppercase!important;}
+li.navButton {font-size:14px!important;text-transform:uppercase!important;font-style:none!important;font-weight:normal!important;}
+.upcase {text-transform:uppercase!important;font-style:none!important;}
+.italics {font-style:italic!important;}
+.subtitle i {font-size:15px!important;}
+
+/*NAVIGATION*/
+
+.slicknav_menu {display:none;}
 .logoContainer {width:100%;}
 .logo {width:210px!important;margin:0 auto;}
-.logo img {max-width:100%;margin:0 auto;}
+.logo2 {width:210px!important;margin:12px 0px 0px 0px;}
+.logo img, .logo2 img {max-width:100%;margin:0 auto;}
 ul.navigation {list-style-type: none;}
 .navigationWrapper {width:280px;margin:80px auto;}
 .navigation a, .client {text-transform:uppercase;font-size:1.1em!important;color:#ffffff;font-family:'Raleway'}
 li.navButton {margin:8px 0px 8px 0px!important;}
 .social {width:193px;margin:100px auto 0px auto;}
 .centerSocial {margin:0 auto;}
-.fa {color:#ffffff;margin-right:5px;}
 .pipe {font-weight:700;margin:0px 8px 0px 4px;color:#ffffff;}
 
-///ARTIST-INDEX
+/*ARTIST-INDEX*/
 
 .artist {width:100%;}
 .info-wrapper {position:absolute;width:90%;bottom:6%;left:4%;background-color:rgba(0,0,0,0.8);padding:10px;display:none;}
@@ -32,11 +68,32 @@ li.navButton {margin:8px 0px 8px 0px!important;}
 hr.dots {margin:6px 0px;border-top:1px dotted #fff;}
 .lazy {width:100%;} .lazy img {width:100%;height:100%;}
 
+/*ARTIST-SHOW*/
 
-///RESPONSIVE
+.artistInfo {width:80%;margin:10px 10%;padding:2px 0px 40px 0px;}
+.artistName {text-align:left;margin:30px 0px 22px 0px;}
+.artistSeparator {color:#ffffff; margin:30px 0px 15px 0px;}
+.artistDetail {margin:20px 0px 40px;text-align:justify;}
+.artist-left {width:55%;float:left;}
+.artist-right {width:40%;margin-left:5%;float:right;}
+.artistSquareImageContainer {margin-top:44px;}
+.artistSquareImage {width:100%;}
+.artistSquareImage img {max-width:100%;}
+.artist-bottom {width:100%;clear:both;float:left;margin:30px 0px 40px 0px;}
 
-@media (min-width: 992px) {
+
+/*MOBILE*/
+
+@media (max-width: 992px) {
 	
 	.rightSide {border-left:0px;}
+	#menu {display:none;}
+	.slicknav_menu {display:block;}
+	.social {display:none;}
+	.logo {width:180px!important;margin:-120px auto -30px auto;}
+	.logo2 {width:180px!important;}
+	.logo img, .logo2 img {max-width:100%;margin:0 auto;}
+	.artist-left {width:100%;clear:both;margin-right:200px;}
+	.artist-right {display:none;}
 	
 }

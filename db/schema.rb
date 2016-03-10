@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310081757) do
+ActiveRecord::Schema.define(version: 20160310093259) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "homepage_titl"
@@ -26,11 +26,19 @@ ActiveRecord::Schema.define(version: 20160310081757) do
     t.string   "name"
     t.text     "description"
     t.string   "soundcloud"
-    t.string   "vimeo"
     t.string   "fb_url"
     t.string   "twitter_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "fb_image_file_name"
+    t.string   "fb_image_content_type"
+    t.integer  "fb_image_file_size"
+    t.datetime "fb_image_updated_at"
+    t.integer  "row_order"
   end
 
   create_table "users", force: :cascade do |t|

@@ -105,6 +105,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     mime-types (2.99.1)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   jquery-ui-rails
   lazyload-rails
   less-rails
+  meta-tags
   nprogress-rails
   paperclip
   pg

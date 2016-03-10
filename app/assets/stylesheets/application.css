@@ -19,5 +19,6 @@
  *= require nprogress-overrides
  *= require rails_bootstrap_forms
  *= require font-awesome
+ *= require slicknav
  *= require style
  */

@@ -35,8 +35,43 @@ class ArtistsController < ApplicationController
       end
     end
     
+    def import
+      Artist.import(params[:file])
+      redirect_to admins_path, notice: "Artists imported!" 
+    end
+    
     def index
-      @artist = Artist.rank(:row_order).all
+      @artists = Artist.rank(:row_order).all
+      set_meta_tags :og => {
+        :url => "#{@currentUrl}",
+        :title    => 'Split Music | Artists',
+        :description => '21st Century Music Publishing | Unique Music to Picture'
+      }
+      set_meta_tags twitter: {
+        card: "summary_large_image",
+        site: "@fairsplitmusic",
+        title: "Split Music | Artists",
+        description: "21st Century Music Publishing | Unique Music to Picture"
+      }
+    end
+    
+    def show
+      @artist = Artist.find(params[:id])
+      set_meta_tags og: {
+        url: "#{@currentUrl}",
+        image: "#{@artist.fb_image}",
+        title: "#{@artist.name}",
+        description: "#{@artist.description}",
+        type: "musician"
+      }
+      set_meta_tags twitter: {
+        card: "summary_large_image",
+        site: "@fairsplitmusic",
+        title: "#{@artist.name}",
+        description: "#{@artist.description}",
+        image: "#{@artist.fb_image}"
+      }
+      render :show, flush: true
     end
 
     def update_row_order
@@ -53,7 +88,7 @@ class ArtistsController < ApplicationController
     end
     
     def artist_params
-      params.require(:artist).permit(:artist_id, :name, :description, :soundcloud, :vimeo, :fb_url, :twitter_name, :image, :fb_image, :row_order_position)
+      params.require(:artist).permit(:artist_id, :name, :description, :soundcloud, :fb_url, :twitter_name, :image, :fb_image, :row_order_position)
     end
 
 end

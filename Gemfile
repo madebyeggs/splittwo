@@ -22,6 +22,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'ranked-model'
 gem "font-awesome-rails"
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug'

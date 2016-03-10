@@ -1,0 +1,45 @@
+<div class="col-md-12">
+	<div class="col-md-2 logo2">
+		<%= link_to image_tag('logo.png'), root_path %>
+	</div>
+</div>
+<div class="col-md-12 cmsTable">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles">Artists</h2>
+	<%= form_tag import_artists_path, class: "csvInput marginCsv", multipart: true do %>
+		<%= file_field_tag :file %><br/>
+		<%= submit_tag "Import CSV", class: "btn btn-success marginCsv2" %>
+	<% end %>
+  	<%= link_to 'Add New Artist', new_artist_path, class: "btn btn-success csvInput"  %>
+	<table class="table table-bordered table-striped" id="sortable">
+  		<thead>
+    		<tr>
+      			<th>Name</th>
+      			<th>Description</th>
+				<th>Soundcloud</th>
+      			<th>FB URL</th>
+				<th>Twitter Name</th>
+				<th>Image?</th>
+				<th>FB Image?</th>
+				<th></th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<% @artists.each do |artist| %>
+      			<tr data-item-id=<%= "#{artist.id}" %> class="item">
+        			<td><%= artist.name %></td>
+					<td><%= truncate(artist.description, :length => 44, :separator => ' ') %></td>
+					<td><%= artist.soundcloud %></td>
+					<td><%= artist.fb_url %></td>
+					<td><%= artist.twitter_name %></td>
+					<td><% if artist.image? %>Yes<% else %>No<% end %></td>
+					<td><% if artist.fb_image? %>Yes<% else %>No<% end %></td>
+					<td>
+						<%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-success" %>
+						<%= link_to 'Delete', artist, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-success" %>
+					</td>
+      			</tr>
+    		<% end %>
+  		</tbody>
+	</table>
+</div>

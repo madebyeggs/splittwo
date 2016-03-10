@@ -44,4 +44,9 @@ Rails.application.configure do
     :styles => {:main => '300X300>'},
     :convert_options => { :all => '-quality 80' }
   }
+  
+  FB_IMAGE_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '1200X630>'},
+    :convert_options => { :all => '-quality 80' }
+  }
 end

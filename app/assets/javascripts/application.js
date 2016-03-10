@@ -19,22 +19,42 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require lazyload
+//= require update_artists_row_order
+//= require jquery.slicknav
+//= require jquery.prettySocial
 
 $(document).ready(function(){
 	
 	console.log('ready');
 	
-	if($(window).width() > 481){
+	if($(window).width() > 992){
     	$('.artist').hover(function(){
         	$(this).find('.info-wrapper').stop().slideDown('100');
         },
         function(){
         	$(this).find('.info-wrapper').stop().slideUp('100');
         });
-    }
+    } else {
+		$('.info-wrapper').show();
+	}
 	
 	$(".lazy").lazyload({
 		effect : "fadeIn"
 	});
+	
+	$('.delete_post').on('click', function() {
+		if(confirm('Are you sure you want to delete this record')){
+	    	return true
+	    }else{
+	        return false;
+	    }
+	});
+	
+	//mobileNavMenu
+	$(function(){
+		$('#menu').slicknav();
+	});
+	
+	$('.prettySocial').prettySocial();
 	
 });

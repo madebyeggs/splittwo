@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root 'announcements#index'
   resources :announcements
   resources :artists
+  resources :artists do
+    post :update_row_order, on: :collection
+    collection {post :import}
+  end
   resources :admins, :path => "admin"
   
 end

@@ -6,7 +6,7 @@
 				<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>
 				<%= link_to 'Edit', edit_user_registration_path %> | 
 				<%= link_to 'Logout', destroy_user_session_path, :method => :delete %> |
-				<%= link_to 'CMS', '' %></div>
+				<%= link_to 'CMS', admins_path %></div>
 			</div>
 		<% end %>
 		<div class="navigationWrapper">

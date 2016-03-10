@@ -4,7 +4,6 @@ class CreateArtists < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :soundcloud
-      t.string :vimeo
       t.string :fb_url
       t.string :twitter_name
       t.timestamps null: false
