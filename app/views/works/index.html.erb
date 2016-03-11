@@ -1,0 +1,20 @@
+<div class="canScroll" id="workScrollPosition">
+	<div class="col-md-12">
+		<% @works.each do |work| %>
+		<input type="hidden" value=<%= work.id %> class="modal-object-id">
+		<a href="<%= work_path(work) %>" class="positionButtonWork">
+			<div class="col-md-4b artistContainer">
+				<div class="artist">
+					<div class="info-wrapper">
+						<h5><%= work.brand_name %></h5>
+						<h5 class="colour"><%= work.campaign_title %></h5>
+						<hr class="dots"/>
+						<p class="artistDescription"><%= work.agency %><br/>"<%= work.track_name %>" by <%= work.artist_name %></p>
+					</div>
+					<%= image_tag(work.image, lazy: true, class: "lazy") %>
+				</div>
+			</div>
+		</a>
+		<% end %>
+	</div>
+</div>

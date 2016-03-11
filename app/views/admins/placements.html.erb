@@ -1,0 +1,67 @@
+<%= render :partial => 'admins/navigation' %>
+<div class="col-md-10 cmsTable canScroll">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles2 placements">Placements</h2>
+	<%= form_tag import_works_path, class: "csvInput marginCsv", multipart: true do %>
+		<%= file_field_tag :file %><br/>
+		<%= submit_tag "Import CSV", class: "btn btn-success marginCsv2" %>
+	<% end %>
+	 	<%= link_to 'Add New Work', new_work_path, class: "btn btn-success csvInput"  %>
+	<table class="table table-striped" id="sortable">
+	 		<thead>
+	   		<tr>
+	     		<th>Brand Name</th>
+	     		<th>Campaign Title</th>
+				<th>Agency</th>
+	     		<th>Track name</th>
+				<th>Artist Name</th>
+				<th>Vimeo identifier</th>
+				<th>Description?</th>
+				<th>Image? | FB Image?</th>
+				<th></th>
+	   		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @works.each do |work| %>
+	     			<tr data-item-id=<%= "#{work.id}" %> class="item">
+	       			<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="brand_name" data-placeholder="Brand name">
+					  		<%= work.brand_name %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="campaign_title" data-placeholder="Campaign title">
+					  		<%= work.campaign_title %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="agency" data-placeholder="Agency name">
+							<%= work.agency %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="track_name" data-placeholder="Track name">
+							<%= work.track_name %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="artist_name" data-placeholder="Artist name">
+							<%= work.artist_name %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" data-attribute="vimeo" data-placeholder="Vimeo ID">
+							<%= work.vimeo %>
+						</span>
+					</td>
+					<td><% if work.description? %>Yes<% else %>No<% end %></td>
+					<td><% if work.image? %>Yes<% else %>No<% end %> | <% if work.fb_image? %>Yes<% else %>No<% end %></td>
+					<td>
+						<%= link_to 'Edit', edit_work_path(work), class: "btn btn-success" %>
+						<%= link_to 'Delete', work, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+					</td>
+	     			</tr>
+	   		<% end %>
+	 		</tbody>
+	</table>
+</div>

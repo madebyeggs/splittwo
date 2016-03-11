@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
     def create
       @artist = Artist.create(artist_params)
       respond_to do |format|
-        format.html { redirect_to admins_path }
+        format.html { redirect_to admins_artists_path }
       end
     end
 
@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
       @artist = Artist.find_by_slug(params[:id])
       if @artist.update_attributes(artist_params)
         respond_to do |format|
-         format.html { redirect_to admins_path }
+         format.html { redirect_to admins_artists_path }
          format.json { render :json => @artist }
         end
       else
@@ -35,7 +35,7 @@ class ArtistsController < ApplicationController
       @artist = Artist.find_by_slug(params[:id])
       @artist.destroy
       respond_to do |format|
-        format.html { redirect_to admins_path }
+        format.html { redirect_to admins_artists_path }
       end
     end
     

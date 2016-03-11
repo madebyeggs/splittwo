@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand_name: MyString
+  campaign_title: MyString
+  agency: MyString
+  track_name: MyString
+  artist_name: MyString
+  description: MyText
+  vimeo: MyString
+
+two:
+  brand_name: MyString
+  campaign_title: MyString
+  agency: MyString
+  track_name: MyString
+  artist_name: MyString
+  description: MyText
+  vimeo: MyString

@@ -10,5 +10,13 @@ Rails.application.routes.draw do
     collection {post :import}
   end
   resources :admins, :path => "admin"
+  resources :works, :path => "placements"
+  resources :works do
+    post :update_row_order, on: :collection
+    collection {post :import}
+  end
+  
+  match "admins/artists" => "admins#artists", via: [:get, :post]
+  match "admins/placements" => "admins#placements", via: [:get, :post]
   
 end

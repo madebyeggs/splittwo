@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<% @artists.each do |artist| %>
 		<input type="hidden" value=<%= artist.id %> class="modal-object-id">
-		<a href="<%= artist_path(artist) %>" class="positionButton">
+		<a href="<%= artist_path(artist) %>" class="positionButtonArtist">
 			<div class="col-md-4b artistContainer">
 				<div class="artist">
 					<div class="info-wrapper">

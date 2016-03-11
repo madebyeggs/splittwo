@@ -1,0 +1,55 @@
+<div class="canScroll">
+	<div class="workInfo">
+		<%= link_to '', works_path, :class => "closeIcon" %>
+		<h1 class="artistName titleSize1"><%= @work.brand_name %> "<%= @work.campaign_title %>"</h1>
+		<h3 class="projectSubtitle fixerSpace descriptionSize1 upcase"><%= @work.agency %></h3>
+		<h3 class="projectSubtitle spacer descriptionSize1 upcase italics"><em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %></h3>
+		<div class="links">
+			<input id="twitter" type="hidden" 
+				data-url="<%= @currentUrl %>"
+				data-media="<%= @work.fb_image %>"
+				data-description="Split Music | NEW WORK: for <%= @work.brand_name %>" 
+				data-via="FairsplitMusic"
+				data-related="FairsplitMusic"   
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
+			<input id="facebook" type="hidden" 
+				data-url="https://vimeo.com/<%= @work.vimeo %>"
+				data-media="<%= @work.fb_image %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name rescue nil %>"
+				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'facebook' }, :class => 'prettySocial fa fa-facebook socialLinks' %>
+			<input id="googleplus" type="hidden" 
+				data-url="https://vimeo.com/<%= @work.vimeo %>"
+				data-media="<%= @work.fb_image %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name %>"
+				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'googleplus' }, :class => 'prettySocial fa fa-google-plus socialLinks' %>
+			<input id="pinterest" type="hidden" 
+				data-url="https://vimeo.com/<%= @work.vimeo %>" 
+				data-media="<%= @work.fb_image %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name %>"
+				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
+		</div>
+		<hr class="artistSeparator" />
+		<div class="fitvids">
+			<% if @work.vimeo? %>
+			<!--<div id="videoLoaderWork">
+				<span class="centerer2"></span>
+				<%#= image_tag 'status2.gif', :id => "loadingImage2" %>
+			</div>-->
+        	<iframe class="fitvids" id="videoPlayer" src="https://player.vimeo.com/video/<%= @work.vimeo %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<% end %>
+		</div>
+		<% if @work.vimeo? %><hr class="projectSeparator" /><% end %>
+		<% if @work.description? %><p class="projectDetail"><%= simple_format @work.description, :class => "projectDetail descriptionSize1" %></p><% end %>
+	</div>
+</div>

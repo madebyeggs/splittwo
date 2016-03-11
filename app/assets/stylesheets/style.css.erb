@@ -14,7 +14,18 @@ a, a:hover, a:visited {text-decoration:none;color:#ffffff;}
 .marginCsv {margin:-10px 0px 0px 0px;}
 .marginCsv2 {margin:-10px 0px 0px 0px;}
 .inline {float:left;}
-.table th, .table tr {font-size:12px;}
+th:after {
+    content: "&nbsp;";
+    display: block;
+    line-height: 16px;
+    color: transparent;
+}
+#artistsCms {display:none;}
+#releasesCms {display:none;}
+#placementsCms {display:none;}
+.table th {font-size:14px;text-transform:uppercase;}
+.table tr {font-size:12px;}
+.titles2 {margin-top:-13px;}
 
 .fa {color:#ffffff;margin-right:5px;}
 .socialLinks {font-size:20px!important;margin-right:-5px;}
@@ -27,7 +38,7 @@ a, a:hover, a:visited {text-decoration:none;color:#ffffff;}
 .closeIcon {
 	display:inline;
 	float:right;
-	margin-top:15px;
+	margin-top:30px;
 	width: 48px;
 	height: 48px;
 	background: url(<%= asset_path 'bg-close.png' %>) center no-repeat;
@@ -52,9 +63,10 @@ li.navButton {font-size:14px!important;text-transform:uppercase!important;font-s
 .logo {width:210px!important;margin:0 auto;}
 .logo2 {width:210px!important;margin:12px 0px 0px 0px;}
 .logo img, .logo2 img {max-width:100%;margin:0 auto;}
-ul.navigation {list-style-type: none;}
+ul.navigation, ul.navigation2 {list-style-type: none;}
 .navigationWrapper {width:280px;margin:80px auto;}
-.navigation a, .client {text-transform:uppercase;font-size:1.1em!important;color:#ffffff;font-family:'Raleway'}
+.navigation2 {margin:24px 0px 0px -35px;}
+.navigation a, .navigation2 a, .client {text-transform:uppercase;font-size:1.1em!important;color:#ffffff;font-family:'Raleway'}
 li.navButton {margin:8px 0px 8px 0px!important;}
 .social {width:193px;margin:100px auto 0px auto;}
 .centerSocial {margin:0 auto;}
@@ -71,7 +83,7 @@ hr.dots {margin:6px 0px;border-top:1px dotted #fff;}
 
 /*ARTIST-SHOW*/
 
-.artistInfo {width:80%;margin:10px 10%;padding:2px 0px 40px 0px;}
+.artistInfo, .workInfo {width:80%;margin:10px 10%;padding:2px 0px 40px 0px;}
 .artistName {text-align:left;margin:30px 0px 22px 0px;}
 .artistSeparator {color:#ffffff; margin:30px 0px 15px 0px;}
 .artistDetail {margin:20px 0px 40px;text-align:justify;}

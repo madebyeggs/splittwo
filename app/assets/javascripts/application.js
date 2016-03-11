@@ -21,14 +21,17 @@
 //= require nprogress-turbolinks
 //= require lazyload
 //= require update_artists_row_order
+//= require update_works_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
+//= require jquery.fitvids
 
 
 $(document).ready(function(){
 	
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
+	$("#workScrollPosition").animate({ scrollTop: window.position });
 	
 	$(".lazy").lazyload({
 		effect : "fadeIn"
@@ -38,9 +41,16 @@ $(document).ready(function(){
 		window.position = 0
 	});
 	
-	$('.positionButton').click(function() {
+	$('.positionButtonArtist').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var artistPosition = $("#artistScrollPosition").scrollTop();
+		window.position = artistPosition
+		console.log(window.position);
+	});
+	
+	$('.positionButtonWork').click(function() {
+		var id = $(this).prev('.modal-object-id').val();
+		var artistPosition = $("#workScrollPosition").scrollTop();
 		window.position = artistPosition
 		console.log(window.position);
 	});
@@ -76,4 +86,7 @@ $(document).ready(function(){
 	
 	$('.prettySocial').prettySocial();
 	
+	$('.fitvids').fitVids();
+	
 });
+

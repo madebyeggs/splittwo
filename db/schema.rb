@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310153946) do
+ActiveRecord::Schema.define(version: 20160311103757) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "homepage_titl"
@@ -74,5 +74,29 @@ ActiveRecord::Schema.define(version: 20160310153946) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "works", force: :cascade do |t|
+    t.string   "brand_name"
+    t.string   "campaign_title"
+    t.string   "agency"
+    t.string   "track_name"
+    t.string   "artist_name"
+    t.text     "description"
+    t.string   "vimeo"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "fb_image_file_name"
+    t.string   "fb_image_content_type"
+    t.integer  "fb_image_file_size"
+    t.datetime "fb_image_updated_at"
+    t.integer  "row_order"
+    t.string   "slug"
+  end
+
+  add_index "works", ["slug"], name: "index_works_on_slug", unique: true
 
 end
