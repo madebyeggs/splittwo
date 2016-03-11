@@ -7,7 +7,7 @@ class Work < ActiveRecord::Base
   
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
-      work = Work.find_or_initialize_by(brand_name: row["brand_name"])
+      work = Work.find_or_initialize_by(campaign_title: row["campaign_title"])
       work.assign_attributes(row.to_hash)
       work.save!
     end

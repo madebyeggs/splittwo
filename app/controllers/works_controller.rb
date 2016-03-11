@@ -41,7 +41,7 @@ class WorksController < ApplicationController
     
     def import
       Work.import(params[:file])
-      redirect_to admins_path, notice: "Works imported!" 
+      redirect_to admins_placements_path, notice: "Works imported!" 
     end
     
     def index

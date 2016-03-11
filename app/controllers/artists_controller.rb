@@ -41,7 +41,7 @@ class ArtistsController < ApplicationController
     
     def import
       Artist.import(params[:file])
-      redirect_to admins_path, notice: "Artists imported!" 
+      redirect_to admins_artists_path, notice: "Artists imported!" 
     end
     
     def index
