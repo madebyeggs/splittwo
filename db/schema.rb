@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311103757) do
+ActiveRecord::Schema.define(version: 20160311124243) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "homepage_titl"
@@ -56,6 +56,26 @@ ActiveRecord::Schema.define(version: 20160311103757) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "releases", force: :cascade do |t|
+    t.string   "title"
+    t.string   "soundcloud"
+    t.text     "description"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "fb_image_file_name"
+    t.string   "fb_image_content_type"
+    t.integer  "fb_image_file_size"
+    t.datetime "fb_image_updated_at"
+    t.integer  "row_order"
+    t.string   "slug"
+  end
+
+  add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

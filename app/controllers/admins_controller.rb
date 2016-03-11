@@ -13,7 +13,15 @@ class AdminsController < ApplicationController
     @works = Work.rank(:row_order).all
     respond_to do |format|
       format.html
-      format.json {render :json => @artists}
+      format.json {render :json => @works}
+    end
+  end
+  
+  def releases
+    @releases = Release.rank(:row_order).all
+    respond_to do |format|
+      format.html
+      format.json {render :json => @releases}
     end
   end
   

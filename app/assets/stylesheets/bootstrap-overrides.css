@@ -12,8 +12,13 @@ textarea.form-control {
    background-color: #363636;
 }
 
+.col-md-5, .col-md-7 {padding:0px;margin:0px;float:left;}
+.col-md-5 {padding-right:24px;}
+.col-md-5 img {width:100%!important;}
+
 @media (max-width: 992px) {
 	
+	.col-md-5 {display:none;}
 	.col-md-4b {width:50%;}
 	
 }

@@ -22,6 +22,7 @@
 //= require lazyload
 //= require update_artists_row_order
 //= require update_works_row_order
+//= require update_releases_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require jquery.fitvids
@@ -32,6 +33,7 @@ $(document).ready(function(){
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
 	$("#workScrollPosition").animate({ scrollTop: window.position });
+	$("#releaseScrollPosition").animate({ scrollTop: window.position });
 	
 	$(".lazy").lazyload({
 		effect : "fadeIn"
@@ -50,8 +52,15 @@ $(document).ready(function(){
 	
 	$('.positionButtonWork').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
-		var artistPosition = $("#workScrollPosition").scrollTop();
-		window.position = artistPosition
+		var workPosition = $("#workScrollPosition").scrollTop();
+		window.position = workPosition
+		console.log(window.position);
+	});
+	
+	$('.positionButtonRelease').click(function() {
+		var id = $(this).prev('.modal-object-id').val();
+		var releasePosition = $("#releaseScrollPosition").scrollTop();
+		window.position = releasePosition
 		console.log(window.position);
 	});
 	

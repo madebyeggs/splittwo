@@ -1,0 +1,19 @@
+<div class="canScroll" id="releaseScrollPosition">
+	<div class="col-md-12">
+		<% @releases.each do |release| %>
+		<input type="hidden" value=<%= release.id %> class="modal-object-id">
+		<a href="<%= release_path(release) %>" class="positionButtonRelease">
+			<div class="col-md-4b artistContainer">
+				<div class="artist">
+					<div class="info-wrapper">
+						<h5 class="colour"><%= release.title %></h5>
+						<hr class="dots"/>
+						<p class="artistDescription"><%= truncate(release.description, :length => 220, :separator => ' ') %></p>
+					</div>
+					<%= image_tag(release.image, lazy: true, class: "lazy") %>
+				</div>
+			</div>
+		</a>
+		<% end %>
+	</div>
+</div>

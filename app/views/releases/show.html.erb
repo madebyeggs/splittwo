@@ -1,0 +1,57 @@
+<div class="canScroll">
+	<div class="artistInfo">
+		<%= link_to '', releases_path, :class => "closeIcon" %>
+		<h1 class="artistName titleSize1"><%= @release.title %></h1>
+		<div class="links">
+			<input id="twitter" type="hidden" 
+				data-url="<%= @currentUrl %>"
+				data-media="<%= @release.fb_image %>"
+				data-description="<%= truncate(@release.description, :length => 50) %>" 
+				data-via="fairsplitmusic" 
+				data-related="FairsplitMusic"  
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
+			<input id="facebook" type="hidden" 
+				data-url="<%= @currentUrl %>"
+				data-media="<%= @release.fb_image %>"
+				data-description="<%= @release.description %>"
+				data-title="<%= @release.title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'facebook' }, :class => 'prettySocial fa fa-facebook socialLinks' %>
+			<input id="googleplus" type="hidden" 
+				data-url="<%= @currentUrl %>"
+				data-media="<%= @release.fb_image %>"
+				data-description="<%= @release.description %>"
+				data-title="<%= @release.title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'googleplus' }, :class => 'prettySocial fa fa-google-plus socialLinks' %>
+			<input id="pinterest" type="hidden" 
+				data-url="<%= @currentUrl %>" 
+				data-media="<%= @release.fb_image %>"
+				data-description="<%= @release.description %>"
+				data-title="<%= @release.title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
+		</div>
+		<hr class="artistSeparator" />
+		<div class="soundContainer col-md-12">
+			<div class="col-md-5"><%= image_tag(@release.image, class: "image") %></div>
+			<div class="col-md-7">
+				<div class="fitvids fluidMedia">
+					<iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @release.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false" src="about:blank">
+					</iframe>
+				</div>
+			</div>
+		</div>
+		<div class="fitvids fluidMediaSmall">
+			<iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @release.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false" src="about:blank">
+			</iframe>
+		</div>
+		<hr class="projectSeparator" style="clear:both;" />
+		<% if @release.description? %><p class="projectDetail"><%= simple_format @release.description, :class => "projectDetail descriptionSize1" %></p><% end %>
+	</div>
+</div>

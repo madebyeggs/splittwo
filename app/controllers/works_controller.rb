@@ -48,13 +48,13 @@ class WorksController < ApplicationController
       @works = Work.rank(:row_order).all
       set_meta_tags :og => {
         :url => "#{@currentUrl}",
-        :title    => 'Split Music | Works',
+        :title    => 'Split Music | Placements',
         :description => '21st Century Music Publishing | Unique Music to Picture'
       }
       set_meta_tags twitter: {
         card: "summary_large_image",
         site: "@fairsplitmusic",
-        title: "Split Music | Work",
+        title: "Split Music | Placements",
         description: "21st Century Music Publishing | Unique Music to Picture"
       }
     end
