@@ -26,6 +26,7 @@
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require jquery.fitvids
+//= require jquery.nivo.slider
 
 
 $(document).ready(function(){
@@ -96,6 +97,26 @@ $(document).ready(function(){
 	$('.prettySocial').prettySocial();
 	
 	$('.fitvids').fitVids();
+	
+	$('#slider').nivoSlider();
+	
+	$('#image-frame').bind('reposition-image', function() {
+	    var imageFrame = $(this);
+	    var outerFrame = $('#outer-frame');
+	    var image = imageFrame.find('img');
+
+	    var frameWidth = imageFrame.width();
+	    var frameHeight = imageFrame.height();
+
+	    // center image frame
+	    imageFrame.css({ left: (outerFrame.width() / 2) - (imageFrame.width() / 2),
+	                     top:  (outerFrame.height() / 2) - (imageFrame.height() /2)});
+
+	    // position image in frame
+	    image.css({ left: (imageFrame.width() / 2) - (image.attr('width') / 2),
+	                top: (imageFrame.height() / 2) - (image.attr('height') / 2)});
+	}).trigger('reposition-image');
+	
 	
 });
 
