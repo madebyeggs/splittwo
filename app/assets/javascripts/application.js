@@ -115,6 +115,8 @@ $(document).ready(function(){
           		swap: true
         	},
         	callback: {
+				start: function (number) {
+				},
 				loaded: function () {
 					resizeSlides();
 				},
