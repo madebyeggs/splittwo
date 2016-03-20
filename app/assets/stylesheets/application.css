@@ -21,6 +21,6 @@
  *= require font-awesome
  *= require slicknav
  *= require style
- *= require nivo-slider
- *= require bar
+ *= require slick
+ *= require slick-theme
  */

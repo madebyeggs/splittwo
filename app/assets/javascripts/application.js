@@ -26,19 +26,24 @@
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require jquery.fitvids
-//= require jquery.nivo.slider
-
+//= require imagesloaded
+//= require jquery.slides.min
 
 $(document).ready(function(){
+	
+	resizeSlides();
 	
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
 	$("#workScrollPosition").animate({ scrollTop: window.position });
 	$("#releaseScrollPosition").animate({ scrollTop: window.position });
 	
-	$(".lazy").lazyload({
-		effect : "fadeIn"
+	$('#artistScrollPosition').imagesLoaded( function() {
+	  	$(".lazy").lazyload({
+			effect : "fadeIn"
+		});
 	});
+	
 	
 	$(".clearFixer").click(function(){
 		window.position = 0
@@ -98,25 +103,41 @@ $(document).ready(function(){
 	
 	$('.fitvids').fitVids();
 	
-	$('#slider').nivoSlider();
-	
-	$('#image-frame').bind('reposition-image', function() {
-	    var imageFrame = $(this);
-	    var outerFrame = $('#outer-frame');
-	    var image = imageFrame.find('img');
-
-	    var frameWidth = imageFrame.width();
-	    var frameHeight = imageFrame.height();
-
-	    // center image frame
-	    imageFrame.css({ left: (outerFrame.width() / 2) - (imageFrame.width() / 2),
-	                     top:  (outerFrame.height() / 2) - (imageFrame.height() /2)});
-
-	    // position image in frame
-	    image.css({ left: (imageFrame.width() / 2) - (image.attr('width') / 2),
-	                top: (imageFrame.height() / 2) - (image.attr('height') / 2)});
-	}).trigger('reposition-image');
-	
-	
+	$(function() {
+		height = $(window).height();
+		width = $('.widthCalc');
+      	$('#slides').slidesjs({
+        	height: height,
+			play: {
+          		active: true,
+          		auto: true,
+          		interval: 4000,
+          		swap: true
+        	},
+        	callback: {
+				loaded: function () {
+					resizeSlides();
+				},
+          		complete: function() {
+					resizeSlides();
+          		}
+        	}
+      	});
+    });
 });
 
+window.onresize = function(event) {
+	resizeSlides();
+}
+
+function resizeSlides() {
+	vph = $(window).height();
+	$('.slidesjs-container').css({'height': vph + 'px'});
+	$('.fill').css({
+	   	'height' : vph + 'px',
+	   	'display' : 'flex',
+		'justify-content' : 'center',
+		'align-items' : 'center',
+		'overflow' : 'hidden',
+	});
+}

@@ -112,25 +112,22 @@ hr.dots {margin:6px 0px;border-top:1px dotted #fff;}
 }
 
 .fluidMediaSmall, .fluidMediaSmall iframe {display:none;}
-
-.imageContainer {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+.fill {
+    
 }
-.imageContainer img {
-    display: block;
+.fill img {
+    flex-shrink:0;
+    min-width:100%;
+    min-height:100%;
 }
-.portrait img {
-    width: auto;
+a.slidesjs-next,
+a.slidesjs-previous,
+a.slidesjs-play,
+a.slidesjs-stop,
+ul.slidesjs-pagination,
+a.slidesjs-navigation {
+  display:none;
 }
-
-.cover {
-  object-fit: cover;
-  width: 100%;
-  height: 995px;
-}
-
 /*MOBILE*/
 
 @media (max-width: 992px) {
