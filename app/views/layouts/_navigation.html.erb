@@ -1,6 +1,6 @@
 <div class="col-md-4">
 	<div class="leftSide">
-		<div class="logo"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), '') %></div>
+		<div class="logo"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), root_path) %></div>
 		<% if user_signed_in? %>
 			<div class="userInfo">
 				<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>

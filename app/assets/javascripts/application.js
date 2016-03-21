@@ -27,11 +27,10 @@
 //= require jquery.prettySocial
 //= require jquery.fitvids
 //= require imagesloaded
-//= require jquery.slides.min
+//= require jquery.easing-1.3
+//= require jquery.royalslider.min
 
 $(document).ready(function(){
-	
-	resizeSlides();
 	
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
@@ -102,44 +101,17 @@ $(document).ready(function(){
 	$('.prettySocial').prettySocial();
 	
 	$('.fitvids').fitVids();
-	
-	$(function() {
-		height = $(window).height();
-		width = $('.widthCalc');
-      	$('#slides').slidesjs({
-        	height: height,
-			play: {
-          		active: true,
-          		auto: true,
-          		interval: 4000,
-          		swap: true
-        	},
-        	callback: {
-				start: function (number) {
-				},
-				loaded: function () {
-					resizeSlides();
-				},
-          		complete: function() {
-					resizeSlides();
-          		}
-        	}
-      	});
-    });
-});
-
-window.onresize = function(event) {
-	resizeSlides();
-}
-
-function resizeSlides() {
-	vph = $(window).height();
-	$('.slidesjs-container').css({'height': vph + 'px'});
-	$('.fill').css({
-	   	'height' : vph + 'px',
-	   	'display' : 'flex',
-		'justify-content' : 'center',
-		'align-items' : 'center',
-		'overflow' : 'hidden',
+	$('.royalSlider').royalSlider({
+		autoPlay: {
+			// autoplay options go gere
+		    enabled: true,
+		    pauseOnHover: false,
+			delay: 5000
+		},
+		imageAlignCenter: true,
+		imageScaleMode: 'fill',
+		loop: true,
+		arrowsNav: true
 	});
-}
+	
+});
