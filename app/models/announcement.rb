@@ -1,7 +1,7 @@
 class Announcement < ActiveRecord::Base
   
   extend FriendlyId
-  friendly_id :homepage_title, use: :slugged
+  friendly_id :slide_title, use: :slugged
   
   require 'csv'
   
