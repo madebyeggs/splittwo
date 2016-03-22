@@ -44,7 +44,11 @@
 		<div class="artist-right">
 			<div class="artistSquareImageContainer">
 				<div class="artistSquareImage">
-					<%= image_tag(@slide.slide_image, :class => "artistSquareImage") %>
+					<% if @slide.slide_image? %>
+						<%= image_tag(@slide.slide_image, :class => "artistSquareImage") %>
+					<% else %>
+						<%= image_tag(@slide.image, :class => "artistSquareImage") %>
+					<% end %>
 				</div>
 			</div>
 		</div>
