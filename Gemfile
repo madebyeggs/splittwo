@@ -28,6 +28,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'rest_in_place'
 gem 'imagesLoaded_rails'
 gem 'best_in_place', '~> 3.0.1'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'byebug'

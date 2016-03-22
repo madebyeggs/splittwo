@@ -19,7 +19,7 @@ class Announcement < ActiveRecord::Base
   if Rails.env.development?
     has_attached_file :slide_image, SLIDE_PAPERCLIP_STORAGE_OPTS
   else
-    has_attached_file :image,
+    has_attached_file :slide_image,
     :convert_options => { :all => '-quality 92' }, 
     styles: {main: '1115x952>'},
     :storage => :s3,
