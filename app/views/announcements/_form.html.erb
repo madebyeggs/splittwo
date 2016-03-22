@@ -1,0 +1,13 @@
+<div class="deviseStyling col-md-11 abouts marginTopOverride">
+	<h2 class="titles">Add your announcement here!</h2>
+	<%= bootstrap_form_for(@announcement) do |f| %>
+	  	<%= f.text_field :slide_title, label: "Title" %>
+		<%= f.text_area :description, label: "Description" %>
+		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
+		<%= f.text_field :soundcloud, label: "Soundcloud unique identifier (e.g. 102276575)" %>
+		<%= f.text_field :vimeo, label: "Vimeo unique identifier (e.g.)" %>
+		<%= f.file_field :slide_image, label: "Main square image (crop to 1115px X 952px before upload)" %>
+		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
+	<% end %>
+</div>

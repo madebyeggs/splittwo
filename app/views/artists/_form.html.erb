@@ -1,13 +1,16 @@
-<div class="deviseStyling col-md-11 abouts marginTopOverride">
+<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your artist here!</h2>
 	<%= bootstrap_form_for(@artist) do |f| %>
 	  	<%= f.text_field :name, label: "Artist name" %>
+		<%= f.text_field :slide_title, label: "Slideshow title" %>
 		<%= f.text_area :description, label: "Description" %>
 		<%= f.text_field :soundcloud, label: "Soundcloud unique identifier (e.g. 102276575)" %>
+		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
 		<%= f.text_field :fb_url, label: "Artist's Facebook URL" %>
 	    <%= f.text_field :twitter_name, label: "Artist's Twitter name" %>
 		<%= f.file_field :image, label: "Main square image (crop to 300px X 300px before upload)" %>
 		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+		<%= f.file_field :slide_image, label: "Slideshow image (crop to 1200px X 630px before upload)" %>
 	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
 	<% end %>
 </div>

@@ -1,0 +1,27 @@
+<%= render :partial => 'admins/navigation' %>
+<div class="col-md-10 cmsTable canScroll">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles2 placements">Slides</h2>
+	<table class="table table-striped" id="sortableAnnouncement">
+	 		<thead>
+	   		<tr>
+	     		<th>Title</th>
+	     		<th>Description?</th>
+				<th>Soundcloud</th>
+				<th>Vimeo</th>
+				<th>Image?</th>
+	   		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @slides.each do |slide| %>
+     			<tr data-item-id=<%= "" %> class="item">
+       				<td><%= slide.slide_title %></td>
+					<td><% if slide.description? %>Yes<% else %>No<% end %></td>
+					<td><%= slide.soundcloud %></td>
+					<td><%= slide.vimeo %></td>
+					<td><% if slide.slide_image? %>Yes<% else %>No<% end %></td>
+     			</tr>
+	   		<% end %>
+	 		</tbody>
+	</table>
+</div>

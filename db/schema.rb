@@ -11,16 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311124243) do
+ActiveRecord::Schema.define(version: 20160322084732) do
 
   create_table "announcements", force: :cascade do |t|
-    t.string   "homepage_titl"
+    t.string   "slide_title"
     t.string   "vimeo"
     t.text     "description"
     t.string   "soundcloud"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "slide_image_file_name"
+    t.string   "slide_image_content_type"
+    t.integer  "slide_image_file_size"
+    t.datetime "slide_image_updated_at"
+    t.string   "slug"
+    t.integer  "row_order"
+    t.string   "fb_image_file_name"
+    t.string   "fb_image_content_type"
+    t.integer  "fb_image_file_size"
+    t.datetime "fb_image_updated_at"
+    t.boolean  "slideshow"
   end
+
+  add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -28,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160311124243) do
     t.string   "soundcloud"
     t.string   "fb_url"
     t.string   "twitter_name"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -40,6 +53,13 @@ ActiveRecord::Schema.define(version: 20160311124243) do
     t.datetime "fb_image_updated_at"
     t.integer  "row_order"
     t.string   "slug"
+    t.boolean  "slideshow"
+    t.string   "slide_image_file_name"
+    t.string   "slide_image_content_type"
+    t.integer  "slide_image_file_size"
+    t.datetime "slide_image_updated_at"
+    t.string   "slide_title"
+    t.string   "vimeo"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true

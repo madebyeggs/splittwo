@@ -15,6 +15,7 @@
 				<th>Soundcloud</th>
 	     		<th>FB URL</th>
 				<th>Twitter Name</th>
+				<th>Add to slideshow</th>
 				<th>Image? | FB Image?</th>
 				<th></th>
 	   		</tr>
@@ -43,6 +44,7 @@
 							<%= artist.twitter_name %>
 						</span>
 					</td>
+					<td><%= best_in_place artist, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><% if artist.image? %>Yes<% else %>No<% end %> | <% if artist.fb_image? %>Yes<% else %>No<% end %></td>
 					<td>
 						<%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-success" %>

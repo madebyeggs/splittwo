@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require 'rest_in_place'
+//= require best_in_place
 //= require jquery_ujs
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
@@ -23,6 +24,7 @@
 //= require update_artists_row_order
 //= require update_works_row_order
 //= require update_releases_row_order
+//= require update_announcements_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require jquery.fitvids
@@ -113,5 +115,7 @@ $(document).ready(function(){
 		loop: true,
 		arrowsNav: true
 	});
+	
+  	jQuery(".best_in_place").best_in_place();
 	
 });

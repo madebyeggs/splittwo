@@ -45,6 +45,11 @@ Rails.application.configure do
     :convert_options => { :all => '-quality 80' }
   }
   
+  SLIDE_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '1115X952>'},
+    :convert_options => { :all => '-quality 80' }
+  }
+  
   FB_IMAGE_PAPERCLIP_STORAGE_OPTS = {
     :styles => {:main => '1200X630>'},
     :convert_options => { :all => '-quality 80' }

@@ -1,0 +1,20 @@
+<div class="">
+	<div class="royalSlider rsDefault">
+		<% @slides.each do |slide| %>
+		    <div>
+			<% if slide.slide_image? %>
+				<%= image_tag(slide.slide_image, class: "rsImg") %>
+			<% else %>
+				<%= image_tag(slide.image, class: "rsImg") %>
+			<% end %>
+				<div class="slideTitle">
+					<a href="<%= slide_path(slide) %>" target="blank">
+						<h5 class="colour bigger"><%= slide.slide_title %></h5>
+						<hr class="dots"/>
+						<p class="artistDescription bigger2"><%= truncate(slide.description, :separator => '.', :length => 400) %></p>
+					</a>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

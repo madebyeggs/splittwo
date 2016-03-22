@@ -25,4 +25,21 @@ class AdminsController < ApplicationController
     end
   end
   
+  def announcements
+    @announcements = Announcement.rank(:row_order).all
+    respond_to do |format|
+      format.html
+      format.json {render :json => @announcements}
+    end
+  end
+  
+  def slideshow
+    define_slides
+    @slides = @slide_announcements + @slide_artists
+    respond_to do |format|
+      format.html
+      format.json {render :json => @slides}
+    end
+  end
+  
 end
