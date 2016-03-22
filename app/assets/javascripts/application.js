@@ -39,10 +39,9 @@ $(document).ready(function(){
 	$("#workScrollPosition").animate({ scrollTop: window.position });
 	$("#releaseScrollPosition").animate({ scrollTop: window.position });
 	
-	$('#artistScrollPosition').imagesLoaded( function() {
-	  	$(".lazy").lazyload({
-			effect : "fadeIn"
-		});
+	$(".lazy").lazyload({
+		effect : "fadeIn",
+		threshold : 200
 	});
 	
 	
