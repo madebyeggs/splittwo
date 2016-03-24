@@ -1,8 +1,9 @@
-<div class="deviseStyling col-md-11 abouts marginTopOverride">
+<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your placement here!</h2>
 	<%= bootstrap_form_for(@work) do |f| %>
 	  	<%= f.text_field :brand_name, label: "Brand name" %>
 		<%= f.text_field :campaign_title, label: "Campaign title" %>
+		<%= f.text_area :slide_title, label: "Slideshow title" %>
 		<%= f.text_field :agency, label: "Agency name" %>
 		<%= f.text_field :track_name, label: "Track name" %>
 	    <%= f.text_field :artist_name, label: "Artist name" %>
@@ -10,6 +11,7 @@
 	    <%= f.text_field :vimeo, label: "Vimeo unique identifier (e.g 127146849)" %>
 		<%= f.file_field :image, label: "Placement main square image (crop to 300px X 300px before upload)" %>
 		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+		<%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
 	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
 	<% end %>
 </div>

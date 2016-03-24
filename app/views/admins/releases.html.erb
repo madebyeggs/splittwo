@@ -13,6 +13,7 @@
 	     		<th>Title</th>
 	     		<th>Description?</th>
 				<th>Soundcloud</th>
+				<th>Slideshow?</th>
 				<th>Image? | FB Image?</th>
 				<th></th>
 	   		</tr>
@@ -31,6 +32,7 @@
 					  		<%= release.soundcloud %>
 						</span>
 					</td>
+					<td><%= best_in_place release, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><% if release.image? %>Yes<% else %>No<% end %> | <% if release.fb_image? %>Yes<% else %>No<% end %></td>
 					<td>
 						<%= link_to 'Edit', edit_release_path(release), class: "btn btn-success" %>

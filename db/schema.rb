@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323191506) do
+ActiveRecord::Schema.define(version: 20160324145801) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20160323191506) do
     t.string   "title"
     t.string   "soundcloud"
     t.text     "description"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -93,9 +93,20 @@ ActiveRecord::Schema.define(version: 20160323191506) do
     t.datetime "fb_image_updated_at"
     t.integer  "row_order"
     t.string   "slug"
+    t.boolean  "slideshow"
+    t.string   "slide_image_file_name"
+    t.string   "slide_image_content_type"
+    t.integer  "slide_image_file_size"
+    t.datetime "slide_image_updated_at"
+    t.text     "slide_title"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
+
+  create_table "slides", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -123,8 +134,8 @@ ActiveRecord::Schema.define(version: 20160323191506) do
     t.string   "artist_name"
     t.text     "description"
     t.string   "vimeo"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -135,6 +146,12 @@ ActiveRecord::Schema.define(version: 20160323191506) do
     t.datetime "fb_image_updated_at"
     t.integer  "row_order"
     t.string   "slug"
+    t.text     "slide_title"
+    t.string   "slide_image_file_name"
+    t.string   "slide_image_content_type"
+    t.integer  "slide_image_file_size"
+    t.datetime "slide_image_updated_at"
+    t.boolean  "slideshow"
   end
 
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true

@@ -56,7 +56,7 @@
 						</span>
 					</td>
 					<td><% if work.description? %>Yes<% else %>No<% end %></td>
-					<td><%= best_in_place artist, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+					<td><%= best_in_place work, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><% if work.image? %>Yes<% else %>No<% end %> | <% if work.fb_image? %>Yes<% else %>No<% end %></td>
 					<td>
 						<%= link_to 'Edit', edit_work_path(work), class: "btn btn-success" %>

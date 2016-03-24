@@ -1,5 +1,7 @@
 class Announcement < ActiveRecord::Base
   
+  belongs_to :slide
+  
   extend FriendlyId
   friendly_id :slide_title, use: :slugged
   
