@@ -1,4 +1,4 @@
-<div class="canScroll">
+<div class="">
 	<div style='width: 100%;'>
 	  <div id="map" style='width: 100%; height: 750px;'></div>
 	</div>
@@ -10,16 +10,8 @@
 						Split Music,<br/>
 						Village Underground,<br/>
 						54 Hollywell Lane,<br/>
-						London, EC2A 3PQ
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<p class="descriptionSize1">
-						<br/>
-							licensing(at)splitmusic(dot)co(dot)uk 
-						<br/>
+						London, EC2A 3PQ<br/><br/>
+						licensing(at)splitmusic(dot)co(dot)uk 
 					</p>
 				</div>
 			</div>
@@ -30,7 +22,7 @@
 <script>
 
 	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {}, internal: {id: 'map'}, featureType: "all", stylers: [{ "hue": "#000000" }]}, function(){
+	handler.buildMap({ provider: {scrollwheel: false, zoomControl: false}, internal: {id: 'map'}, featureType: "all", stylers: [{ "hue": "#000000" }]}, function(){
 	  markers = handler.addMarkers([
 	    {
 	      "lat": 51.523754,

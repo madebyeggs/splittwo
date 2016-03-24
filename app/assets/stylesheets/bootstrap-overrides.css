@@ -16,6 +16,8 @@ textarea.form-control {
 .col-md-5 {padding-right:24px;}
 .col-md-5 img {width:100%!important;}
 
+.col-xs-12 {margin:6px 0px 0px 20px;}
+
 @media (max-width: 992px) {
 	
 	.col-md-5 {display:none;}
