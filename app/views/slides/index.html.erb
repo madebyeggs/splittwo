@@ -9,12 +9,35 @@
 			<% end %>
 				<div class="slideTitle">
 					<a href="<%= slide_path(slide) %>">
-						<h5 class="colour bigger"><%= slide.slide_title %></h5>
-						<hr class="dots"/>
-						<p class="artistDescription bigger2"><%= truncate(slide.description, :separator => '.', :length => 400) %></p>
+						<h5 class="bigger"><%=  simple_format(slide.slide_title) %></h5>
 					</a>
 				</div>
 			</div>
 		<% end %>
 	</div>
 </div>
+
+<script>
+
+	var sliderInstance = $('.royalSlider').royalSlider({
+		autoPlay: {
+			// autoplay options go gere
+	    	enabled: true,
+	    	pauseOnHover: false,
+			delay: 3000
+		},
+		imageAlignCenter: true,
+		imageScaleMode: 'fill',
+		loop: true,
+		arrowsNav: true
+	}).data("royalSlider");
+	
+	sliderInstance.ev.on('rsBeforeAnimStart', function(event) {
+		$('.slideTitle').fadeOut();
+	});
+
+	sliderInstance.ev.on('rsAfterSlideChange', function(event) {
+		$('.slideTitle').fadeIn();
+	});
+		
+</script>

@@ -9155,13 +9155,258 @@ textarea.form-control {
 .slicknav_nav .slicknav_txtnode {
      margin-left:15px;   
 }
+/* v1.0.6 */
+/* Core RS CSS file. 95% of time you shouldn't change anything here. */
+
+.royalSlider {
+	width: 600px;
+	height: 400px;
+	position: relative;
+	direction: ltr;
+}
+.royalSlider > * {
+	float: left;
+}
+
+.rsWebkit3d .rsSlide,
+.rsWebkit3d .rsContainer,
+.rsWebkit3d .rsThumbs,
+.rsWebkit3d .rsPreloader,
+.rsWebkit3d img,
+.rsWebkit3d .rsOverflow,
+.rsWebkit3d .rsBtnCenterer,
+.rsWebkit3d .rsAbsoluteEl,
+.rsWebkit3d .rsABlock,
+.rsWebkit3d .rsLink {
+	-webkit-backface-visibility: hidden;
+}
+.rsFade.rsWebkit3d .rsSlide,
+.rsFade.rsWebkit3d img,
+.rsFade.rsWebkit3d .rsContainer {
+    -webkit-transform: none;
+}
+.rsOverflow {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.rsVisibleNearbyWrap {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.rsVisibleNearbyWrap .rsOverflow {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+}
+.rsContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.rsArrow,
+.rsThumbsArrow {
+	cursor: pointer;
+}
+
+.rsThumb {
+	float: left;
+	position: relative;
+}
+
+
+.rsArrow,
+.rsNav,
+.rsThumbsArrow {
+	opacity: 1;
+	-webkit-transition:opacity 0.3s linear;
+	-moz-transition:opacity 0.3s linear;
+	-o-transition:opacity 0.3s linear;
+	transition:opacity 0.3s linear;
+}
+.rsHidden {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-moz-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-o-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+}
+
+
+.rsGCaption {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+/* Fullscreen options, very important ^^ */
+.royalSlider.rsFullscreen {
+	position: fixed !important;
+	height: auto !important;
+	width: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	z-index: 2147483647 !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	right: 0 !important;
+}
+
+.royalSlider .rsSlide.rsFakePreloader {
+	opacity: 1 !important;
+	-webkit-transition: 0s;
+	-moz-transition: 0s;
+	-o-transition:  0s;
+	transition:  0s;
+	display: none;
+}
+
+.rsSlide {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	overflow: hidden;
+	
+	height: 100%;
+	width: 100%;
+}
+
+.royalSlider.rsAutoHeight,
+.rsAutoHeight .rsSlide {
+	height: auto;
+}
+
+.rsContent {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.rsPreloader {
+	position:absolute;
+	z-index: 0;	
+}
+
+.rsNav {
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.rsNavItem {
+	-webkit-tap-highlight-color:rgba(0,0,0,0.25);
+}
+
+.rsThumbs {
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	z-index: 22;
+}
+.rsTabs {
+	float: left;
+	background: none !important;
+}
+.rsTabs,
+.rsThumbs {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+
+.rsVideoContainer {
+	width: auto;
+	height: auto;
+	line-height: 0;
+	position: relative;
+}
+.rsVideoFrameHolder {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #141414;
+	opacity: 0;
+	-webkit-transition: .3s;
+}
+.rsVideoFrameHolder.rsVideoActive {
+	opacity: 1;
+}
+.rsVideoContainer iframe,
+.rsVideoContainer video,
+.rsVideoContainer embed,
+.rsVideoContainer .rsVideoObj {
+	position: absolute;
+	z-index: 50;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+/* ios controls over video bug, shifting video */
+.rsVideoContainer.rsIOSVideo iframe,
+.rsVideoContainer.rsIOSVideo video,
+.rsVideoContainer.rsIOSVideo embed {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-right: 44px;
+}
+
+.rsABlock {
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 15;
+	
+}
+
+img.rsImg {
+	max-width: none;
+}
+
+.grab-cursor {
+	cursor:url(grab.png) 8 8, move; 
+}
+
+.grabbing-cursor{ 
+	cursor:url(grabbing.png) 8 8, move;
+}
+
+.rsNoDrag {
+	cursor: auto;
+}
+
+.rsLink {
+	left:0;
+	top:0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	display:block;	
+	z-index: 20;
+	background: url(blank.gif);
+}
 /*GENERAL*/
 
 
 html, body {background-color:#000000;height:100%;color:#ffffff;}
 p, h1, h2, h3, h4, h5 {color:#ffffff;}
 h2 {font-size:24px;text-transform:uppercase;}
-a, a:hover, a:visited {text-decoration:none;color:#ffffff;}
+a, a:hover, a:visited {text-decoration:none;color:#ffffff!important;}
 .canScroll {height:100vh;overflow-y: auto;}
 .form-group, em.form-group {font-size:18px;}
 .deviseStyling {margin:105px 0px 0px 25px}
@@ -9172,6 +9417,7 @@ a, a:hover, a:visited {text-decoration:none;color:#ffffff;}
 .marginCsv {margin:-10px 0px 0px 0px;}
 .marginCsv2 {margin:-10px 0px 0px 0px;}
 .inline {float:left;}
+.black {color:black;}
 th:after {
     content: "&nbsp;";
     display: block;
@@ -9270,24 +9516,59 @@ hr.dots {margin:6px 0px;border-top:1px dotted #fff;}
 }
 
 .fluidMediaSmall, .fluidMediaSmall iframe {display:none;}
-.fill {display:none;}
-.fill img {
-    flex-shrink:0;
-    min-width:100%;
-    min-height:100%;
+
+html,body,div {
+    margin:0; padding:0;
 }
-a.slidesjs-next,
-a.slidesjs-previous,
-a.slidesjs-play,
-a.slidesjs-stop,
-ul.slidesjs-pagination,
-a.slidesjs-navigation {
-  display:none;
+
+html, body {
+	width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
+
+.royalSlider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    width: auto;
+}
+
+
+.royalSlider {
+   font-size: 100px;
+   text-align: left;
+}
+.slideTitle {
+	width:210px;
+	height:195px;
+	position:absolute;
+	z-index:1000;
+	top:125px;
+	right:14%;
+	font-size:18px;
+	line-height:20px;
+	background-color:rgba(0,0,0,0.4);padding:10px;
+}
+.slideTitle h5 {font-size:20px;padding:0px 10px 10px 10px;margin-top:-5px;}
+.bigger {font-size:15px;text-align:left;}
+.bigger2 {font-size:14px;text-align:left;}
+
 /*MOBILE*/
 
 @media (max-width: 992px) {
 	
+	body {height:100vh;overflow-y: auto;}
+	.slideTitle {
+		width:60%;
+		left:20%;
+		top:50px;
+	}
+	.bigger {font-size:18px;text-align:center;}
+	.bigger2 {font-size:14px;text-align:center;}
 	.fluidMedia, .fluidMedia iframe {display:none;}
 	.fluidMediaSmall, .fluidMediaSmall iframe {display:inline;width:100%;height:100%;}
 	.rightSide {border-left:0px;}
@@ -9301,331 +9582,6 @@ a.slidesjs-navigation {
 	.artist-right {display:none;}
 	
 }
-/* Slider */
-
-.slick-slider
-{
-  position: relative;
-
-  display: block;
-
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list
-{
-  position: relative;
-
-  display: block;
-  overflow: hidden;
-
-  margin: 0;
-  padding: 0;
-}
-.slick-list:focus
-{
-  outline: none;
-}
-.slick-list.dragging
-{
-  cursor: pointer;
-  cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list
-{
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.slick-track
-{
-  position: relative;
-  top: 0;
-  left: 0;
-
-  display: block;
-}
-.slick-track:before,
-.slick-track:after
-{
-  display: table;
-
-  content: '';
-}
-.slick-track:after
-{
-  clear: both;
-}
-.slick-loading .slick-track
-{
-  visibility: hidden;
-}
-
-.slick-slide
-{
-  display: none;
-  float: left;
-
-  height: 100%;
-  min-height: 1px;
-}
-[dir='rtl'] .slick-slide
-{
-  float: right;
-}
-.slick-slide img
-{
-  display: block;
-}
-.slick-slide.slick-loading img
-{
-  display: none;
-}
-.slick-slide.dragging img
-{
-  pointer-events: none;
-}
-.slick-initialized .slick-slide
-{
-  display: block;
-}
-.slick-loading .slick-slide
-{
-  visibility: hidden;
-}
-.slick-vertical .slick-slide
-{
-  display: block;
-
-  height: auto;
-
-  border: 1px solid transparent;
-}
-.slick-arrow.slick-hidden {
-  display: none;
-}
-
-/* Slider */
-
-.slick-loading .slick-list
-{
-  background: #fff url(/assets/slick/ajax-loader-e7b44c86b050fca766a96ddac2d0932af0126da6f2305280342d909168dcce6b.gif) center center no-repeat;
-}
-
-/* Icons */
-@font-face
-{
-  font-family: 'slick';
-  font-weight: normal;
-  font-style: normal;
-
-  src: url(/assets/slick-06d80cf01250132fd1068701108453feee68854b750d22c344ffc0de395e1dcb.eot);
-  src: url(/assets/slick-06d80cf01250132fd1068701108453feee68854b750d22c344ffc0de395e1dcb.eot?#iefix) format('embedded-opentype'),
-  url(/assets/slick-26726bac4060abb1226e6ceebc1336e84930fe7a7af1b3895a109d067f5b5dcc.woff) format('woff'),
-  url(/assets/slick-37bc99cfdbbc046193a26396787374d00e7b10d3a758a36045c07bd8886360d2.ttf) format('truetype'),
-  url(/assets/slick-8ca11b5fcbff92ee6378017cf6832dddfa745253202d7c8d01f42d5d17c4cb5c.svg#slick) format('svg');
-}
-/* Arrows */
-.slick-prev,
-.slick-next
-{
-  font-size: 0;
-  line-height: 0;
-
-  position: absolute;
-  top: 50%;
-
-  display: block;
-
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
-  padding: 0;
-
-  cursor: pointer;
-
-  color: transparent;
-  border: none;
-  outline: none;
-  background: transparent;
-}
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus
-{
-  color: transparent;
-  outline: none;
-  background: transparent;
-}
-.slick-prev:hover:before,
-.slick-prev:focus:before,
-.slick-next:hover:before,
-.slick-next:focus:before
-{
-  opacity: 1;
-}
-.slick-prev.slick-disabled:before,
-.slick-next.slick-disabled:before
-{
-  opacity: .25;
-}
-
-.slick-prev:before,
-.slick-next:before
-{
-  font-family: 'slick';
-  font-size: 20px;
-  line-height: 1;
-
-  opacity: .75;
-  color: white;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.slick-prev
-{
-  left: -25px;
-}
-[dir='rtl'] .slick-prev
-{
-  right: -25px;
-  left: auto;
-}
-.slick-prev:before
-{
-  content: '←';
-}
-[dir='rtl'] .slick-prev:before
-{
-  content: '→';
-}
-
-.slick-next
-{
-  right: -25px;
-}
-[dir='rtl'] .slick-next
-{
-  right: auto;
-  left: -25px;
-}
-.slick-next:before
-{
-  content: '→';
-}
-[dir='rtl'] .slick-next:before
-{
-  content: '←';
-}
-
-/* Dots */
-.slick-slider
-{
-  margin-bottom: 30px;
-}
-
-.slick-dots
-{
-  position: absolute;
-  bottom: -45px;
-
-  display: block;
-
-  width: 100%;
-  padding: 0;
-
-  list-style: none;
-
-  text-align: center;
-}
-.slick-dots li
-{
-  position: relative;
-
-  display: inline-block;
-
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  padding: 0;
-
-  cursor: pointer;
-}
-.slick-dots li button
-{
-  font-size: 0;
-  line-height: 0;
-
-  display: block;
-
-  width: 20px;
-  height: 20px;
-  padding: 5px;
-
-  cursor: pointer;
-
-  color: transparent;
-  border: 0;
-  outline: none;
-  background: transparent;
-}
-.slick-dots li button:hover,
-.slick-dots li button:focus
-{
-  outline: none;
-}
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before
-{
-  opacity: 1;
-}
-.slick-dots li button:before
-{
-  font-family: 'slick';
-  font-size: 6px;
-  line-height: 20px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 20px;
-  height: 20px;
-
-  content: '•';
-  text-align: center;
-
-  opacity: .25;
-  color: black;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.slick-dots li.slick-active button:before
-{
-  opacity: .75;
-  color: black;
-}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -9638,7 +9594,6 @@ a.slidesjs-navigation {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
 
 
 

@@ -31,6 +31,8 @@
 //= require imagesloaded
 //= require jquery.easing-1.3
 //= require jquery.royalslider.min
+//= require underscore
+//= require gmaps/google
 
 $(document).ready(function(){
 	
@@ -102,18 +104,6 @@ $(document).ready(function(){
 	$('.prettySocial').prettySocial();
 	
 	$('.fitvids').fitVids();
-	$('.royalSlider').royalSlider({
-		autoPlay: {
-			// autoplay options go gere
-		    enabled: true,
-		    pauseOnHover: false,
-			delay: 5000
-		},
-		imageAlignCenter: true,
-		imageScaleMode: 'fill',
-		loop: true,
-		arrowsNav: true
-	});
 	
   	jQuery(".best_in_place").best_in_place();
 	

@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322084732) do
+ActiveRecord::Schema.define(version: 20160323191506) do
 
   create_table "announcements", force: :cascade do |t|
-    t.string   "slide_title"
+    t.text     "slide_title"
     t.string   "vimeo"
     t.text     "description"
     t.string   "soundcloud"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160322084732) do
     t.string   "slide_image_content_type"
     t.integer  "slide_image_file_size"
     t.datetime "slide_image_updated_at"
-    t.string   "slide_title"
+    t.text     "slide_title"
     t.string   "vimeo"
   end
 

@@ -1,0 +1,53 @@
+<div class="canScroll">
+	<div style='width: 100%;'>
+	  <div id="map" style='width: 100%; height: 750px;'></div>
+	</div>
+	<div class="col-md-8">
+		<div class="col-md-12">
+			<div class="row padder">
+				<div class="col-xs-12">
+					<p class="descriptionSize1">
+						Split Music,<br/>
+						Village Underground,<br/>
+						54 Hollywell Lane,<br/>
+						London, EC2A 3PQ
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="descriptionSize1">
+						<br/>
+							licensing(at)splitmusic(dot)co(dot)uk 
+						<br/>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'}, featureType: "all", stylers: [{ "hue": "#000000" }]}, function(){
+	  markers = handler.addMarkers([
+	    {
+	      "lat": 51.523754,
+	      "lng": -0.078448,
+	      "picture": {
+	        "url": "assets/marker.png",
+	        "width":  39,
+	        "height": 61
+	      },
+	      "infowindow": "<h3 class='black'>YOU CAN FIND US AT:</h3><span class='black'Village Underground,<br/>54 Holywell Lane,<br/>London,<br/>EC2A 3PQ</span>"
+	    }
+	  ]);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds();
+	  handler.getMap().setZoom(16);
+	  handler.map.centerOn([51.524602, -0.084101]);
+	});
+	
+	
+</script>

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
     collection {post :import}
   end
+  resources :contacts, :path => "contact"
   
   match "admins/artists" => "admins#artists", via: [:get, :post]
   match "admins/placements" => "admins#placements", via: [:get, :post]

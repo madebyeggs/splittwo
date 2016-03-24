@@ -2,7 +2,6 @@ class SlidesController < ApplicationController
   
   def index
     define_slides
-    @slides = @slide_announcements + @slide_artists
     set_meta_tags :og => {
       :url => "#{@currentUrl}",
       :title    => 'Split Music | News',
