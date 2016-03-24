@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   def define_slides
     @slide_announcements = Announcement.where('slideshow = ?', true)
     @slide_artists = Artist.where('slideshow = ?', true)
-    @slide_placements = Work.where('slideshow = ?', true)
+    @slide_works = Work.where('slideshow = ?', true)
     @slide_releases = Release.where('slideshow = ?', true)
-    @slides = @slide_announcements + @slide_artists + @slide_placements + @slide_releases
+    @slides = @slide_announcements + @slide_artists + @slide_works + @slide_releases
   end
   
 end

@@ -16,7 +16,7 @@ class SlidesController < ApplicationController
   end
   
   def show
-    @slide = Announcement.find_by_slug(params[:id]) || Artist.find_by_slug(params[:id])
+    @slide = Announcement.find_by_slug(params[:id]) || Artist.find_by_slug(params[:id]) || Work.find_by_slug(params[:id]) || Release.find_by_slug(params[:id])
   end
   
 end
