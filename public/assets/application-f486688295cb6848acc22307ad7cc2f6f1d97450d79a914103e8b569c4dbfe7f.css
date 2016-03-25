@@ -6769,6 +6769,8 @@ textarea.form-control {
 .col-md-5 {padding-right:24px;}
 .col-md-5 img {width:100%!important;}
 
+.col-xs-12 {margin:6px 0px 0px 20px;}
+
 @media (max-width: 992px) {
 	
 	.col-md-5 {display:none;}
@@ -9544,7 +9546,7 @@ html, body {
 }
 .slideTitle {
 	width:210px;
-	height:195px;
+	height:180px;
 	position:absolute;
 	z-index:1000;
 	top:125px;
@@ -9553,7 +9555,15 @@ html, body {
 	line-height:20px;
 	background-color:rgba(0,0,0,0.4);padding:10px;
 }
-.slideTitle h5 {font-size:20px;padding:0px 10px 10px 10px;margin-top:-5px;}
+.slideTitle:hover {background-color:rgba(0,0,0,1);}
+.slideTitle h5 {
+	padding:0px 10px 10px 10px;
+	margin-top:-5px;
+	font-size:14px!important;
+	text-transform:uppercase!important;
+	font-style:none!important;
+	font-weight:normal!important;
+}
 .bigger {font-size:15px;text-align:left;}
 .bigger2 {font-size:14px;text-align:left;}
 
