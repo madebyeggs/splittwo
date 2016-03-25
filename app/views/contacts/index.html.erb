@@ -25,12 +25,12 @@
 	handler.buildMap({ provider: {scrollwheel: false, zoomControl: false}, internal: {id: 'map'}, featureType: "all", stylers: [{ "hue": "#000000" }]}, function(){
 	  markers = handler.addMarkers([
 	    {
-	      "lat": 51.523754,
-	      "lng": -0.078448,
+	      "lat": 51.523434,
+	      "lng": -0.078500,
 	      "picture": {
-	        "url": "assets/marker.png",
-	        "width":  138,
-	        "height": 100
+	        "url": "<%= asset_path('newMarker.png') %>",
+	        "width":  80,
+	        "height": 125
 	      },
 	      "infowindow": "<h3 class='black'>YOU CAN FIND US AT:</h3><span class='black'Village Underground,<br/>54 Holywell Lane,<br/>London,<br/>EC2A 3PQ</span>"
 	    }
