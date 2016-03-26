@@ -106,5 +106,13 @@ $(document).ready(function(){
 	$('.fitvids').fitVids();
 	
   	jQuery(".best_in_place").best_in_place();
+
+	$(".socialLinks").click(function() {
+		var width = 500;
+		var height = 500;
+		var left = (window.innerWidth/2) - (width/2),top = (window.innerHeight/2) - (height/2);
+		var facebook_share_url = jQuery(this).prev('.modal-object-id').val();
+		window.open(facebook_share_url,'','width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
+	});
 	
 });
