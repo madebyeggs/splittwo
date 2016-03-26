@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     collection {post :import}
   end
   resources :contacts, :path => "contact"
+  resources :share_closes
   
   match "admins/artists" => "admins#artists", via: [:get, :post]
   match "admins/placements" => "admins#placements", via: [:get, :post]

@@ -1,0 +1,2 @@
+module ShareClosesHelper
+end
