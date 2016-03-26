@@ -12,14 +12,14 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<input id="facebook" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @release.fb_image %>"
-				data-description="<%= @release.description %>"
-				data-title="<%= @release.title %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'facebook' }, :class => 'prettySocial fa fa-facebook socialLinks' %>
+			<a class="fa fa-facebook socialLinks" href="https://www.facebook.com/dialog/feed?
+			app_id=838327899644745
+			&amp;display=popup
+			&amp;redirect_uri=<%= @currentUrl %>
+			&amp;link=<%= @currentUrl %>
+			&amp;picture=<%= @release.fb_image %>
+			&amp;description=<%= @release.description %>"
+			</a>
 			<input id="googleplus" type="hidden" 
 				data-url="<%= @currentUrl %>"
 				data-media="<%= @release.fb_image %>"

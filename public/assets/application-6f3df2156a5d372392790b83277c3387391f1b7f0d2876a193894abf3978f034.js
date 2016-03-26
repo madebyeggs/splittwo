@@ -18740,13 +18740,6 @@ jQuery(function() {
                         height: 500
                     }
                 },
-                facebook: {
-                    url: 'https://www.facebook.com/dialog/feed?app_id=928224620627518&redirect_uri={{url}}&link={{url}}&picture={{media}}&description={{description}}',
-					popup: {
-                        width: 626,
-                        height: 436
-                    }
-                },
                 twitter: {
                     url: 'https://twitter.com/intent/tweet?url={{url}}&via={{via}}&related={{related}}&text={{description}}',
                     popup: {
