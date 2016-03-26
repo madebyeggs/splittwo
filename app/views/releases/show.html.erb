@@ -15,8 +15,8 @@
 			<a class="fa fa-facebook socialLinks" href="https://www.facebook.com/dialog/feed?
 			app_id=838327899644745
 			&amp;display=popup
-			&amp;redirect_uri=<%= @currentUrl %>
-			&amp;link=<%= @currentUrl %>
+			&amp;redirect_uri=<%= request.original_url %>
+			&amp;link=<%= request.original_url %>
 			&amp;picture=<%= @release.fb_image %>
 			&amp;description=<%= @release.description %>"
 			</a>
