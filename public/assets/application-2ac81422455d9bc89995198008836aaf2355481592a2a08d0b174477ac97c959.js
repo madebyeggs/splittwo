@@ -18741,8 +18741,8 @@ jQuery(function() {
                     }
                 },
                 facebook: {
-                    url: 'https://www.facebook.com/sharer/sharer.php?s=100&p[title]={{title}}&p[summary]={{description}}&p[url]={{url}}&p[images][0]={{media}}',
-                    popup: {
+                    url: 'https://www.facebook.com/dialog/feed?app_id=928224620627518&redirect_uri=http://splitmusic.co.uk/&link={{url}}&picture={{media}}&description={{description}}',
+					popup: {
                         width: 626,
                         height: 436
                     }
