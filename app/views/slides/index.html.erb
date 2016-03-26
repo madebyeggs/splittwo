@@ -8,7 +8,7 @@
 				<%= image_tag(slide.image, class: "rsImg") %>
 			<% end %>
 				<div class="slideTitle">
-					<a href="<%= slide_path(slide) %>">
+					<a href="<%= slide_path(slide) %>" class="slideShowClick">
 						<h5 class="bigger"><%=  simple_format(slide.slide_title) %></h5>
 					</a>
 				</div>
@@ -19,6 +19,9 @@
 
 <script>
 
+	window.sliderId = 3;
+	console.log(sliderId);
+	
 	var sliderInstance = $('.royalSlider').royalSlider({
 		autoPlay: {
 			// autoplay options go gere
@@ -31,6 +34,8 @@
 		loop: true,
 		arrowsNav: true
 	}).data("royalSlider");
+	
+	sliderInstance.goTo(sliderId);
 	
 	sliderInstance.ev.on('rsBeforeAnimStart', function(event) {
 		$('.slideTitle').fadeOut();
