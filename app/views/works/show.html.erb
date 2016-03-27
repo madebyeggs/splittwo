@@ -22,6 +22,14 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'facebook' }, :class => 'prettySocial fa fa-facebook socialLinks' %>
+			<input type="hidden" value="https://www.facebook.com/dialog/feed?
+			app_id=838327899644745
+			&amp;display=popup
+			&amp;redirect_uri=http://www.splitmusic.co.uk/share_closes
+			&amp;link=<%= request.original_url %>
+			&amp;picture=<%= @release.fb_image %>
+			&amp;description=Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name rescue nil %>" class="modal-object-id">
+			<a class="fa fa-facebook socialLinks" href=""></a>
 			<input id="googleplus" type="hidden" 
 				data-url="https://vimeo.com/<%= @work.vimeo %>"
 				data-media="<%= @work.fb_image %>"
