@@ -12,14 +12,14 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<input id="facebook" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @artist.fb_image %>"
-				data-description="<%= @artist.description + ' ' + @artist.fb_url rescue nil %>"
-				data-title="<%= @artist.name %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'facebook' }, :class => 'prettySocial fa fa-facebook socialLinks' %>
+			<input type="hidden" value="https://www.facebook.com/dialog/feed?
+			app_id=838327899644745
+			&amp;display=popup
+			&amp;redirect_uri=http://www.splitmusic.co.uk/share_closes
+			&amp;link=<%= request.original_url %>
+			&amp;picture=<%= @artist.fb_image %>
+			&amp;description=<%= @artist.description %>" class="modal-object-id">
+			<a class="fa fa-facebook socialLinks" href=""></a>
 			<input id="googleplus" type="hidden" 
 				data-url="<%= @currentUrl %>"
 				data-media="<%= @artist.fb_image %>"

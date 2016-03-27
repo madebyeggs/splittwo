@@ -46,7 +46,6 @@ $(document).ready(function(){
 		threshold : 200
 	});
 	
-	
 	$(".clearFixer").click(function(){
 		window.position = 0
 	});
