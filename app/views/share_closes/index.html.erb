@@ -1,5 +1,7 @@
 <script>
 	if (document.referrer == "https://www.facebook.com/") {
 	    window.close();
+	} else if (window.location.href.indexOf("facebook") > -1) {
+		window.close();
 	}
 </script
