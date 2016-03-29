@@ -1,5 +1,5 @@
 <script>
 	if (document.referrer == "https://www.facebook.com/" && (window.location.href.indexOf('post_id=') != -1 || window.location.hash == '#_=_')) {
-	    window.close();
+	    open(location, '_self').close();
 	}
 </script
