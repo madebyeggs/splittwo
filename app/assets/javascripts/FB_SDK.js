@@ -19,7 +19,6 @@ FacebookFeedDialog.prototype.addParam = function(key, value) {
 };
 
 FacebookFeedDialog.prototype.open = function() {
-
   var url = 'https://www.facebook.com/dialog/feed?' + encodeCGIArgs(this.mParams);
   popup(url, 'feedDialog', 700, 400);
 };
@@ -32,19 +31,16 @@ FacebookFeedDialog.prototype.open = function() {
    The values and args will be properly URI encoded
 */
 function encodeCGIArgs(paramObject) {
-
   var result = '';
-
   for (var key in paramObject) {
     if (result)
       result += '&';
     result += encodeURIComponent(key) + '=' + encodeURIComponent(paramObject[key]);
   }
-
   return result;
 }
 
-function popup(mylink,windowname,width,height) {
+function popup(mylink,windowname,width,height,left,top) {
   if (!window.focus) return;
   var href;
   if (typeof(mylink) == 'string')
@@ -57,5 +53,9 @@ function popup(mylink,windowname,width,height) {
     width=600;
   if (!height)
     height=350;
-  window.open(href, windowname, 'resizable=yes,width='+width+',height='+height+',scrollbars=yes');
+  if (!left)
+	left = (window.innerWidth/2) - (width/2),top = (window.innerHeight/2.6) - (height/2.6);
+
+  window.open(href, windowname, 'resizable=yes,width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',scrollbars=yes');
+
 }
