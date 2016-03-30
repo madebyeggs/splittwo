@@ -20280,6 +20280,21 @@ a._i7:a.slider}),a.ev.on("rsAfterSizePropSet",function(){var b,c=a.st.visibleNea
 
 
 }).call(this);
+window.fbAsyncInit = function() {
+	FB.init({
+    	appId      : '838327899644745',
+     	xfbml      : true,
+     	version    : 'v2.5'
+   	});
+};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+   	if (d.getElementById(id)) {return;}
+   	js = d.createElement(s); js.id = id;
+   	js.src = "//connect.facebook.net/en_US/sdk.js";
+   	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -20316,6 +20331,7 @@ a._i7:a.slider}),a.ev.on("rsAfterSizePropSet",function(){var b,c=a.st.visibleNea
 
 
 
+
 $(document).ready(function(){
 	
 	var position = 0
@@ -20327,7 +20343,6 @@ $(document).ready(function(){
 		effect : "fadeIn",
 		threshold : 200
 	});
-	
 	
 	$(".clearFixer").click(function(){
 		window.position = 0
