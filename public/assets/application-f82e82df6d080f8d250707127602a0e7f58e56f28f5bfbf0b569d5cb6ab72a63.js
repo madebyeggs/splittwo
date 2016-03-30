@@ -18740,13 +18740,6 @@ jQuery(function() {
                         height: 500
                     }
                 },
-                facebook: {
-                    url: 'https://www.facebook.com/dialog/feed?app_id=838327899644745&redirect_uri=http://www.splitmusic.co.uk/&link={{url}}&picture={{media}}&description={{description}}',
-					popup: {
-                        width: 626,
-                        height: 436
-                    }
-                },
                 twitter: {
                     url: 'https://twitter.com/intent/tweet?url={{url}}&via={{via}}&related={{related}}&text={{description}}',
                     popup: {
@@ -20287,6 +20280,69 @@ a._i7:a.slider}),a.ev.on("rsAfterSizePropSet",function(){var b,c=a.st.visibleNea
 
 
 }).call(this);
+/* by Steven Yang, Feb 2015, originally for www.mathscore.com.  This code is free for anybody to use as long as you include this comment.  */
+
+function FacebookFeedDialog(appID, linkTarget, redirectTarget) {
+  this.mParams = {
+    app_id: appID,
+    link: linkTarget,
+    redirect_uri: redirectTarget,
+    display: "popup"
+  }
+};
+
+/* Common params include:
+   name - the title that appears in bold font
+   description - the text that appears below the title
+   picture - complete URL path to the image on the left of the dialog
+   caption - replaces the link text
+*/
+FacebookFeedDialog.prototype.addParam = function(key, value) {
+  this.mParams[key] = value;
+};
+
+FacebookFeedDialog.prototype.open = function() {
+
+  var url = 'https://www.facebook.com/dialog/feed?' + encodeCGIArgs(this.mParams);
+  popup(url, 'feedDialog', 700, 400);
+};
+
+/* Takes a param object like this:
+   { arg1: "value1", arg2: "value2" }
+   and converts into CGI args like this:
+   arg1=value1&arg2=value2
+
+   The values and args will be properly URI encoded
+*/
+function encodeCGIArgs(paramObject) {
+
+  var result = '';
+
+  for (var key in paramObject) {
+    if (result)
+      result += '&';
+    result += encodeURIComponent(key) + '=' + encodeURIComponent(paramObject[key]);
+  }
+
+  return result;
+}
+
+function popup(mylink,windowname,width,height) {
+  if (!window.focus) return;
+  var href;
+  if (typeof(mylink) == 'string')
+    href=mylink;
+  else
+    href=mylink.href;
+  if (!windowname)
+    windowname='mywindow';
+  if (!width)
+    width=600;
+  if (!height)
+    height=350;
+  window.open(href, windowname, 'resizable=yes,width='+width+',height='+height+',scrollbars=yes');
+}
+;
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -20323,6 +20379,7 @@ a._i7:a.slider}),a.ev.on("rsAfterSizePropSet",function(){var b,c=a.st.visibleNea
 
 
 
+
 $(document).ready(function(){
 	
 	var position = 0
@@ -20334,7 +20391,6 @@ $(document).ready(function(){
 		effect : "fadeIn",
 		threshold : 200
 	});
-	
 	
 	$(".clearFixer").click(function(){
 		window.position = 0
@@ -20395,5 +20451,13 @@ $(document).ready(function(){
 	$('.fitvids').fitVids();
 	
   	jQuery(".best_in_place").best_in_place();
+
+	$(".socialLinks").click(function() {
+		var width = 500;
+		var height = 500;
+		var left = (window.innerWidth/2) - (width/2),top = (window.innerHeight/2) - (height/2);
+		var facebook_share_url = jQuery(this).prev('.modal-object-id').val();
+		window.open(facebook_share_url,'','width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
+	});
 	
 });
