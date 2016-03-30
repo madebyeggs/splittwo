@@ -14,16 +14,7 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<input type="hidden" value="https://www.facebook.com/dialog/feed?
-			app_id=838327899644745
-			&amp;display=popup
-			&amp;name=<%= @work.brand_name %> - <%= @work.campaign_title %>
-			&amp;redirect_uri=http://www.splitmusic.co.uk/share_closes
-			&amp;link=<%= request.original_url %>
-			&amp;picture=<%= @work.fb_image %>
-			&amp;source=http://vimeo.com/<%= @work.vimeo %>
-			&amp;description=NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name rescue nil %>" class="modal-object-id">
-			<a class="fa fa-facebook socialLinks" href=""></a>
+			<a class="fa fa-facebook socialLinks" href="javascript:dialog.open()"></a>
 			<input id="googleplus" type="hidden" 
 				data-url="https://vimeo.com/<%= @work.vimeo %>"
 				data-media="<%= @work.fb_image %>"
@@ -51,3 +42,10 @@
 		<% if @work.description? %><p class="projectDetail"><%= simple_format @work.description, :class => "projectDetail descriptionSize1" %></p><% end %>
 	</div>
 </div>
+<SCRIPT>
+	var dialog = new FacebookFeedDialog(838327899644745,'<%= request.original_url %>','http://www.splitmusic.co.uk/share_closes');
+	dialog.addParam('name','<%= @work.brand_name %> - <%= @work.campaign_title %>');
+	dialog.addParam('description','<%= @work.description %>');
+	dialog.addParam('picture','<%= @work.fb_image %>');
+	dialog.addParam('source', 'http://vimeo.com/<%= @work.vimeo %>');
+</SCRIPT>
