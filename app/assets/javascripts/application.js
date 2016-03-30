@@ -33,6 +33,7 @@
 //= require jquery.royalslider.min
 //= require underscore
 //= require gmaps/google
+//= require FB_SDK
 
 $(document).ready(function(){
 	
