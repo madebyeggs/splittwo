@@ -54,6 +54,7 @@
 <script> 
 document.getElementById('shareBtn').onclick = function() {
 	FB.ui({
+		method: 'feed',
 		redirect_uri: 'http://www.splitmusic.co.uk/share_closes',
     	display: 'popup',
     	link: 'http://www.splitmusic.co.uk',
