@@ -20302,7 +20302,6 @@ FacebookFeedDialog.prototype.addParam = function(key, value) {
 };
 
 FacebookFeedDialog.prototype.open = function() {
-
   var url = 'https://www.facebook.com/dialog/feed?' + encodeCGIArgs(this.mParams);
   popup(url, 'feedDialog', 700, 400);
 };
@@ -20315,19 +20314,16 @@ FacebookFeedDialog.prototype.open = function() {
    The values and args will be properly URI encoded
 */
 function encodeCGIArgs(paramObject) {
-
   var result = '';
-
   for (var key in paramObject) {
     if (result)
       result += '&';
     result += encodeURIComponent(key) + '=' + encodeURIComponent(paramObject[key]);
   }
-
   return result;
 }
 
-function popup(mylink,windowname,width,height) {
+function popup(mylink,windowname,width,height,left,top) {
   if (!window.focus) return;
   var href;
   if (typeof(mylink) == 'string')
@@ -20340,7 +20336,11 @@ function popup(mylink,windowname,width,height) {
     width=600;
   if (!height)
     height=350;
-  window.open(href, windowname, 'resizable=yes,width='+width+',height='+height+',scrollbars=yes');
+  if (!left)
+	left = (window.innerWidth/2) - (width/2),top = (window.innerHeight/2.6) - (height/2.6);
+
+  window.open(href, windowname, 'resizable=yes,width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',scrollbars=yes');
+
 }
 ;
 // This is a manifest file that'll be compiled into application.js, which will include all the files
@@ -20389,7 +20389,7 @@ $(document).ready(function(){
 	
 	$(".lazy").lazyload({
 		effect : "fadeIn",
-		threshold : 200
+		threshold : 400
 	});
 	
 	$(".clearFixer").click(function(){
@@ -20400,26 +20400,22 @@ $(document).ready(function(){
 		var id = $(this).prev('.modal-object-id').val();
 		var artistPosition = $("#artistScrollPosition").scrollTop();
 		window.position = artistPosition
-		console.log(window.position);
 	});
 	
 	$('.positionButtonWork').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var workPosition = $("#workScrollPosition").scrollTop();
 		window.position = workPosition
-		console.log(window.position);
 	});
 	
 	$('.positionButtonRelease').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var releasePosition = $("#releaseScrollPosition").scrollTop();
 		window.position = releasePosition
-		console.log(window.position);
 	});
 	
 	$('.closeIcon').click(function(){
 		scrollToHere = window.position
-		console.log(scrollToHere);
 	});
 	
 	if($(window).width() > 992){
