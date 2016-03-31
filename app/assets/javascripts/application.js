@@ -43,8 +43,7 @@ $(document).ready(function(){
 	$("#releaseScrollPosition").animate({ scrollTop: window.position });
 	
 	$(".lazy").lazyload({
-		effect : "fadeIn",
-		threshold : 200
+		effect : "fadeIn"
 	});
 	
 	$(".clearFixer").click(function(){
