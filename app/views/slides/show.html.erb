@@ -12,16 +12,7 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<input type="hidden" value="https://www.facebook.com/dialog/feed?
-			app_id=838327899644745
-			&amp;display=popup
-			&amp;name<%= @slide.slide_title %>
-			&amp;caption<%= @slide.slide_title %>
-			&amp;redirect_uri=http://www.splitmusic.co.uk/share_closes
-			&amp;link=<%= request.original_url %>
-			&amp;picture=<%= @slide.fb_image %>
-			&amp;description=<%= @slide.description %>" class="modal-object-id">
-			<a class="fa fa-facebook socialLinks" href=""></a>
+			<a class="fa fa-facebook socialLinks" href="javascript:dialog.open()"></a>
 			<input id="googleplus" type="hidden" 
 				data-url="<%= @currentUrl %>"
 				data-media="<%= @slide.fb_image %>"
