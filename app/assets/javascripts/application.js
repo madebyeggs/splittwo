@@ -55,26 +55,22 @@ $(document).ready(function(){
 		var id = $(this).prev('.modal-object-id').val();
 		var artistPosition = $("#artistScrollPosition").scrollTop();
 		window.position = artistPosition
-		console.log(window.position);
 	});
 	
 	$('.positionButtonWork').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var workPosition = $("#workScrollPosition").scrollTop();
 		window.position = workPosition
-		console.log(window.position);
 	});
 	
 	$('.positionButtonRelease').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var releasePosition = $("#releaseScrollPosition").scrollTop();
 		window.position = releasePosition
-		console.log(window.position);
 	});
 	
 	$('.closeIcon').click(function(){
 		scrollToHere = window.position
-		console.log(scrollToHere);
 	});
 	
 	if($(window).width() > 992){
