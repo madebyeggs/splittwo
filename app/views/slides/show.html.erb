@@ -39,7 +39,11 @@
 			<p class="projectDetail"><%= simple_format @slide.description, :class => "projectDetail descriptionSize1" %></p>
 		<% elsif @slide.soundcloud? %>
 			<div class="soundContainer col-md-12">
-				<div class="col-md-5"><%= image_tag(@slide.image, class: "image") %></div>
+				<% if @slide.slide_image? %>
+					<div class="col-md-5"><%= image_tag(@slide.slide_image, class: "image") %></div>
+				<% else %>
+					<div class="col-md-5"><%= image_tag(@slide.image, class: "image") %></div>
+				<% end %>
 				<div class="col-md-7">
 					<div class="fitvids fluidMedia">
 						<iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @slide.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false" src="about:blank">

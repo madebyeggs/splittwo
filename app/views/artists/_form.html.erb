@@ -9,8 +9,17 @@
 		<%= f.text_field :fb_url, label: "Artist's Facebook URL" %>
 	    <%= f.text_field :twitter_name, label: "Artist's Twitter name" %>
 		<%= f.file_field :image, label: "Main square image (crop to 400px X 400px before upload)" %>
+		<% if @artist.image.exists? %>
+			<p class="existingImageName">{ Current Image: "<%= @artist.image_file_name %>" }</p>
+		<% end %>
 		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+		<% if @artist.fb_image.exists? %>
+			<p class="existingImageName">{ Current Image: "<%= @artist.fb_image_file_name %>" }</p>
+		<% end %>
 		<%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
+		<% if @artist.slide_image.exists? %>
+			<p class="existingImageName">{ Current Image: "<%= @artist.slide_image_file_name %>" }</p>
+		<% end %>
 	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
 	<% end %>
 </div>

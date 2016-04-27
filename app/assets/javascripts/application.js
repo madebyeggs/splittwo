@@ -102,14 +102,5 @@ $(document).ready(function(){
 	$('.fitvids').fitVids();
 	
   	jQuery(".best_in_place").best_in_place();
-
-	$("a[href^=http]").each(function(){
-		if(this.href.indexOf(location.hostname) == -1) {
-	    	$(this).attr({
-	        	target: "_blank",
-	            title: "Opens in a new window"
-	        });
-		}
-	});
 	
 });
