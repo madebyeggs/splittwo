@@ -1,6 +1,6 @@
 <div class="">
 	<div class="royalSlider rsDefault">
-		<% @slides.each do |slide| %>
+		<% @sorted_slides.each do |slide| %>
 		    <div>
 			<% if slide.slide_image? %>
 				<%= image_tag(slide.slide_image, class: "rsImg") %>
