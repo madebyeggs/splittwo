@@ -92,7 +92,7 @@ class ArtistsController < ApplicationController
     end
     
     def artist_params
-      params.require(:artist).permit(:artist_id, :name, :description, :soundcloud, :fb_url, :twitter_name, :image, :fb_image, :row_order_position, :slideshow, :slide_image, :slide_title, :vimeo)
+      params.require(:artist).permit(:artist_id, :name, :description, :soundcloud, :fb_url, :twitter_name, :image, :fb_image, :row_order_position, :slideshow, :slide_image, :slide_title, :slide_title2, :slide_title3, :vimeo)
     end
 
 end

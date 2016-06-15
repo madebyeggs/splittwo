@@ -3,12 +3,14 @@
 	<%= bootstrap_form_for(@work) do |f| %>
 	  	<%= f.text_field :brand_name, label: "Brand name" %>
 		<%= f.text_field :campaign_title, label: "Campaign title" %>
-		<%= f.text_area :slide_title, label: "Slideshow title" %>
-		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
 		<%= f.text_field :agency, label: "Agency name" %>
 		<%= f.text_field :track_name, label: "Track name" %>
 	    <%= f.text_field :artist_name, label: "Artist name" %>
 		<%= f.text_area :description, label: "Project description" %>
+		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
+	  	<%= f.text_field :slide_title, label: "Slideshow title first" %>
+		<%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %>
+		<%= f.text_field :slide_title3, label: "Slideshow title third" %>
 	    <%= f.text_field :vimeo, label: "Vimeo unique identifier (e.g 127146849)" %>
 		<%= f.file_field :image, label: "Placement main square image (crop to 400px X 400px before upload)" %>
 		<% if @work.image.exists? %>

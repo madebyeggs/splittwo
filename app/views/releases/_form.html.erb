@@ -2,9 +2,12 @@
 	<h2 class="titles">Add your release here!</h2>
 	<%= bootstrap_form_for(@release) do |f| %>
 	  	<%= f.text_field :title, label: "Title" %>
-		<%= f.text_area :slide_title, label: "Slideshow title" %>
 		<%= f.text_field :soundcloud, label: "Soundcloud ID" %>
 		<%= f.text_area :description, label: "Description" %>
+		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
+	  	<%= f.text_field :slide_title, label: "Slideshow title first" %>
+		<%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %>
+		<%= f.text_field :slide_title3, label: "Slideshow title third" %>
 		<%= f.file_field :image, label: "Release main square image (crop to 400px X 400px before upload)" %>
 		<% if @release.image.exists? %>
 			<p class="existingImageName">{ Current Image: "<%= @release.image_file_name %>" }</p>

@@ -2,10 +2,12 @@
 	<h2 class="titles">Add your artist here!</h2>
 	<%= bootstrap_form_for(@artist) do |f| %>
 	  	<%= f.text_field :name, label: "Artist name" %>
-		<%= f.text_area :slide_title, label: "Slideshow title" %>
 		<%= f.text_area :description, label: "Description" %>
 		<%= f.text_field :soundcloud, label: "Soundcloud unique identifier (e.g. 102276575)" %>
 		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
+	  	<%= f.text_field :slide_title, label: "Slideshow title first" %>
+		<%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %>
+		<%= f.text_field :slide_title3, label: "Slideshow title third" %>
 		<%= f.text_field :fb_url, label: "Artist's Facebook URL" %>
 	    <%= f.text_field :twitter_name, label: "Artist's Twitter name" %>
 		<%= f.file_field :image, label: "Main square image (crop to 400px X 400px before upload)" %>

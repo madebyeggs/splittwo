@@ -9,7 +9,10 @@
 			<% end %>
 				<div class="slideTitle">
 					<a href="<%= slide_path(slide) %>" class="slideShowClick">
-						<h5 class="bigger"><%=  simple_format(slide.slide_title) %></h5>
+						<h5><%= slide.slide_title %></h5>
+						<h5 class="colour"><%= slide.slide_title2 %></h5>
+						<hr class="dots"/>
+						<p class="artistDescription"><%= slide.slide_title3 %></p>
 					</a>
 				</div>
 			</div>
