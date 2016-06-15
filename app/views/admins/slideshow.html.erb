@@ -10,16 +10,20 @@
 				<th>Soundcloud</th>
 				<th>Vimeo</th>
 				<th>Image?</th>
+				<th>Slideshow?</th>
+				<th>Type</th>
 	   		</tr>
 	 		</thead>
 	 		<tbody>
-	   		<% @slides.each do |slide| %>
+	   		<% @sorted_slides.each do |slide| %>
      			<tr data-item-id=<%= "" %> class="item">
        				<td><%= slide.slide_title %></td>
 					<td><% if slide.description? %>Yes<% else %>No<% end %></td>
 					<td><%= slide.soundcloud %></td>
 					<td><%= slide.vimeo %></td>
 					<td><% if slide.slide_image? %>Yes<% else %>No<% end %></td>
+					<td><%= best_in_place slide, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+					<td><%= slide.model_name %></td>
      			</tr>
 	   		<% end %>
 	 		</tbody>
