@@ -21,16 +21,13 @@
 </div>
 
 <script>
-
-	window.sliderId = 3;
-	console.log(sliderId);
 	
 	var sliderInstance = $('.royalSlider').royalSlider({
 		autoPlay: {
 			// autoplay options go gere
 	    	enabled: true,
 	    	pauseOnHover: false,
-			delay: 4000
+			delay: 5000
 		},
 		imageAlignCenter: true,
 		imageScaleMode: 'fill',
@@ -38,14 +35,24 @@
 		arrowsNav: true
 	}).data("royalSlider");
 	
-	//sliderInstance.goTo(sliderId);
+	var slider = $(".royalSlider").data('royalSlider');
+	
+	slider.slides[0].holder.on('rsAfterContentSet', function() {
+		$('.slideTitle').addClass('slide-up', 250);
+	});
 	
 	sliderInstance.ev.on('rsBeforeAnimStart', function(event) {
-		$('.slideTitle').fadeOut();
+		$('.slideTitle').fadeOut(function(){
+			$('.slideTitle').removeClass('slide-up');
+			$('.slideTitle').addClass('slide-down');
+		});
 	});
 
 	sliderInstance.ev.on('rsAfterSlideChange', function(event) {
-		$('.slideTitle').fadeIn();
+		$('.slideTitle').removeClass('slide-down');
+		$('.slideTitle').fadeIn(function(){
+			$('.slideTitle').addClass('slide-up', 250);	
+		});
 	});
 		
 </script>
