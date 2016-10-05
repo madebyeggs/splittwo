@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     @slide_releases = Release.where('slideshow = ?', true)
     #@slides = @slide_announcements + @slide_artists + @slide_works + @slide_releases.order('created_at ASC')
     @slides = [@slide_announcements, @slide_artists, @slide_works, @slide_releases].flatten
-    @sorted_slides = @slides.sort_by(&:updated_at).reverse
+    @sorted_slides = @slides.sort_by(&:Slideshowposition)
   end
   
 end

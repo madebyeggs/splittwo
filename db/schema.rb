@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615181208) do
+ActiveRecord::Schema.define(version: 20161005190512) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160615181208) do
     t.boolean  "slideshow"
     t.text     "slide_title2"
     t.text     "slide_title3"
+    t.integer  "Slideshowposition"
   end
 
   add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160615181208) do
     t.string   "vimeo"
     t.text     "slide_title2"
     t.text     "slide_title3"
+    t.integer  "Slideshowposition"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160615181208) do
     t.string   "vimeo"
     t.text     "slide_title2"
     t.text     "slide_title3"
+    t.integer  "Slideshowposition"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
@@ -162,6 +165,7 @@ ActiveRecord::Schema.define(version: 20160615181208) do
     t.string   "soundcloud"
     t.text     "slide_title2"
     t.text     "slide_title3"
+    t.integer  "Slideshowposition"
   end
 
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true

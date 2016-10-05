@@ -12,6 +12,7 @@
 				<th>Image?</th>
 				<th>Slideshow?</th>
 				<th>Type</th>
+				<th>Slideshow Position</th>
 	   		</tr>
 	 		</thead>
 	 		<tbody>
@@ -24,6 +25,7 @@
 					<td><% if slide.slide_image? %>Yes<% else %>No<% end %></td>
 					<td><%= best_in_place slide, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><%= slide.model_name %></td>
+					<td><%= best_in_place slide, :Slideshowposition %></td>
      			</tr>
 	   		<% end %>
 	 		</tbody>
