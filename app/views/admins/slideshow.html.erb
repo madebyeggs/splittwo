@@ -18,7 +18,7 @@
 	 		<tbody>
 	   		<% @sorted_slides.each do |slide| %>
      			<tr data-item-id=<%= "" %> class="item">
-       				<td><%= slide.slide_title %></td>
+       				<td><%= best_in_place slide, :slide_title %></td>
 					<td><% if slide.description? %>Yes<% else %>No<% end %></td>
 					<td><%= slide.soundcloud %></td>
 					<td><%= slide.vimeo %></td>
