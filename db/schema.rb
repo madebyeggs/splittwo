@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005190512) do
+ActiveRecord::Schema.define(version: 20161117105056) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -69,6 +69,25 @@ ActiveRecord::Schema.define(version: 20161005190512) do
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true
+
+  create_table "customs", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "vimeo_1"
+    t.string   "vimeo_2"
+    t.string   "vimeo_3"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "slug"
+    t.string   "genre"
+    t.integer  "row_order"
+  end
+
+  add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

@@ -22,11 +22,11 @@
 		
 		<% if controller_name == "admins" %>
 			<%= yield %>
+		<% elsif controller_name == "customs" && controller.action_name == "index" %>
+			<%= yield %>
 		<% else %>
-		
 			<%= render 'layouts/navigation' %>
 			<%= render 'layouts/main' %>
-			
 		<% end %>
 		
 	</body>

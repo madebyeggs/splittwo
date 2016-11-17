@@ -1,0 +1,14 @@
+
+<div class="col-md-12">
+	<% @customs.each do |c| %>
+	<div class="col-md-4">
+		<div class="parent">
+			<%= image_tag(c.image, lazy: true, class: "lazy child-image") %>
+			<div class="child">
+				<h1 class="bespokeHeader"><%= c.name %></h1>
+				<h1 class="bespokeHeaderUnder"><%= c.genre %></h1>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>

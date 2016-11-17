@@ -1,0 +1,16 @@
+<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
+	<h2 class="titles">Add your custom artist here!</h2>
+	<%= bootstrap_form_for(@custom) do |f| %>
+	  	<%= f.text_field :name, label: "Artist name" %>
+		<%= f.text_field :genre, label: "Add genres here (separate with /)" %>
+		<%= f.text_area :description, label: "Description" %>
+	  	<%= f.text_field :vimeo_1, label: "Artist first vimeo link" %>
+		<%= f.text_field :vimeo_2, label: "Artist second vimeo link" %>
+		<%= f.text_field :vimeo_3, label: "Artist third vimeo link" %>
+		<%= f.file_field :image, label: "Image (crop to 555px X 370px before upload)" %>
+		<% if @custom.image.exists? %>
+			<p class="existingImageName">{ Current Image: "<%= @custom.image_file_name %>" }</p>
+		<% end %>
+	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
+	<% end %>
+</div>

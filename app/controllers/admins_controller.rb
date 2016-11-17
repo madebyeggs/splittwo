@@ -41,4 +41,12 @@ class AdminsController < ApplicationController
     end
   end
   
+  def customs
+    @customs = Custom.rank(:row_order).all
+    respond_to do |format|
+      format.html
+      format.json {render :json => @customs}
+    end
+  end
+  
 end

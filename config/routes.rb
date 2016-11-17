@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'create_new_splitter' }
   
   root 'slides#index'
+  
+  resources :customs do
+    post :update_row_order, on: :collection
+    collection {post :import}
+  end
   resources :announcements
   resources :announcements do
     post :update_row_order, on: :collection
@@ -29,6 +34,7 @@ Rails.application.routes.draw do
   resources :share_closes
   
   match "admins/artists" => "admins#artists", via: [:get, :post]
+  match "admins/customs" => "admins#customs", via: [:get, :post]
   match "admins/placements" => "admins#placements", via: [:get, :post]
   match "admins/releases" => "admins#releases", via: [:get, :post]
   match "admins/announcements" => "admins#announcements", via: [:get, :post]
