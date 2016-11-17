@@ -3,6 +3,7 @@
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2">Custom Artists</h2>
 	<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
+	<%= link_to 'Launch Custom Page', customs_path, class: "btn btn-success csvInput3", target: "blank"  %>
 	<table class="table table-striped" id="sortableCustom">
 	 		<thead>
 	   		<tr>
