@@ -22,7 +22,7 @@
 		
 		<% if controller_name == "admins" %>
 			<%= yield %>
-		<% elsif controller_name == "customs" && controller.action_name == "index" %>
+		<% elsif controller_name == "customs" && (controller.action_name == "index" || controller.action_name == "show") %>
 			<%= yield %>
 		<% else %>
 			<%= render 'layouts/navigation' %>

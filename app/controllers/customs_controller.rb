@@ -68,7 +68,7 @@ class CustomsController < ApplicationController
         site: "@fairsplitmusic",
         title: "#{@custom.name}",
         description: "#{@custom.description}",
-        image: "#{@custom.fb_image}"
+        image: "#{@custom.image}"
       }
       render :show, flush: true
     end
