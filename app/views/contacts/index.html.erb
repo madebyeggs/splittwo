@@ -18,28 +18,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-
-	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {scrollwheel: false, zoomControl: false}, internal: {id: 'map'}, featureType: "all", stylers: [{ "hue": "#000000" }]}, function(){
-	  markers = handler.addMarkers([
-	    {
-	      "lat": 51.523434,
-	      "lng": -0.078500,
-	      "picture": {
-	        "url": "<%= asset_path('newMarker.png') %>",
-	        "width":  80,
-	        "height": 125
-	      },
-	      "infowindow": "<h3 class='black'>YOU CAN FIND US AT:</h3><span class='black'Village Underground,<br/>54 Holywell Lane,<br/>London,<br/>EC2A 3PQ</span>"
-	    }
-	  ]);
-	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
-	  handler.getMap().setZoom(16);
-	  handler.map.centerOn([51.524602, -0.084101]);
-	});
-	
-	
-</script>

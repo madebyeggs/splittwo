@@ -87,7 +87,7 @@ class CustomsController < ApplicationController
     end
     
     def custom_params
-      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image)
+      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, :soundcloud)
     end
   
 end

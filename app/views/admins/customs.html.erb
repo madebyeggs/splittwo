@@ -9,6 +9,7 @@
 	   		<tr>
 	     		<th>Name</th>
 	     		<th>Description</th>
+				<th>Soundcloud</th>
 				<th>Vimeo 1</th>
 	     		<th>Vimeo 2</th>
 				<th>Vimeo 3</th>
@@ -25,6 +26,11 @@
 						</span>
 					</td>
 					<td><% if custom.description? %>Yes<% else %>No<% end %></td>
+					<td>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
+							<%= custom.soundcloud %>
+						</span>
+					</td>
 					<td>
 						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_1" data-placeholder="ADD FIRST VIMEO LINK">
 							<%= custom.vimeo_1 %>

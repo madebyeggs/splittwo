@@ -33,7 +33,6 @@
 //= require jquery.easing-1.3
 //= require jquery.royalslider.min
 //= require underscore
-//= require gmaps/google
 //= require FB_SDK
 
 $(document).ready(function(){
