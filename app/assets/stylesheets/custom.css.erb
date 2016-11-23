@@ -28,7 +28,7 @@
 
 .projectlist a:hover { 
 	cursor: url('	'), crosshair;
-	cursor: url('../assets/more.png') 40 40, crosshair;
+	cursor: url(<%= asset_path 'bg-close.png' %>) 40 40, crosshair;
 }
 
 .projectlist a:hover .projectinfo { 
@@ -92,7 +92,7 @@
   	display:inline-block;
   	text-align:center;
   	cursor:url('	'), crosshair;
-	cursor:url('../assets/more.png') 40 40, crosshair;
+	cursor:url(<%= asset_path 'more.png' %>) 40 40, crosshair;
   	border:2px solid white;
   	padding-top:44px;
   	font-size:18px;
