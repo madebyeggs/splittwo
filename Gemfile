@@ -29,6 +29,7 @@ gem 'rest_in_place'
 gem 'imagesLoaded_rails'
 gem 'best_in_place', '~> 3.0.1'
 gem 'newrelic_rpm'
+gem 'lazysizes_rails'
 
 group :development, :test do
   gem 'byebug'

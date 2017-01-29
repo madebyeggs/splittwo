@@ -11,7 +11,8 @@
 						<hr class="dots"/>
 						<p class="artistDescription"><%= work.agency %><br/>"<%= work.track_name %>" by <%= work.artist_name %></p>
 					</div>
-					<%= image_tag(work.image, lazy: true, class: "lazy") %>
+					<%#= image_tag(work.image, lazy: true, class: "lazy") %>
+					<%= image_tag "https://d9gj9tfjl21as.cloudfront.net/ajaxBig2.gif", data:{ src: image_path(work.image) }, class: 'lazy lazyload' %>
 				</div>
 			</div>
 		</a>
