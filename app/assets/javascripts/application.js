@@ -47,11 +47,6 @@ $(document).ready(function(){
 		window.position = 0
 	});
 	
-	// $(".lazy").lazyload({
-	// 		effect : "fadeIn",
-	// 		threshold : 400
-	// 	});
-	
 	$('.positionButtonArtist').click(function() {
 		var id = $(this).prev('.modal-object-id').val();
 		var artistPosition = $("#artistScrollPosition").scrollTop();
