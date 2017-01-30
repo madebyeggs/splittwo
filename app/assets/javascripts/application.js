@@ -34,6 +34,7 @@
 //= require jquery.royalslider.min
 //= require underscore
 //= require FB_SDK
+//= require lazysizes_rails
 
 $(document).ready(function(){
 	
@@ -41,11 +42,6 @@ $(document).ready(function(){
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
 	$("#workScrollPosition").animate({ scrollTop: window.position });
 	$("#releaseScrollPosition").animate({ scrollTop: window.position });
-	
-	$(".lazy").lazyload({
-		effect : "fadeIn",
-		threshold : 400
-	});
 	
 	$(".clearFixer").click(function(){
 		window.position = 0

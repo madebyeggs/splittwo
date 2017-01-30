@@ -10,7 +10,7 @@
 						<hr class="dots"/>
 						<p class="artistDescription"><%= truncate(artist.description, :length => 220, :separator => ' ') %></p>
 					</div>
-					<%= image_tag(artist.image, lazy: true, class: "lazy") %>
+					<%= image_tag "https://d9gj9tfjl21as.cloudfront.net/ajaxBig2.gif", data:{ src: image_path(artist.image) }, class: 'lazy lazyload' %>
 				</div>
 			</div>
 		</a>
