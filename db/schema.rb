@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315153334) do
+ActiveRecord::Schema.define(version: 20170315154753) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
