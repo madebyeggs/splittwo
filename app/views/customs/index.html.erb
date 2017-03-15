@@ -1,13 +1,13 @@
-<% if request.referrer == nil %>
-	<div class="lockScreenContent">
+<%# if request.referrer == nil %>
+	<!--<div class="lockScreenContent">
 		<div class="passwordContent">
 			<i class="fa fa-lock fa-5x" aria-hidden="true"></i><br/>
 			<input type="textarea" id="pass" onkeyup="countChar(this)" placeholder="Password"></input>
 			<i class="fa fa-angle-double-right fa-2x dark" aria-hidden="true"></i><br/>
 		</div>
 		<div class="error">Oops! Wrong password, try again</div>
-	</div>
-	<script type="text/javascript">
+	</div>-->
+	<!--<script type="text/javascript">
 		$('#pass').on('keypress', function (key) {
 		    	if(key.which === 13 && $("#pass").val() == "password"){
 				//Disable textbox to prevent multiple submit
@@ -30,24 +30,24 @@
 				$('.dark').fadeOut();
 			}
 		};
-	</script>
-	<div class="col-md-12 mainContent projectlist" style="display:none;">
-		<% @customs.each do |c| %>
+	</script>-->
+	<!--<div class="col-md-12 mainContent projectlist" style="display:none;">
+		<%# @customs.each do |c| %>
 		<div class="col-md-4 project">
 			<div class="parent">
-				<%= link_to c, :class => 'releaseClick' do %>
-					<%= image_tag(c.image, lazy: true, class: "lazy child-image") %>
+				<%#= link_to c, :class => 'releaseClick' do %>
+					<%#= image_tag(c.image, lazy: true, class: "lazy child-image") %>
 					<div class="child projectInfo">
-						<h1 class="bespokeHeader"><%= c.name %></h1>
-						<h1 class="bespokeHeaderUnder"><%= c.genre %></h1>
+						<h1 class="bespokeHeader"><%#= c.name %></h1>
+						<h1 class="bespokeHeaderUnder"><%#= c.genre %></h1>
 					</div>
 					<div class="overlay"></div>
-				<% end %>
+				<%# end %>
 			</div>
 		</div>
-		<% end %>
-	</div>
-<% else %>
+		<%# end %>
+	</div>-->
+<%# else %>
 	<div class="col-md-12 mainContent projectlist">
 		<% @customs.each do |c| %>
 		<div class="col-md-4 project">
@@ -64,4 +64,4 @@
 		</div>
 		<% end %>
 	</div>
-<% end %>
+<%# end %>

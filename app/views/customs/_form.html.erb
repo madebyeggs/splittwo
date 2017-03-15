@@ -12,6 +12,15 @@
 		<% if @custom.image.exists? %>
 			<p class="existingImageName">{ Current Image: "<%= @custom.image_file_name %>" }</p>
 		<% end %>
+		<%= f.file_field :fullqual, label: "Upload zipped wavs" %>
+		<% if @custom.fullqual.exists? %>
+			<p class="existingImageName">{ Current zip file: "<%= @custom.fullqual_file_name %>" }</p>
+		<% end %>
+		<%= f.file_field :lowqual, label: "Upload zipped mp3s" %>
+		<% if @custom.lowqual.exists? %>
+			<p class="existingImageName">{ Current zip file: "<%= @custom.lowqual_file_name %>" }</p>
+		<% end %>
+		
 	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
 	<% end %>
 </div>

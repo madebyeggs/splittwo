@@ -21,7 +21,8 @@ class Custom < ActiveRecord::Base
     :bucket => 'split-two',
     :path => "customs/images/:id_partition/:style/:filename"
   end
-  
+  has_attached_file :fullqual
+  has_attached_file :lowqual
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require jquery.turbolinks
 //= require 'rest_in_place'
 //= require best_in_place
@@ -28,15 +29,26 @@
 //= require update_customs_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
-//= require jquery.fitvids
 //= require imagesloaded
 //= require jquery.easing-1.3
 //= require jquery.royalslider.min
 //= require underscore
 //= require FB_SDK
 //= require lazysizes_rails
+//= require fitvids.js
 
 $(document).ready(function(){
+	
+	$(".lazy").lazyload();
+	
+	$('.customBrandIcon').click(function(){
+	    $('.subMenu').slideToggle('fast');
+	});
+	
+	$('.my_iFrame').load(function() {
+	    $('.loading').css('display', 'none');
+	    $('.js #my_iFrame').css('visibility', 'visible');
+	});
 	
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
@@ -95,8 +107,13 @@ $(document).ready(function(){
 	
 	$('.prettySocial').prettySocial();
 	
-	$('.fitvids').fitVids();
+	$('.responsiveVideo').fitVids();
 	
   	jQuery(".best_in_place").best_in_place();
+
+	$('#myTabs a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
 	
 });

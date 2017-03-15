@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
     collection {post :import}
   end
+  
+  resources :customs, :path => "bespoke" do
+    post :update_row_order, on: :collection
+    collection {post :import}
+    get :download_wavs
+  end
   resources :announcements
   resources :announcements do
     post :update_row_order, on: :collection
