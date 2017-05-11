@@ -33,9 +33,9 @@
 			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
 		</div>
 		<hr class="artistSeparator" />
-		<div class="fitvids">
+		<div class="fitvids responsiveVideo2">
 			<% if @work.vimeo? %>
-        	<iframe class="fitvids" id="videoPlayer" src="https://player.vimeo.com/video/<%= @work.vimeo %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        	<iframe id="videoPlayer" class="responsiveVideo2" src="https://player.vimeo.com/video/<%= @work.vimeo %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			<% end %>
 		</div>
 		<% if @work.vimeo? %><hr class="projectSeparator" /><% end %>

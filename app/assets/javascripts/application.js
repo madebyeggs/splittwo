@@ -108,6 +108,7 @@ $(document).ready(function(){
 	$('.prettySocial').prettySocial();
 	
 	$('.responsiveVideo').fitVids();
+	$('.responsiveVideo2').fitVids();
 	
   	jQuery(".best_in_place").best_in_place();
 
