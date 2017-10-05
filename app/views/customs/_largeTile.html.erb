@@ -1,12 +1,14 @@
 <div class="col-md-6 project">
 	<div class="parent">
-		<%= link_to c, :class => 'releaseClick' do %>
+		<a href="http://player.vimeo.com/video/<%= c.vimeo_1 %>" data-toggle="lightbox">
+		<%#= link_to c, :class => 'releaseClick' do %>
 			<%= image_tag(c.image, lazy: true, class: "lazy child-image") %>
 			<div class="child projectInfo">
 				<h1 class="bespokeHeader"><%= c.name %></h1>
 				<h1 class="bespokeHeaderUnder"><%= c.genre %></h1>
 			</div>
 			<div class="overlay"></div>
-		<% end %>
+		<%# end %>
+		</a>
 	</div>
 </div>

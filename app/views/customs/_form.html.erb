@@ -8,12 +8,13 @@
 	  	<%= f.text_field :vimeo_1, label: "Artist first vimeo link" %>
 		<%= f.text_field :vimeo_2, label: "Artist second vimeo link" %>
 		<%= f.text_field :vimeo_3, label: "Artist third vimeo link" %>
-		<%= f.file_field :image, label: "Image (crop to 555px X 370px before upload)" %>
+		<%= f.file_field :image, label: "Image (crop to 1100px X 733px before upload)" %>
 		<% if @custom.image.exists? %>
 			<p class="existingImageName">{ Current Image: "<%= @custom.image_file_name %>" }</p>
 		<% end %>
 		<%= f.text_field :fullqual, label: "Add link to zipped wavs" %>
 		<%= f.text_field :lowqual, label: "Add link to zipped mp3s" %>
+		<%= f.check_box :display, label: "Display on Custom page" %>
 		
 	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
 	<% end %>
