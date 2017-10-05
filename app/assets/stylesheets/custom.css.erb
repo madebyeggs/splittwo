@@ -54,6 +54,7 @@
 	-moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
 }
+
 .customName {text-align:left;margin:30px 0px 22px 0px;}
 .customSeparator {color:#ffffff; margin:54px 5%;width:90%;}
 .customInfo {width:95%;margin:54px 2.5%;padding:2px 0px 40px 0px;}
@@ -83,8 +84,21 @@
 	top:30px;
 	right:30px;
 }
+.customBrandIcon2, .customBrandIcon3 {
+	position:absolute;
+	width: 48px;
+	height: 48px;
+	background: url(<%= asset_path 'bg-menu.png' %>) center no-repeat;
+	background-size:48px 48px;
+	cursor: pointer;
+	z-index: 1000000000;
+	top:53%;
+	right:30px;
+}
 .customBtn a, .customBtn a:visited {text-decoration:none;}
-.subMenu {position:absolute;top:86px;right:38px;width:358px;background-color:red;z-index:2000;border-radius:5px;padding:25px;display:none;}
+.subMenu {position:absolute;top:98px;right:38px;width:358px;background-color:black;z-index:2000;border-radius:1px;padding:25px;display:none;}
+.subMenu2, .subMenu3 {position:absolute;top:50vh;right:0;width:33.33%;height:50vh;background-color:#000000;z-index:5000;border-radius:5px;padding:25px;display:none;}
+.subMenu3 {width:50%;}
 .subMenu p {margin:0;}
 .videosWrapper {width:97.5%;}
 .videoPositionFix {margin-left:5%;}
@@ -111,6 +125,10 @@
     transform: translate(-50%, -48%);
 	z-index:2000000;
 }
+.center {position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);text-align:center;}
+.marginMinify {margin:24px;}
+.customDeetsh3 {margin:12px!important;}
+.customDeets {margin:0px;} 
 .customBtn {
   	display:inline-block;
   	text-align:center;
@@ -158,6 +176,18 @@
 	background-color:#000000 !important;
 }
 .customBtn {width:100%;}
+.noBackground {background-color:#000000!important;font-size:18px;font-style:italic;}
+.relative {position:relative;}
+.dummyTile {position:absolute;z-index:1;}
+.brandingTile, .brandingTileSmaller {position:absolute;z-index:1000;}
+.brandingTile {
+	position: absolute;
+	top:38%;
+	left: 50%;
+	transform: translate(-50%, 38%);
+}
+.customSocial {margin:46px 0px 0px 15px;}
+
 @media (max-width: 767px) {
 	.customInfo {width:95%;margin:34px 2.5%;padding:2px 0px 0px 0px;}
 	.belowTheFold {width:100%;margin:0!important;padding:0!important;}
@@ -173,4 +203,8 @@
 	.listenWrapper {width:98%;float:left;margin:12px 1%;padding-left:0;}
 	.customTitleListen {display:none;}
 	
+}
+@media (max-width:991px){
+	.customBrandIcon2, .customBrandIcon3 {top:101.5%;}
+	.subMenu2, .subMenu3 {top:100%;width:100%;}
 }

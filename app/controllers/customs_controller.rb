@@ -44,7 +44,7 @@ class CustomsController < ApplicationController
     end
     
     def index
-      @customs = Custom.rank(:row_order).all
+      define_customs
       set_meta_tags :og => {
         :url => "#{@currentUrl}",
         :title    => 'Split Music | Custom',
@@ -91,7 +91,7 @@ class CustomsController < ApplicationController
     end
     
     def custom_params
-      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, :soundcloud, :fullqual, :lowqual)
+      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, :soundcloud, :fullqual, :lowqual, :display, :Displayposition)
     end
   
 end

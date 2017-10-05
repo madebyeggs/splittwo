@@ -1,67 +1,23 @@
-<%# if request.referrer == nil %>
-	<!--<div class="lockScreenContent">
-		<div class="passwordContent">
-			<i class="fa fa-lock fa-5x" aria-hidden="true"></i><br/>
-			<input type="textarea" id="pass" onkeyup="countChar(this)" placeholder="Password"></input>
-			<i class="fa fa-angle-double-right fa-2x dark" aria-hidden="true"></i><br/>
-		</div>
-		<div class="error">Oops! Wrong password, try again</div>
-	</div>-->
-	<!--<script type="text/javascript">
-		$('#pass').on('keypress', function (key) {
-		    	if(key.which === 13 && $("#pass").val() == "password"){
-				//Disable textbox to prevent multiple submit
-		            $(this).attr("disabled", "disabled");
-		            $('.lockScreenContent').fadeOut("fast", function() {
-					$('.mainContent').fadeIn("fast");
-				});
-		        } else if(key.which === 13 && $("#pass").val() != "password") {
-				$(this).attr("enabled", "enabled");
-				$('.error').fadeIn(function () {
-					$(this).delay(1500).fadeOut();
-				});
-			}
-		   	});
-		function countChar(val) {
-			var len = val.value.length;
-			if (len >= 1) {
-				$('.dark').fadeIn();
-			} else {
-				$('.dark').fadeOut();
-			}
-		};
-	</script>-->
-	<!--<div class="col-md-12 mainContent projectlist" style="display:none;">
-		<%# @customs.each do |c| %>
-		<div class="col-md-4 project">
-			<div class="parent">
-				<%#= link_to c, :class => 'releaseClick' do %>
-					<%#= image_tag(c.image, lazy: true, class: "lazy child-image") %>
-					<div class="child projectInfo">
-						<h1 class="bespokeHeader"><%#= c.name %></h1>
-						<h1 class="bespokeHeaderUnder"><%#= c.genre %></h1>
-					</div>
-					<div class="overlay"></div>
-				<%# end %>
-			</div>
-		</div>
-		<%# end %>
-	</div>-->
-<%# else %>
-	<div class="col-md-12 mainContent projectlist">
-		<% @customs.each do |c| %>
-		<div class="col-md-4 project">
-			<div class="parent">
-				<%= link_to c, :class => 'releaseClick' do %>
-					<%= image_tag(c.image, lazy: true, class: "lazy child-image") %>
-					<div class="child projectInfo">
-						<h1 class="bespokeHeader"><%= c.name %></h1>
-						<h1 class="bespokeHeaderUnder"><%= c.genre %></h1>
-					</div>
-					<div class="overlay"></div>
-				<% end %>
-			</div>
-		</div>
+<div class="col-md-12 mainContent projectlist">
+	<% if @custom_count == 6 %></h1>
+		<% @sorted_custom_displays.each do |c| %>
+			<%= render "customs/smallTile", :c => c %>
 		<% end %>
-	</div>
-<%# end %>
+	<% elsif @custom_count == 5 %>
+		<%= render 'smallMenu' %>
+		<% @sorted_custom_displays.each do |c| %>
+			<%= render "customs/smallTile", :c => c %>
+		<% end %>
+		<%= render 'smallBrandingTile' %>
+	<% elsif @custom_count == 4 %>
+		<% @sorted_custom_displays.each do |c| %>
+			<%= render "customs/largeTile", :c => c %>
+		<% end %>
+	<% else %>
+		<% @sorted_custom_displays.each do |c| %>
+		<%= render 'bigMenu' %>
+			<%= render "customs/largeTile", :c => c %>
+		<% end %>
+		<%= render 'largeBrandingTile' %>
+	<% end %>
+</div>

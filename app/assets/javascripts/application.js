@@ -39,10 +39,29 @@
 
 $(document).ready(function(){
 	
+	$(".change").on("ajax:success",function(){
+	    location.reload();
+	});
+	
 	$(".lazy").lazyload();
 	
 	$('.customBrandIcon').click(function(){
 	    $('.subMenu').slideToggle('fast');
+	});
+	
+	$('.customBrandIcon2').click(function(){
+	    $('.subMenu2').slideToggle('fast');
+	});
+	$('.customBrandIcon3').click(function(){
+	    $('.subMenu3').slideToggle('fast');
+	});
+	
+	$('.envelopeDropdowner').click(function(){
+	    $('.subMenu2').slideToggle('fast');
+	});
+	
+	$('.envelopeDropdowner2').click(function(){
+	    $('.subMenu3').slideToggle('fast');
 	});
 	
 	$('.my_iFrame').load(function() {

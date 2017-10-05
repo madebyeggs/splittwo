@@ -1,0 +1,11 @@
+<div class="col-md-4 project">
+	<div class="parent">
+		<%= link_to c, :class => 'releaseClick' do %>
+			<%= image_tag(c.image, lazy: true, class: "lazy child-image") %>
+			<div class="child projectInfo">
+				<h1 class="bespokeHeader"><%= c.name %></h1>
+				<h1 class="bespokeHeaderUnder"><%= c.genre %></h1>
+			</div>
+		<% end %>
+	</div>
+</div>

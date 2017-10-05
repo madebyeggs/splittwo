@@ -42,7 +42,10 @@ class AdminsController < ApplicationController
   end
   
   def customs
-    @customs = Custom.rank(:row_order).all
+    custom_display = Custom.where('display = ?', true)
+    custom_not_displays = Custom.where('display = ?', false)
+    @customs_d = custom_display.rank(:row_order).all
+    @customs_nd = custom_not_displays
     respond_to do |format|
       format.html
       format.json {render :json => @customs}

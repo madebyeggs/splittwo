@@ -17,6 +17,7 @@
 				<!--<li class="navButton"><%#= link_to 'Bespoke', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>-->
 				<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
 				<li class="navButton"><%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", :target => "blank" %></li>
+				<!--<li class="navButton"><%#= link_to 'Custom', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>-->
 			</ul>
 		</div>
 		<div class="social">
@@ -37,7 +38,7 @@
 					<i class="fa fa-soundcloud"></i>
 				</a>
 				<span class="pipe">|</span> 
-				<a class="fixMute" href="#filter=.contact">
+				<a class="fixMute" href="<%= contacts_path %>">
 					<i class="fa fa-envelope-o fa-lg"></i>
 				</a>
 			</div>

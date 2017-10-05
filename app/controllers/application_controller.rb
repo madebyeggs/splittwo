@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
     @sorted_slides = @slides.sort_by {|slide| [slide.Slideshowposition ? 0 : 1,slide.Slideshowposition || 0]}
   end
   
+  def define_customs
+    @custom_count = Custom.where('display = ?', true).count
+    @custom_displays = Custom.where('display = ?', true)
+    @sorted_custom_displays = @custom_displays.rank(:row_order).all
+  end
+  
 end
