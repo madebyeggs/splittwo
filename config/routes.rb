@@ -4,12 +4,7 @@ Rails.application.routes.draw do
   
   root 'slides#index'
   
-  resources :customs do
-    post :update_row_order, on: :collection
-    collection {post :import}
-  end
-  
-  resources :customs, :path => "bespoke" do
+  resources :customs, :path => "composition" do
     post :update_row_order, on: :collection
     collection {post :import}
     get :download_wavs

@@ -59,7 +59,7 @@ class CustomsController < ApplicationController
     end
     
     def show
-      @custom = Custom.find_by_slug(params[:id])
+      @custom = Custom.friendly.find(params[:id])
       set_meta_tags og: {
         url: "#{@currentUrl}",
         image: "#{@custom.image}",
