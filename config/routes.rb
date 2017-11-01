@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
     collection {post :import}
   end
-  resources :customs
+  resources :customs, :path => "composition"
   resources :customs do
     post :update_row_order, on: :collection
     collection {post :import}
