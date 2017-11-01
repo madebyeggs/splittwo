@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004114720) do
+ActiveRecord::Schema.define(version: 20171101151122) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20171004114720) do
     t.string   "vimeo_1"
     t.string   "vimeo_2"
     t.string   "vimeo_3"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -90,6 +90,12 @@ ActiveRecord::Schema.define(version: 20171004114720) do
     t.text     "lowqual"
     t.boolean  "display"
     t.integer  "Displayposition"
+    t.string   "work_brand_name"
+    t.string   "work_campaign_title"
+    t.string   "work_brand_name2"
+    t.string   "work_campaign_title2"
+    t.string   "work_brand_name3"
+    t.string   "work_campaign_title3"
   end
 
   add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true

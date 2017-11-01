@@ -16,9 +16,7 @@ class CustomsController < ApplicationController
       @custom = Custom.find_by_slug(params[:id])
     end
     
-    def download_wavs
-       @custom = Custom.find(custom_params[:custom_id])
-    end
+    
 
     def update   
       @custom = Custom.find_by_slug(params[:id])
@@ -91,7 +89,7 @@ class CustomsController < ApplicationController
     end
     
     def custom_params
-      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, :soundcloud, :fullqual, :lowqual, :display, :Displayposition)
+      params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, :soundcloud, :fullqual, :lowqual, :display, :Displayposition, :work_campaign_title, :work_brand_name, :work_campaign_title2, :work_brand_name2, :work_campaign_title3, :work_brand_name3)
     end
   
 end

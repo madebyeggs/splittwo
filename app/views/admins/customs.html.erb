@@ -25,13 +25,13 @@
 	   			<% @customs_d.each do |custom| %>
 	     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
 	       			<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="name" data-placeholder="">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="name" data-placeholder="Name">
 					  		<%= custom.name %>
 						</span>
 					</td>
 					<td><% if custom.description? %>Yes<% else %>No<% end %></td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.genre %>" data-object="custom" data-attribute="genre" data-placeholder="ADD GENRES (Separate with '/')">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
 							<%= custom.genre %>
 						</span>
 					</td>

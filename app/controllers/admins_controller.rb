@@ -42,6 +42,8 @@ class AdminsController < ApplicationController
   end
   
   def customs
+    @releases = Release.rank(:row_order).all
+    @customs = Custom.rank(:row_order).all
     custom_display = Custom.where('display = ?', true)
     custom_not_displays = Custom.where('display = ?', false)
     @customs_d = custom_display.rank(:row_order).all
