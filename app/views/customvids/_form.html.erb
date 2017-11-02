@@ -1,0 +1,10 @@
+<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
+	<h2 class="titles">Add your custom video here!</h2>
+	<%= bootstrap_form_for(@customvid) do |f| %>
+		<%= f.text_field :vimeo_id, label: "Vimeo id" %>
+	  	<%= f.text_field :brand_name, label: "Brand name" %>
+		<%= f.text_field :campaign_title, label: "Campaign title" %>
+		<%= f.collection_select :custom_id, Custom.order(:name), :id, :name, include_blank: false %><br />
+	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
+	<% end %>
+</div>

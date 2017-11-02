@@ -1,4 +1,6 @@
 class Custom < ActiveRecord::Base
+  has_many :customvids
+  accepts_nested_attributes_for :customvids, :reject_if => lambda { |a| a[:vimeo_id].blank? }, :allow_destroy => true
   
   extend FriendlyId
   friendly_id :name, use: :slugged

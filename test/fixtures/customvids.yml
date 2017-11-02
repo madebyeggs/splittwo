@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  brand_name: MyString
+  campaign_title: MyString
+
+two:
+  id: MyString
+  brand_name: MyString
+  campaign_title: MyString

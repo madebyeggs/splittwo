@@ -15,26 +15,19 @@
 	<div class="customInfo">
 		<h1 class="customTitle">Watch</h1>
 		<div class="videosWrapper">
-			<div class="videoPositionFix">
-				<div class="responsiveVideo frame_container">
-					<iframe class="my_iFrame" src="https://player.vimeo.com/video/<%= @custom.vimeo_1 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"</h1>
+			<% @custom.customvids.each do |cv| %>
+				<div class="videoPositionFix">
+					<div class="responsiveVideo frame_container">
+						<iframe class="my_iFrame" src="https://player.vimeo.com/video/<%= cv.vimeo_id %>?title=0&amp;byline=0&amp;" 
+							width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+						</iframe>
+						<%= image_tag('vimeoLoading.gif', :class => "loading") %>
+						<h1 class="artistName titleSize1 customVideoTitle">
+							<%= cv.brand_name %> "<%= cv.campaign_title %>"
+						</h1>
+					</div>
 				</div>
-				<div class="responsiveVideo frame_container">
-					<iframe src="https://player.vimeo.com/video/<%= @custom.vimeo_2 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name2 %> "<%= @custom.work_campaign_title2 %>"</h1>
-				</div>
-				<div class="responsiveVideo frame_container">
-					<iframe src="https://player.vimeo.com/video/<%= @custom.vimeo_3 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name3 %> "<%= @custom.work_campaign_title3 %>"</h1>
-				</div>
-			</div>
+			<% end %>
 		</div>
 		<hr class="customSeparator" />
 		<div class="belowTheFold">

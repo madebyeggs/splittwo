@@ -25,6 +25,14 @@ class AdminsController < ApplicationController
     end
   end
   
+  def customvids
+    @customvids = Customvid.all
+    respond_to do |format|
+      format.html
+      format.json {render :json => @customvids}
+    end
+  end
+  
   def announcements
     @announcements = Announcement.rank(:row_order).all
     respond_to do |format|

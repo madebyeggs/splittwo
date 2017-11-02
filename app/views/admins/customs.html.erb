@@ -1,58 +1,43 @@
 <%= render :partial => 'admins/navigation' %>
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
-	<h2 class="titles2">Custom Artists</h2>
+	<h2 class="titles2">Bespoke Artists</h2>
 	<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
 	<%= link_to 'Launch Custom Page', customs_path, class: "btn btn-success csvInput3", target: "blank"  %>
 	<table class="table table-striped" id="sortableCustom">
-	 		<thead>
+		<thead>
 	   		<tr>
 	     		<th>Name</th>
 	     		<th>Info</th>
 				<th>Categories</th>
 				<th>Soundcloud</th>
-				<th>Vimeo 1</th>
-	     		<th>Vimeo 2</th>
-				<th>Vimeo 3</th>
 				<th>Image?</th>
 				<th>Wavs?</th>
 				<th>Mp3s?</th>
 				<th>Show?</th>
 				<th></th>
 	   		</tr>
-	 		</thead>
-	 		<tbody>
-	   			<% @customs_d.each do |custom| %>
-	     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
+	 	</thead>
+	 	<tbody>
+	   		<% @customs_d.each do |custom| %>
+	     		<tr data-item-id=<%= "#{custom.id}" %> class="item">
 	       			<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="name" data-placeholder="Name">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+						data-attribute="name" data-placeholder="Name">
 					  		<%= custom.name %>
 						</span>
 					</td>
 					<td><% if custom.description? %>Yes<% else %>No<% end %></td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+						data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
 							<%= custom.genre %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+						data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
 							<%= custom.soundcloud %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_1" data-placeholder="ADD FIRST VIMEO LINK">
-							<%= custom.vimeo_1 %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_2" data-placeholder="ADD SECOND VIMEO LINKL">
-							<%= custom.vimeo_2 %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_3" data-placeholder="ADD THIRD VIMEO LINK">
-							<%= custom.vimeo_3 %>
 						</span>
 					</td>
 					<td><% if custom.image? %>Yes<% else %>No<% end %></td>
@@ -61,52 +46,69 @@
 					<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td>
 						<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
-						<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+						<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this 
+							record?"}, class: "btn btn-success" 
+						%>
 					</td>
-	     			</tr>
-	   			<% end %>
-				<% if @customs_nd.count != 0 %>
+	     		</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>VIDEOS</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+	   		<% end %>
+			<% if @customs_nd.count != 0 %>
 				<td class="noBackground" colspan="12" style="padding:30px 0px 10px 0px">NOT SORTABLE</td>
 				<% @customs_nd.each do |custom| %>
 	     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
-	       			<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="name" data-placeholder="">
-					  		<%= custom.name %>
-						</span>
-					</td>
-					<td><% if custom.description? %>Yes<% else %>No<% end %></td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
-							<%= custom.soundcloud %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_1" data-placeholder="ADD FIRST VIMEO LINK">
-							<%= custom.vimeo_1 %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_2" data-placeholder="ADD SECOND VIMEO LINKL">
-							<%= custom.vimeo_2 %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_3" data-placeholder="ADD THIRD VIMEO LINK">
-							<%= custom.vimeo_3 %>
-						</span>
-					</td>
-					<td><% if custom.image? %>Yes<% else %>No<% end %></td>
-					<td><% if custom.fullqual? %>Yes<% else %>No<% end %></td>
-					<td><% if custom.lowqual? %>Yes<% else %>No<% end %></td>
-					<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td>
-						<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
-						<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
-					</td>
+	       				<td>
+							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="name" data-placeholder="">
+					  			<%= custom.name %>
+							</span>
+						</td>
+						<td><% if custom.description? %>Yes<% else %>No<% end %></td>
+						<td>
+							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom"
+							data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
+								<%= custom.soundcloud %>
+							</span>
+						</td>
+						<td>
+							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="vimeo_1" data-placeholder="ADD FIRST VIMEO LINK">
+								<%= custom.vimeo_1 %>
+							</span>
+						</td>
+						<td>
+							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="vimeo_2" data-placeholder="ADD SECOND VIMEO LINKL">
+								<%= custom.vimeo_2 %>
+							</span>
+						</td>
+						<td>
+							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="vimeo_3" data-placeholder="ADD THIRD VIMEO LINK">
+								<%= custom.vimeo_3 %>
+							</span>
+						</td>
+						<td><% if custom.image? %>Yes<% else %>No<% end %></td>
+						<td><% if custom.fullqual? %>Yes<% else %>No<% end %></td>
+						<td><% if custom.lowqual? %>Yes<% else %>No<% end %></td>
+						<td class="change">
+							<%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+						<td>
+							<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
+							<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this 
+								record?"}, class: "btn btn-success" 
+							%>
+						</td>
 	     			</tr>
 	   			<% end %>
-				<% end %>
-	 		</tbody>
-			</tbody>
+			<% end %>
+	 	</tbody>
 	</table>
 </div>
