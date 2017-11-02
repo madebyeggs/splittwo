@@ -3,7 +3,9 @@
 		<%= link_to '', works_path, :class => "closeIcon" %>
 		<h1 class="artistName titleSize1"><%= @work.brand_name %> "<%= @work.campaign_title %>"</h1>
 		<h3 class="projectSubtitle fixerSpace descriptionSize1 upcase"><%= @work.agency %></h3>
-		<h3 class="projectSubtitle spacer descriptionSize1 upcase italics"><em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %></h3>
+		<h3 class="projectSubtitle spacer descriptionSize1 upcase italics">
+			<em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %>
+		</h3>
 		<div class="links">
 			<input id="twitter" type="hidden" 
 				data-url="<%= @currentUrl %>"
@@ -18,7 +20,8 @@
 			<input id="googleplus" type="hidden" 
 				data-url="https://vimeo.com/<%= @work.vimeo %>"
 				data-media="<%= @work.fb_image %>"
-				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> 
+				featuring <%= @work.track_name %> by <%= @work.artist_name %>"
 				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
 				class="socialLinksHidden"
 			>
@@ -26,7 +29,8 @@
 			<input id="pinterest" type="hidden" 
 				data-url="https://vimeo.com/<%= @work.vimeo %>" 
 				data-media="<%= @work.fb_image %>"
-				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> featuring <%= @work.track_name %> by <%= @work.artist_name %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> 
+				featuring <%= @work.track_name %> by <%= @work.artist_name %>"
 				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
 				class="socialLinksHidden"
 			>
