@@ -19,7 +19,7 @@
 				<div class="textField"><%= f.text_field :lowqual, label: "Add link to zipped mp3s" %></div>
 			</div>
 		  	<div class="vimeoSectionInForm">
-				<h4 class="customTitles">First vimeo link</h4>
+				<h4 class="customTitles">First video link</h4>
 				<div class="textField2"><%= f.text_field :vimeo_1, label: "Video URL" %></div>
 				<div class="textField2">
 					<%= f.select :platform, options_for_select(["vimeo", "youtube"], @custom.platform) %>
@@ -28,7 +28,7 @@
 				<div class="textField2"><%= f.text_field :work_campaign_title, label: "Campaign title" %></div>
 			</div>
 			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Second vimeo link</h4>
+				<h4 class="customTitles">Second video link</h4>
 				<div class="textField2"><%= f.text_field :vimeo_2, label: "Video URL" %></div>
 				<div class="textField2">
 					<%= f.select :platform2, options_for_select(["vimeo", "youtube"], @custom.platform2) %>
@@ -37,7 +37,7 @@
 				<div class="textField2"><%= f.text_field :work_campaign_title2, label: "Campaign title" %></div>
 			</div>
 			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Third vimeo link</h4>
+				<h4 class="customTitles">Third video link</h4>
 				<div class="textField2"><%= f.text_field :vimeo_3, label: "Video URL" %></div>
 				<div class="textField2">
 					<%= f.select :platform3, options_for_select(["vimeo", "youtube"], @custom.platform3) %>

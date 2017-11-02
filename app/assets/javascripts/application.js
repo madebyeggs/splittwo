@@ -137,7 +137,9 @@ $(document).ready(function(){
 	$('.responsiveVideo').fitVids();
 	$('.responsiveVideo2').fitVids();
 	
-	plyr.setup();
+	var options = {controls: ['fullscreen'], clickToPlay: true, }
+	
+	plyr.setup(document.querySelectorAll('.js-player'), options);
 	
   	jQuery(".best_in_place").best_in_place();
 

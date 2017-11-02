@@ -93,7 +93,7 @@ class WorksController < ApplicationController
     
     def work_params
       params.require(:work).permit(:work_id, :brand_name, :campaign_title, :agency, :track_name, :artist_name, :description, :image, 
-      :fb_image, :slideshow, :slide_image, :slide_title, :slide_title2, :slide_title3, :row_order_position, :vimeo, :Slideshowposition)
+      :fb_image, :slideshow, :slide_image, :slide_title, :slide_title2, :slide_title3, :row_order_position, :vimeo, :Slideshowposition, :platform)
     end
   
 end

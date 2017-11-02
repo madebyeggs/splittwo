@@ -1,29 +1,46 @@
 <div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your placement here!</h2>
 	<%= bootstrap_form_for(@work) do |f| %>
-	  	<%= f.text_field :brand_name, label: "Brand name" %>
-		<%= f.text_field :campaign_title, label: "Campaign title" %>
-		<%= f.text_field :agency, label: "Agency name" %>
-		<%= f.text_field :track_name, label: "Track name" %>
-	    <%= f.text_field :artist_name, label: "Artist name" %>
-		<%= f.text_area :description, label: "Project description" %>
-		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
-	  	<%= f.text_field :slide_title, label: "Slideshow title first" %>
-		<%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %>
-		<%= f.text_field :slide_title3, label: "Slideshow title third" %>
-	    <%= f.text_field :vimeo, label: "Vimeo unique identifier (e.g 127146849)" %>
-		<%= f.file_field :image, label: "Placement main square image (crop to 400px X 400px before upload)" %>
-		<% if @work.image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @work.image_file_name %>" }</p>
-		<% end %>
-		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
-		<% if @work.fb_image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @work.fb_image_file_name %>" }</p>
-		<% end %>
-		<%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
-		<% if @work.slide_image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @work.slide_image_file_name %>" }</p>
-		<% end %>
-	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
+		<div class="vimeoSectionInForm">
+			<h4 class="customTitles">Video link</h4>
+			<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
+			<div class="textField2">
+				<%= f.select :platform, options_for_select(["vimeo", "youtube"], @work.platform) %>
+			</div>
+			<div class="textField2"><%= f.text_field :brand_name, label: "Brand name" %></div>
+			<div class="textField2"><%= f.text_field :campaign_title, label: "Campaign title" %></div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.text_field :agency, label: "Agency name" %></div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField2"><%= f.text_field :track_name, label: "Track name" %></div>
+	    	<div class="textField2"><%= f.text_field :artist_name, label: "Artist name" %></div>
+		</div>
+		<div class="fullWidthField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
+	  	<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title first" %></div>
+			<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %></div>
+			<div class="textField"><%= f.text_field :slide_title3, label: "Slideshow title third" %></div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.file_field :image, label: "Placement main square image (crop to 400px X 400px before upload)" %>
+				<% if @work.image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @work.image_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField"><%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+				<% if @work.fb_image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @work.fb_image_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField"><%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
+				<% if @work.slide_image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @work.slide_image_file_name %>" }</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="fullWidthField smallText"><%= f.text_area :description, label: "Project description" %></div>
+	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
 	<% end %>
 </div>

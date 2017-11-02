@@ -17,16 +17,15 @@
 		<div class="videosWrapper">
 			<div class="videoPositionFix">
 				<div class="responsiveVideo frame_container">
-					<div class="plyr">
-					    <div data-plyr='{ title: "testing" }'
-						data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+					<div class="plyr js-player">
+					    <div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
 					</div>
 					<h1 class="artistName titleSize1 customVideoTitle">
 						<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
 					</h1>
 				</div>
 				<div class="responsiveVideo frame_container">
-					<div class="plyr">
+					<div class="plyr js-player">
 					    <div data-video-id="<%= @custom.vimeo_2 %>" data-type="<%= @custom.platform2 %>"></div>
 					</div>
 					<h1 class="artistName titleSize1 customVideoTitle">
@@ -34,7 +33,7 @@
 					</h1>
 				</div>
 				<div class="responsiveVideo frame_container">
-					<div class="plyr">
+					<div class="plyr js-player">
 					    <div data-video-id="<%= @custom.vimeo_3 %>" data-type="<%= @custom.platform3 %>"></div>
 					</div>
 					<h1 class="artistName titleSize1 customVideoTitle">

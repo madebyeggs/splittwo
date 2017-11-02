@@ -35,11 +35,15 @@
 		<hr class="artistSeparator" />
 		<div class="fitvids responsiveVideo2">
 			<% if @work.vimeo? %>
-        	<iframe id="videoPlayer" class="responsiveVideo2" src="https://player.vimeo.com/video/<%= @work.vimeo %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<div class="plyr js-player">
+				    <div data-video-id="<%= @work.vimeo %>" data-type="<%= @work.platform %>"></div>
+				</div>
 			<% end %>
 		</div>
 		<% if @work.vimeo? %><hr class="projectSeparator" /><% end %>
-		<% if @work.description? %><p class="projectDetail"><%= simple_format @work.description, :class => "projectDetail descriptionSize1" %></p><% end %>
+		<% if @work.description? %><p class="projectDetail">
+			<%= simple_format @work.description, :class => "projectDetail descriptionSize1" %></p>
+		<% end %>
 	</div>
 </div>
 <script>
