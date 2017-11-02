@@ -1,25 +1,37 @@
 <div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your release here!</h2>
 	<%= bootstrap_form_for(@release) do |f| %>
-	  	<%= f.text_field :title, label: "Title" %>
-		<%= f.text_field :soundcloud, label: "Soundcloud ID" %>
-		<%= f.text_area :description, label: "Description" %>
-		<%= f.check_box :slideshow, label: "Add to slideshow?" %>
-	  	<%= f.text_field :slide_title, label: "Slideshow title first" %>
-		<%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %>
-		<%= f.text_field :slide_title3, label: "Slideshow title third" %>
-		<%= f.file_field :image, label: "Release main square image (crop to 400px X 400px before upload)" %>
-		<% if @release.image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @release.image_file_name %>" }</p>
-		<% end %>
-		<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
-		<% if @release.fb_image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @release.fb_image_file_name %>" }</p>
-		<% end %>
-		<%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
-		<% if @release.slide_image.exists? %>
-			<p class="existingImageName">{ Current Image: "<%= @release.slide_image_file_name %>" }</p>
-		<% end %>
-	  	<%= f.submit 'Submit', class: "btn btn-success"  %>
+		<div class="vimeoSectionInForm">
+	  		<div class="textField"><%= f.text_field :title, label: "Title" %></div>
+			<div class="textField"><%= f.text_field :soundcloud, label: "Soundcloud ID" %></div>
+			<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title first" %></div>
+			<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %></div>
+			<div class="textField"><%= f.text_field :slide_title3, label: "Slideshow title third" %></div>
+		</div>
+		<div class="vimeoSectionInForm"><%= f.text_area :description, label: "Description" %></div>
+		<div class="vimeoSectionInForm">
+			<div class="textField">
+				<%= f.file_field :image, label: "Release main square image (crop to 400px X 400px before upload)" %>
+				<% if @release.image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @release.image_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField">
+				<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+				<% if @release.fb_image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @release.fb_image_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField">
+				<%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
+				<% if @release.slide_image.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @release.slide_image_file_name %>" }</p>
+				<% end %>
+			</div>
+		</div>
+	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
 	<% end %>
 </div>
