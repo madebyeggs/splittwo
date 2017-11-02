@@ -20,21 +20,24 @@
 			</div>
 		  	<div class="vimeoSectionInForm">
 				<h4 class="customTitles">First vimeo link</h4>
-				<div class="textField"><%= f.text_field :vimeo_1, label: "Unique ID" %></div>
-				<div class="textField"><%= f.text_field :work_brand_name, label: "Brand name" %></div>
-				<div class="textField"><%= f.text_field :work_campaign_title, label: "Campaign title" %></div>
+				<div class="textField2"><%= f.text_field :vimeo_1, label: "Video URL" %></div>
+				<div class="textField2"><%= f.text_field :platform, label: "Platform ('vimeo' or 'youtube')" %></div>
+				<div class="textField2"><%= f.text_field :work_brand_name, label: "Brand name" %></div>
+				<div class="textField2"><%= f.text_field :work_campaign_title, label: "Campaign title" %></div>
 			</div>
 			<div class="vimeoSectionInForm">
 				<h4 class="customTitles">Second vimeo link</h4>
-				<div class="textField">	<%= f.text_field :vimeo_2, label: "Unique ID" %></div>
-				<div class="textField">	<%= f.text_field :work_brand_name2, label: "Brand name" %></div>
-				<div class="textField">	<%= f.text_field :work_campaign_title2, label: "Campaign title" %></div>
+				<div class="textField2">	<%= f.text_field :vimeo_2, label: "Video URL" %></div>
+				<div class="textField2"><%= f.text_field :platform2, label: "Platform ('vimeo' or 'youtube')" %></div>
+				<div class="textField2">	<%= f.text_field :work_brand_name2, label: "Brand name" %></div>
+				<div class="textField2">	<%= f.text_field :work_campaign_title2, label: "Campaign title" %></div>
 			</div>
 			<div class="vimeoSectionInForm">
 				<h4 class="customTitles">Third vimeo link</h4>
-				<div class="textField">	<%= f.text_field :vimeo_3, label: "Unique ID" %></div>
-				<div class="textField">	<%= f.text_field :work_brand_name3, label: "Brand name" %></div>
-				<div class="textField">	<%= f.text_field :work_campaign_title3, label: "Campaign title" %></div>
+				<div class="textField2">	<%= f.text_field :vimeo_3, label: "Video URL" %></div>
+				<div class="textField2"><%= f.text_field :platform3, label: "Platform ('vimeo' or 'youtube')" %></div>
+				<div class="textField2">	<%= f.text_field :work_brand_name3, label: "Brand name" %></div>
+				<div class="textField2">	<%= f.text_field :work_campaign_title3, label: "Campaign title" %></div>
 			</div>
 		  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success btnLarge"  %></div>
 		<% end %>

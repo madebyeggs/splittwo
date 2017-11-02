@@ -134,6 +134,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    plyr-rails (2.0.14)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   nprogress-rails
   paperclip (~> 4.2)
   pg
+  plyr-rails
   rails (= 4.2.5.1)
   rails_12factor
   ranked-model

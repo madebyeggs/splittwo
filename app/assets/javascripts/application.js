@@ -36,6 +36,7 @@
 //= require FB_SDK
 //= require lazysizes_rails
 //= require fitvids.js
+//= require plyr
 
 $(document).ready(function(){
 	
@@ -65,6 +66,13 @@ $(document).ready(function(){
 	});
 	
 	$('.my_iFrame').load(function() {
+	    $('.loading').css('display', 'none');
+	    $('.js #my_iFrame').css('visibility', 'visible');
+	});
+	
+	
+	
+	$('.plyr').load(function() {
 	    $('.loading').css('display', 'none');
 	    $('.js #my_iFrame').css('visibility', 'visible');
 	});
@@ -129,11 +137,13 @@ $(document).ready(function(){
 	$('.responsiveVideo').fitVids();
 	$('.responsiveVideo2').fitVids();
 	
+	plyr.setup();
+	
   	jQuery(".best_in_place").best_in_place();
 
 	$('#myTabs a').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
-	})
+	});
 	
 });

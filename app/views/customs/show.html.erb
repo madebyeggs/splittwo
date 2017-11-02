@@ -17,22 +17,29 @@
 		<div class="videosWrapper">
 			<div class="videoPositionFix">
 				<div class="responsiveVideo frame_container">
-					<iframe class="my_iFrame" src="https://player.vimeo.com/video/<%= @custom.vimeo_1 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"</h1>
+					<div class="plyr">
+					    <div data-plyr='{ title: "testing" }'
+						data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+					</div>
+					<h1 class="artistName titleSize1 customVideoTitle">
+						<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+					</h1>
 				</div>
 				<div class="responsiveVideo frame_container">
-					<iframe src="https://player.vimeo.com/video/<%= @custom.vimeo_2 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name2 %> "<%= @custom.work_campaign_title2 %>"</h1>
+					<div class="plyr">
+					    <div data-video-id="<%= @custom.vimeo_2 %>" data-type="<%= @custom.platform2 %>"></div>
+					</div>
+					<h1 class="artistName titleSize1 customVideoTitle">
+						<%= @custom.work_brand_name2 %> "<%= @custom.work_campaign_title2 %>"
+					</h1>
 				</div>
 				<div class="responsiveVideo frame_container">
-					<iframe src="https://player.vimeo.com/video/<%= @custom.vimeo_3 %>?title=0&amp;byline=0&amp;" width="500" height="281" frameborder="0" 
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<%= image_tag('vimeoLoading.gif', :class => "loading") %>
-					<h1 class="artistName titleSize1 customVideoTitle"><%= @custom.work_brand_name3 %> "<%= @custom.work_campaign_title3 %>"</h1>
+					<div class="plyr">
+					    <div data-video-id="<%= @custom.vimeo_3 %>" data-type="<%= @custom.platform3 %>"></div>
+					</div>
+					<h1 class="artistName titleSize1 customVideoTitle">
+						<%= @custom.work_brand_name3 %> "<%= @custom.work_campaign_title3 %>"
+					</h1>
 				</div>
 			</div>
 		</div>
@@ -46,13 +53,15 @@
 			<h1 class="customTitleListen">Listen</h1>
 				<!-- Nav tabs -->
 			  	<ul class="nav nav-tabs" role="tablist">
-			    	<li role="presentation" class="active"><a href="#stream" aria-controls="stream" role="tab" data-toggle="tab">Stream</a></li>
+			    	<li role="presentation" class="active">
+						<a href="#stream" aria-controls="stream" role="tab" data-toggle="tab">Stream</a>
+					</li>
 			    	<li role="presentation"><a href="#download" aria-controls="download" role="tab" data-toggle="tab">Download</a></li>
 			  	</ul>
-
 			  	<div class="tab-content">
 			  		<div role="tabpanel" class="tab-pane fade in active" id="stream">
-			  			<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @custom.soundcloud %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+			  			<iframe width="100%" height="300" scrolling="no" frameborder="no" 
+	src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%=@custom.soundcloud%>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
 			  		</div>
 			  		<div role="tabpanel" class="tab-pane fade" id="download">
 						<%= link_to 'Download wavs', "#{@custom.fullqual}", :target => "_blank", :class => "customBtn" %>

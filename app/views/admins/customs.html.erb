@@ -11,9 +11,9 @@
 	     		<th>Info</th>
 				<th>Categories</th>
 				<th>Soundcloud</th>
-				<th>Vimeo 1</th>
-	     		<th>Vimeo 2</th>
-				<th>Vimeo 3</th>
+				<th>Video 1</th>
+	     		<th>Video 2</th>
+				<th>Video 3</th>
 				<th>Image?</th>
 				<th>Wavs?</th>
 				<th>Mp3s?</th>
@@ -25,34 +25,52 @@
 	   			<% @customs_d.each do |custom| %>
 	     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
 	       			<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="name" data-placeholder="Name">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="name" data-placeholder="Name">
 					  		<%= custom.name %>
 						</span>
 					</td>
 					<td><% if custom.description? %>Yes<% else %>No<% end %></td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
 							<%= custom.genre %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD ID">
 							<%= custom.soundcloud %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_1" data-placeholder="ADD FIRST VIMEO LINK">
-							<%= custom.vimeo_1 %>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
+							<%= custom.work_brand_name %>
+						</span><br/><br/>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
+							<%= custom.work_campaign_title %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_2" data-placeholder="ADD SECOND VIMEO LINKL">
-							<%= custom.vimeo_2 %>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_brand_name2" data-placeholder="ADD BRAND NAME">
+							<%= custom.work_brand_name2 %>
+						</span><br/><br/>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_campaign_title2" data-placeholder="ADD CAMPAIGN TITLE">
+							<%= custom.work_campaign_title2 %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" data-attribute="vimeo_3" data-placeholder="ADD THIRD VIMEO LINK">
-							<%= custom.vimeo_3 %>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_brand_name3" data-placeholder="ADD BRAND NAME">
+							<%= custom.work_brand_name3 %>
+						</span><br/><br/>
+						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+							data-attribute="work_campaign_title3" data-placeholder="ADD CAMPAIGN TITLE">
+							<%= custom.work_campaign_title3 %>
 						</span>
 					</td>
 					<td><% if custom.image? %>Yes<% else %>No<% end %></td>
