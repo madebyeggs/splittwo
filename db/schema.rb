@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102152256) do
+ActiveRecord::Schema.define(version: 20171109091532) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171102152256) do
     t.text     "slide_title2"
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
+    t.string   "platform"
   end
 
   add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true

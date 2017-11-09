@@ -13,7 +13,8 @@
 	     		<th>Title</th>
 	     		<th>Description?</th>
 				<th>Soundcloud</th>
-				<th>Vimeo</th>
+				<th>Video URL</th>
+				<th>Platform</th>
 				<th>Slideshow?</th>
 				<th>Image? | FB Image?</th>
 				<th></th>
@@ -34,8 +35,14 @@
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" data-attribute="vimeo" data-placeholder="Vimeo">
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
 					  		<%= announcement.vimeo %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
+							data-attribute="platform" data-placeholder="ADD PLATFORM">
+							<%= announcement.platform %>
 						</span>
 					</td>
 					<td><%= best_in_place announcement, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
