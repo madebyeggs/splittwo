@@ -70,8 +70,6 @@ $(document).ready(function(){
 	    $('.js #my_iFrame').css('visibility', 'visible');
 	});
 	
-	
-	
 	$('.plyr').load(function() {
 	    $('.loading').css('display', 'none');
 	    $('.js #my_iFrame').css('visibility', 'visible');
@@ -137,7 +135,7 @@ $(document).ready(function(){
 	$('.responsiveVideo').fitVids();
 	$('.responsiveVideo2').fitVids();
 	
-	var options = {controls: ['fullscreen'], clickToPlay: true, }
+	var options = {clickToPlay: true, }
 	
 	plyr.setup(document.querySelectorAll('.js-player'), options);
 	
