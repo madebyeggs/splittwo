@@ -40,7 +40,7 @@
 //= require iscroll
 //= require drawer
 
-function main_load () {
+$(document).ready(function(){
 	
 	$(".change").on("ajax:success",function(){
 	    location.reload();
@@ -143,24 +143,15 @@ function main_load () {
 	  $(this).tab('show')
 	});
 	
-	
-}
-
-$(document).ready(function(){
-	
 	$('.drawer').drawer();
 	if ($(window).width() < 991) { 
 		$(".drawer").addClass( "drawer--top" );
 		$(".draw-left").hide();
-		$(".draw-top").show(function(){
-			
-		});
+		$(".draw-top").show();
 	} else { 
 		$(".drawer").addClass( "drawer--left" );
 		$(".draw-top").hide();
-		$(".draw-left").show(function(){
-			
-		});
+		$(".draw-left").show();
 	}
 	
 });
