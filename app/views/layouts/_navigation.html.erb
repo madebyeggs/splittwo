@@ -1,47 +1,84 @@
-<div class="col-md-4">
-	<div class="leftSide">
-		<div class="logo"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), root_path) %></div>
-		<% if user_signed_in? %>
-			<div class="userInfo">
-				<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>
-				<%= link_to 'Edit', edit_user_registration_path, class: "clearFixer" %> | 
-				<%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "clearFixer" %> |
-				<%= link_to 'CMS', admins_slideshow_path %></div>
-			</div>
-		<% end %>
-		<div class="navigationWrapper">
-			<ul id="menu" class="navigation clearfix">
-				<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton clearFixer" %></li>
-				<li class="navButton"><%= link_to 'Releases', releases_path, :class => "navigationButton clearFixer" %></li>
-				<li class="navButton"><%= link_to 'Placements', works_path, :class => "navigationButton clearFixer" %></li>
-				<!--<li class="navButton"><%#= link_to 'Bespoke', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>-->
-				<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
-				<li class="navButton"><%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", :target => "blank" %></li>
-				<li class="navButton"><%= link_to 'Composition', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>
-			</ul>
+<header role="banner">
+	<% if user_signed_in? %>
+		<div class="userInfo">
+			<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>
+			<%= link_to 'Edit', edit_user_registration_path, class: "clearFixer" %> | 
+			<%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "clearFixer" %> |
+			<%= link_to 'CMS', admins_slideshow_path %></div>
 		</div>
-		<div class="social">
-			<div class="centerSocial">
-				<a href="https://www.facebook.com/pages/Fairsplit-Music/609198105854352" target="_blank">
-					<i class="fa fa-facebook fa-lg"></i>
-				</a>
-				<a href="https://twitter.com/FairsplitMusic" target="_blank">
-					<i class="fa fa-twitter fa-lg"></i>
-				</a>
-				<a href="" target="_blank">
-					<i class="fa fa-instagram fa-lg"></i>
-				</a>
-				<a href="https://www.youtube.com/channel/UCcjbocHGR4WaSlrkqSfbwBg" target="_blank">
-					<i class="fa fa-youtube fa-lg"></i>
-				</a>
-				<a href="https://soundcloud.com/fairsplit-music" target="_blank">
-					<i class="fa fa-soundcloud"></i>
-				</a>
-				<span class="pipe">|</span> 
-				<a class="fixMute" href="<%= contacts_path %>">
-					<i class="fa fa-envelope-o fa-lg"></i>
-				</a>
+	<% end %>
+	<button type="button" class="drawer-toggle drawer-hamburger">
+    	<span class="sr-only">toggle navigation</span>
+    	<span class="drawer-hamburger-icon"></span>
+    </button>
+    <nav class="drawer-nav draw-left" role="navigation">
+	    <ul class="drawer-menu">
+        	<li><%= image_tag('logoNoLetters.png', class: "logo clearFixer") %></li>
+        	<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
+        	<li class="navButton">
+				<%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", 
+				:target => "blank" %>
+			</li>
+			<li class="navButton">
+				<%= link_to 'Composition', customs_path, :class => "navigationButton clearFixer", :target => "blank" %>
+			</li>
+		</ul>
+    </nav>
+	<nav class="drawer-nav draw-top" role="navigation">
+		<div class="logo3"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), root_path) %></div>
+	    <ul class="drawer-menu">
+			<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton clearFixer" %></li>
+			<li class="navButton"><%= link_to 'Releases', releases_path, :class => "navigationButton clearFixer" %></li>
+			<li class="navButton"><%= link_to 'Placements', works_path, :class => "navigationButton clearFixer" %></li><br/>
+			<li class="navButton">re-search</li><br/>
+        	<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
+        	<li class="navButton">
+				<%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", 
+				:target => "blank" %>
+			</li>
+			<li class="navButton"><%= link_to 'Composition', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>
+		</ul>
+    </nav>
+</header>
+<main role="main">
+	<div class="col-md-4">
+		<div class="leftSide">
+			<div class="verticalAlignCentre">
+				<div class="logo"><%= link_to(image_tag('logo.png', class: "logo clearFixer"), root_path) %></div>
+				<div class="navigationWrapper">
+					<ul id="menu" class="navigation clearfix">
+						<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton clearFixer" %></li>
+						<li class="navButton"><%= link_to 'Releases', releases_path, :class => "navigationButton clearFixer" %></li>
+						<li class="navButton">
+							<%= link_to 'Placements', works_path, :class => "navigationButton clearFixer" %>
+						</li><br/>
+						<li class="navButton">re-search</li>
+					</ul>
+				</div>
+				<div class="social">
+					<div class="centerSocial">
+						<a href="https://www.facebook.com/pages/Fairsplit-Music/609198105854352" target="_blank">
+							<i class="fa fa-facebook fa-lg"></i>
+						</a>
+						<a href="https://twitter.com/FairsplitMusic" target="_blank">
+							<i class="fa fa-twitter fa-lg"></i>
+						</a>
+						<a href="" target="_blank">
+							<i class="fa fa-instagram fa-lg"></i>
+						</a>
+						<a href="https://www.youtube.com/channel/UCcjbocHGR4WaSlrkqSfbwBg" target="_blank">
+							<i class="fa fa-youtube fa-lg"></i>
+						</a>
+						<a href="https://soundcloud.com/fairsplit-music" target="_blank">
+							<i class="fa fa-soundcloud"></i>
+						</a>
+						<span class="pipe">|</span> 
+						<a class="fixMute" href="<%= contacts_path %>">
+							<i class="fa fa-envelope-o fa-lg"></i>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</main>

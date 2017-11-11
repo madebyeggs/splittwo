@@ -37,8 +37,10 @@
 //= require lazysizes_rails
 //= require fitvids.js
 //= require plyr
+//= require iscroll
+//= require drawer
 
-$(document).ready(function(){
+function main_load () {
 	
 	$(".change").on("ajax:success",function(){
 	    location.reload();
@@ -125,11 +127,6 @@ $(document).ready(function(){
 	    }
 	});
 	
-	//mobileNavMenu
-	$(function(){
-		$('#menu').slicknav();
-	});
-	
 	$('.prettySocial').prettySocial();
 	
 	$('.responsiveVideo').fitVids();
@@ -145,5 +142,25 @@ $(document).ready(function(){
 	  e.preventDefault()
 	  $(this).tab('show')
 	});
+	
+	
+}
+
+$(document).ready(function(){
+	
+	$('.drawer').drawer();
+	if ($(window).width() < 991) { 
+		$(".drawer").addClass( "drawer--top" );
+		$(".draw-left").hide();
+		$(".draw-top").show(function(){
+			
+		});
+	} else { 
+		$(".drawer").addClass( "drawer--left" );
+		$(".draw-top").hide();
+		$(".draw-left").show(function(){
+			
+		});
+	}
 	
 });

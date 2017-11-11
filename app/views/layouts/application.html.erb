@@ -14,8 +14,7 @@
 		<%= favicon_link_tag 'favicon.png' %>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700|Open+Sans:300,700' rel='stylesheet' type='text/css'>
 	</head>
-	<body bgcolor="#000000">
-		
+	<body bgcolor="#000000" class="drawer">
 		<% if controller_name == "admins" %>
 			<%= yield %>
 		<% elsif controller_name == "customs" && (controller.action_name == "index" || controller.action_name == "show") %>
@@ -24,6 +23,5 @@
 			<%= render 'layouts/navigation' %>
 			<%= render 'layouts/main' %>
 		<% end %>
-		
 	</body>
 </html>
