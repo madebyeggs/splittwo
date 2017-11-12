@@ -12,7 +12,10 @@
 						<h5><%= slide.slide_title %></h5>
 						<h5 class="colour"><%= slide.slide_title2 %></h5>
 						<hr class="dots"/>
-						<p class="artistDescription"><%= slide.slide_title3 %></p>
+						<p class="artistDescription">
+							<%= truncate(slide.slide_title3, :length => 160, :omission => "" , :escape => false, 
+							separator: ' ', omission: '<br/><br/>... (read more)') %>
+						</p>
 					</a>
 				</div>
 			</div>
