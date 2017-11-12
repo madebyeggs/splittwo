@@ -27,6 +27,7 @@
 //= require update_releases_row_order
 //= require update_announcements_row_order
 //= require update_customs_row_order
+//= require update_researches_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require imagesloaded
@@ -145,11 +146,11 @@ $(document).ready(function(){
 	
 	$('.drawer').drawer();
 	if ($(window).width() < 991) { 
-		$(".drawer").addClass( "drawer--top" );
+		$(".drawerMobileFix").addClass( "drawer--top" );
 		$(".draw-left").hide();
 		$(".draw-top").show();
 	} else { 
-		$(".drawer").addClass( "drawer--left" );
+		$(".drawerMobileFix").addClass( "drawer--left" );
 		$(".draw-top").hide();
 		$(".draw-left").show();
 	}

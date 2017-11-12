@@ -1,23 +1,43 @@
 <div class="col-md-12 mainContent projectlist">
-	<% if @custom_count == 6 %></h1>
-		<% @sorted_custom_displays.each do |c| %>
-			<%= render "customs/smallTile", :c => c %>
+	<div class="desktop">
+		<% if @custom_count == 6 %></h1>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+		<% elsif @custom_count == 5 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+			<%= render 'smallBrandingTile' %>
+		<% elsif @custom_count == 4 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+		<% else %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+			<%= render 'largeBrandingTile' %>
 		<% end %>
-	<% elsif @custom_count == 5 %>
-		<%= render 'smallMenu' %>
-		<% @sorted_custom_displays.each do |c| %>
-			<%= render "customs/smallTile", :c => c %>
+	</div>
+	<div class="mobile">
+		<% if @custom_count == 6 %></h1>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+		<% elsif @custom_count == 5 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+		<% elsif @custom_count == 4 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+		<% else %>
+			<%= render 'largeBrandingTile' %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
 		<% end %>
-		<%= render 'smallBrandingTile' %>
-	<% elsif @custom_count == 4 %>
-		<% @sorted_custom_displays.each do |c| %>
-			<%= render "customs/largeTile", :c => c %>
-		<% end %>
-	<% else %>
-		<% @sorted_custom_displays.each do |c| %>
-		<%= render 'bigMenu' %>
-			<%= render "customs/largeTile", :c => c %>
-		<% end %>
-		<%= render 'largeBrandingTile' %>
-	<% end %>
+	</div>
 </div>

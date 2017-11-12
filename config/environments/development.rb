@@ -50,6 +50,11 @@ Rails.application.configure do
     :convert_options => { :all => '-quality 80' }
   }
   
+  RESEARCH_IMAGE_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '1680X915>', :thumb => "350X191"},
+    :convert_options => { :all => '-quality 80' }
+  }
+  
   SLIDE_PAPERCLIP_STORAGE_OPTS = {
     :styles => {:main => '1115X952>'},
     :convert_options => { :all => '-quality 80' }

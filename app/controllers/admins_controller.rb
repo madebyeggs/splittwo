@@ -41,6 +41,10 @@ class AdminsController < ApplicationController
     end
   end
   
+  def researches
+    @researches = Research.rank(:row_order).all
+  end
+  
   def customs
     @releases = Release.rank(:row_order).all
     @customs = Custom.rank(:row_order).all

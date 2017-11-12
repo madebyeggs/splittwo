@@ -1,0 +1,52 @@
+<header role="banner">
+	<button type="button" class="drawer-toggle drawer-hamburger">
+		<span class="sr-only">toggle navigation</span>
+		<span class="drawer-hamburger-icon"></span>
+	</button>
+	<nav class="drawer-nav draw-left" role="navigation">
+	    <ul class="drawer-menu">
+	    	<li class="navButton">
+				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
+				from%20the%20website" target="_top">Contact</a>
+			</li>
+			<li class="navButton">Join Mailing List</li>
+		</ul>
+	</nav>
+	<nav class="drawer-nav draw-top" role="navigation">
+	    <ul class="drawer-menu">
+			<li class="navButton">
+				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
+				from%20the%20website" target="_top">Contact</a>
+			</li>
+			<li class="navButton">Join Mailing List</li>
+		</ul>
+    </nav>
+	<div class="sliderOverlay">
+		<%= image_tag("researchLogo.png", class: "researchLogo") %>
+		<h1>#researchspheres</h1>
+	</div>
+	<div class="royalSlider researchSlider rsDefault">
+		<% @researches.each do |slide| %>
+		    <div>
+				<%= image_tag(slide.image, class: "rsImg") %>
+			</div>
+		<% end %>
+	</div>
+</header>
+<script>
+	
+	var sliderInstance = $('.researchSlider').royalSlider({
+		autoPlay: {
+			// autoplay options go gere
+	    	enabled: true,
+	    	pauseOnHover: false,
+			delay: 5000
+		},
+		imageAlignCenter: true,
+		imageScaleMode: 'fill',
+		loop: true,
+		arrowsNav: true
+	}).data("researchSlider");
+	
+		
+</script>

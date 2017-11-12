@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109091532) do
+ActiveRecord::Schema.define(version: 20171112142125) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -157,6 +157,20 @@ ActiveRecord::Schema.define(version: 20171109091532) do
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
+
+  create_table "researches", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "title"
+    t.string   "slug"
+    t.integer  "row_order"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "researches", ["slug"], name: "index_researches_on_slug", unique: true
 
   create_table "slides", force: :cascade do |t|
     t.datetime "created_at", null: false

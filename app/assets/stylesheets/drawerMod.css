@@ -7,7 +7,7 @@
     z-index: 2;
     top: 0;
     overflow: hidden;
-    width: 26.25rem;
+    width: 33.3%;
     height: 100%;
     color: #fff;
     background-color: #000;
@@ -83,7 +83,7 @@ li.navButton2 {
 }
 
 .drawer--left .drawer-nav {
-    left: -26.25rem;
+    left: -33.3%;
     -webkit-transition: left .6s cubic-bezier(.19, 1, .22, 1);
     transition: left .6s cubic-bezier(.19, 1, .22, 1)
 }

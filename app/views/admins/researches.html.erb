@@ -1,0 +1,29 @@
+<%= render :partial => 'admins/navigation' %>
+<div class="col-md-10 cmsTable canScroll">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles2">Re-search</h2>
+	<%= link_to 'Add New Re-search Image', new_research_path, class: "btn btn-success csvInput2"  %>
+	<%= link_to 'Launch Re-search Page', researches_path, class: "btn btn-success csvInput3", target: "blank"  %>
+	<table class="table table-striped" id="sortableResearch">
+	 		<thead>
+	   		<tr>
+	     		<th>Image</th>
+				<th>Image Name</th>
+				<th>Image Path</th>
+	   		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @researches.each do |research| %>
+	     			<tr data-item-id=<%= "#{research.id}" %> class="item">
+					<td><%= image_tag(research.image(:thumb), class: "thumb") %></td>
+	       			<td><%= research.image_file_name %></td>
+					<td><%= research.image %></td>
+					<td class="align-right">
+						<%= link_to 'Edit', edit_research_path(research), class: "btn btn-success" %>
+						<%= link_to 'Delete', research, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+					</td>
+	     			</tr>
+	   		<% end %>
+	 		</tbody>
+	</table>
+</div>

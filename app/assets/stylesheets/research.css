@@ -1,0 +1,16 @@
+.sliderOverlay {
+	width:400px;
+	height:205px;
+	position:absolute;
+	z-index:5;
+	margin: auto;
+  	position: absolute;
+  	top: 0; left: 0; bottom: 0; right: 0;
+	text-align:center;
+}
+.researchLogo {width:400px;}
+.researchLogo img {max-width:100%;}
+
+@media (max-width:480px) {
+	.researchLogo {width:280px;}
+}

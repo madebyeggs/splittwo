@@ -5,8 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="description" content="Split Music | 21st Century Music Publishing | Unique Music to Picture | Our passion is diverse, authentic music. Our expertise is in applying it to picture. We choose writers that create vibrant textures and emotions, transcending beyond music into powerful, dynamic audio visual format.">
 		<meta name="title" content="Split Music | 21st Century Music Publishing | Unique Music to Picture">
-  
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+		<% if controller_name == "researches" %>
+			<%= stylesheet_link_tag 'drawer' %>
+		<% else %>
+			<%= stylesheet_link_tag 'drawerMod' %>
+		<% end %>
   		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   		<%= csrf_meta_tags %>
 		<%= display_meta_tags %>
@@ -14,14 +19,20 @@
 		<%= favicon_link_tag 'favicon.png' %>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700|Open+Sans:300,700' rel='stylesheet' type='text/css'>
 	</head>
-	<body bgcolor="#000000" class="drawer">
-		<% if controller_name == "admins" %>
+	<% if controller_name == "admins" %>
+		<%= yield %>
+	<% elsif controller_name == "researches" && action_name == "index" %>
+		<body bgcolor="#000000" class="drawer drawerMobileFix">
 			<%= yield %>
-		<% elsif controller_name == "customs" && (controller.action_name == "index" || controller.action_name == "show") %>
+		</body>
+	<% elsif controller_name == "customs" %>
+		<body bgcolor="#000000" class="drawer drawer--right">
 			<%= yield %>
-		<% else %>
+		</body>
+	<% else %>
+		<body bgcolor="#000000" class="drawer drawerMobileFix">
 			<%= render 'layouts/navigation' %>
 			<%= render 'layouts/main' %>
-		<% end %>
-	</body>
+		</body>
+	<% end %>
 </html>

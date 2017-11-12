@@ -31,6 +31,11 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
     collection {post :import}
   end
+  resources :researches, :path => "re-search"
+  resources :researches do
+    post :update_row_order, on: :collection
+    collection {post :import}
+  end
   resources :contacts, :path => "contact"
   resources :share_closes
   
@@ -39,6 +44,7 @@ Rails.application.routes.draw do
   match "admins/placements" => "admins#placements", via: [:get, :post]
   match "admins/releases" => "admins#releases", via: [:get, :post]
   match "admins/customs" => "admins#customs", via: [:get, :post]
+  match "admins/researches" => "admins#researches", via: [:get, :post]
   match "admins/slideshow" => "admins#slideshow", via: [:get, :post]
   match "admins/announcements" => "admins#announcements", via: [:get, :post]
   

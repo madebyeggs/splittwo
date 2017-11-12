@@ -5,6 +5,7 @@
 	<table class="table table-striped" id="sortableAnnouncement">
 	 		<thead>
 	   		<tr>
+				<th>Image</th>
 	     		<th>Title</th>
 	     		<th>Description?</th>
 				<th>Soundcloud</th>
@@ -18,6 +19,7 @@
 	 		<tbody>
 	   		<% @sorted_slides.each do |slide| %>
      			<tr data-item-id=<%= "" %> class="item">
+					<td><%= image_tag(slide.slide_image, class: "thumb2") %></td>
        				<td><%= best_in_place slide, :slide_title %></td>
 					<td><% if slide.description? %>Yes<% else %>No<% end %></td>
 					<td><%= slide.soundcloud %></td>

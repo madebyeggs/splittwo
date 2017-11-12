@@ -14,7 +14,10 @@
     <nav class="drawer-nav draw-left" role="navigation">
 	    <ul class="drawer-menu">
         	<li><%= image_tag('logoNoLetters.png', class: "logo clearFixer") %></li>
-        	<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
+        	<li class="navButton">
+				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
+				from%20the%20website" target="_top">Contact</a>
+			</li>
         	<li class="navButton">
 				<%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", 
 				:target => "blank" %>
@@ -30,13 +33,18 @@
 			<li class="navButton"><%= link_to 'Artists', artists_path, :class => "navigationButton clearFixer" %></li>
 			<li class="navButton"><%= link_to 'Releases', releases_path, :class => "navigationButton clearFixer" %></li>
 			<li class="navButton"><%= link_to 'Placements', works_path, :class => "navigationButton clearFixer" %></li><br/>
-			<li class="navButton">re-search</li><br/>
-        	<li class="navButton"><%= link_to 'Contact', contacts_path, :class => "navigationButton clearFixer" %></li>
+			<li class="navButton"><%= link_to 'Re-search', researches_path, :class => "navigationButton clearFixer", 
+			:target => "blank" %></li>
+        	<li class="navButton">
+        		<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
+				from%20the%20website" target="_top">Contact</a>
+        	</li>
         	<li class="navButton">
 				<%= link_to 'Client Login', "https://splitmusic.sourceaudio.com", :class => "navigationButton clearFixer", 
 				:target => "blank" %>
 			</li>
-			<li class="navButton"><%= link_to 'Composition', customs_path, :class => "navigationButton clearFixer", :target => "blank" %></li>
+			<li class="navButton"><%= link_to 'Composition', customs_path, :class => "navigationButton clearFixer", 
+			:target => "blank" %></li>
 		</ul>
     </nav>
 </header>
@@ -52,7 +60,8 @@
 						<li class="navButton">
 							<%= link_to 'Placements', works_path, :class => "navigationButton clearFixer" %>
 						</li><br/>
-						<li class="navButton">re-search</li>
+						<li class="navButton"><%= link_to 'Re-search', researches_path, :class => "navigationButton clearFixer", 
+						:target => "blank" %></li>
 					</ul>
 				</div>
 				<div class="social">
@@ -73,7 +82,8 @@
 							<i class="fa fa-soundcloud"></i>
 						</a>
 						<span class="pipe">|</span> 
-						<a class="fixMute" href="<%= contacts_path %>">
+						<a class="fixMute" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
+						from%20the%20website" target="_top">
 							<i class="fa fa-envelope-o fa-lg"></i>
 						</a>
 					</div>

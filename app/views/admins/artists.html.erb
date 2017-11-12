@@ -2,27 +2,25 @@
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2">Artists</h2>
-	<%= form_tag import_artists_path, class: "csvInput marginCsv", multipart: true do %>
-		<%= file_field_tag :file %><br/>
-		<%= submit_tag "Import CSV", class: "btn btn-success marginCsv2" %>
-	<% end %>
-	 	<%= link_to 'Add New Artist', new_artist_path, class: "btn btn-success csvInput"  %>
+	<%= link_to 'Add New Artist', new_artist_path, class: "btn btn-success csvInput3"  %>
 	<table class="table table-striped" id="sortableArtist">
 	 		<thead>
 	   		<tr>
+				<th>Image</th>
 	     		<th>Name</th>
 	     		<th>Description</th>
 				<th>Soundcloud</th>
 	     		<th>FB URL</th>
 				<th>Twitter Name</th>
 				<th>Add to slideshow</th>
-				<th>Image? | FB Image?</th>
+				<th>FB Image?</th>
 				<th></th>
 	   		</tr>
 	 		</thead>
 	 		<tbody>
 	   		<% @artists.each do |artist| %>
 	     			<tr data-item-id=<%= "#{artist.id}" %> class="item">
+					<td><%= image_tag(artist.image, class: "thumb2") %></td>
 	       			<td>
 						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="name" data-placeholder="">
 					  		<%= artist.name %>
@@ -45,7 +43,7 @@
 						</span>
 					</td>
 					<td><%= best_in_place artist, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td><% if artist.image? %>Yes<% else %>No<% end %> | <% if artist.fb_image? %>Yes<% else %>No<% end %></td>
+					<td><% if artist.fb_image? %>Yes<% else %>No<% end %></td>
 					<td>
 						<%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-success" %>
 						<%= link_to 'Delete', artist, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>

@@ -15,8 +15,6 @@ class CustomsController < ApplicationController
     def edit
       @custom = Custom.find_by_slug(params[:id])
     end
-    
-    
 
     def update   
       @custom = Custom.find_by_slug(params[:id])
