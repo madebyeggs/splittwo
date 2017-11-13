@@ -24,7 +24,10 @@
   	top: 11%;
 }
 
-.draw-top {overflow:scroll;}
+.draw-top {
+	overflow-y: scroll;
+  	-webkit-overflow-scrolling:touch;
+}
 
 .drawer-menu-item {
     display: block;
