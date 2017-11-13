@@ -12,14 +12,16 @@
 .researchHash {font-size:20px;margin-top:0px;}
 .spacer {margin:20px 0px;}
 li.largeTextAndMargin {font-size:20px!important;margin:12px 0px!important;}
+.signUpTitle {font-size:20px;font-style:underline;margin-top:-20px;}
+.signUpSubmit {margin:10px 0px 26px 0px!important;background-color:#939393;}
+.mailer {width:80%;margin:40px 0px 0px 10%;border:1px dotted white;}
 
 @media (max-width:480px) {
 	.researchLogo {width:280px;}
 	.sliderOverlay {width:320px;}
 }
 @media (max-width:991px) {
-	.drawer--top .drawer-nav {height:100vh!important;}
 	.spacerMobile {
-		margin-top:35%;
+		margin:100px 0;
 	}
 }
