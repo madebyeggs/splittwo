@@ -24,8 +24,6 @@
   	top: 11%;
 }
 
-.draw-top {overflow:scroll;}
-
 .drawer-menu-item {
     display: block;
     padding:0px;
@@ -429,6 +427,11 @@ li.navButton2 {
         max-width: 70rem
     }
 }
-@media (min-width:991px) {
-	.drawer-nav {height:100vh;}
+@media (max-width:991px) {
+	.drawer-nav, .drawer-open {
+		height:100vh;
+		position: absolute;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
 }

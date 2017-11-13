@@ -24,11 +24,6 @@
   	top: 11%;
 }
 
-.draw-top {
-	overflow-y: scroll;
-  	-webkit-overflow-scrolling:touch;
-}
-
 .drawer-menu-item {
     display: block;
     padding:0px;
@@ -433,5 +428,10 @@ li.navButton2 {
     }
 }
 @media (max-width:991px) {
-	.drawer-nav {height:100vh;}
+	.drawer-nav, .drawer-open {
+		height:100vh;
+		position: absolute;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
 }
