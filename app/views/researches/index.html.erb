@@ -3,27 +3,31 @@
 		<span class="sr-only">toggle navigation</span>
 		<span class="drawer-hamburger-icon"></span>
 	</button>
-	<nav class="drawer-nav draw-left" role="navigation">
-	    <ul class="drawer-menu">
-	    	<li class="navButton">
+	<nav class="drawer-nav draw-left mobileResearchMenu" role="navigation">
+	    <ul class="drawer-menu spacer">
+			<li class="navButton largeTextAndMargin">
+				<a href="https://researchlabel.bandcamp.com/album/spheres" target="_blank">Preorder 12"</a>
+			</li>
+	    	<li class="navButton largeTextAndMargin">
 				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
 				from%20the%20website" target="_top">Contact</a>
 			</li>
-			<li class="navButton">Join Mailing List</li>
 		</ul>
 	</nav>
 	<nav class="drawer-nav draw-top" role="navigation">
-	    <ul class="drawer-menu">
-			<li class="navButton">
+	    <ul class="drawer-menu spacerMobile">
+			<li class="navButton largeTextAndMargin">
+				<a href="https://researchlabel.bandcamp.com/album/spheres" target="_blank">Preorder 12"</a>
+			</li>
+	    	<li class="navButton largeTextAndMargin">
 				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
 				from%20the%20website" target="_top">Contact</a>
 			</li>
-			<li class="navButton">Join Mailing List</li>
 		</ul>
     </nav>
 	<div class="sliderOverlay">
 		<%= image_tag("researchLogo.png", class: "researchLogo") %>
-		<h1>#researchspheres</h1>
+		<h1 class="researchHash">#researchspheres</h1>
 	</div>
 	<div class="royalSlider researchSlider rsDefault">
 		<% @researches.each do |slide| %>

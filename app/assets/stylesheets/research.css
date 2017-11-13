@@ -2,16 +2,24 @@
 	width:400px;
 	height:205px;
 	position:absolute;
-	z-index:5;
+	z-index:1;
 	margin: auto;
-  	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
 	text-align:center;
 }
-.researchLogo {width:400px;}
+.researchLogo {width:260px;}
 .researchLogo img {max-width:100%;}
+.researchHash {font-size:20px;margin-top:0px;}
+.spacer {margin:20px 0px;}
+li.largeTextAndMargin {font-size:20px!important;margin:12px 0px!important;}
 
 @media (max-width:480px) {
 	.researchLogo {width:280px;}
 	.sliderOverlay {width:320px;}
+}
+@media (max-width:991px) {
+	.drawer--top .drawer-nav {height:100vh!important;}
+	.spacerMobile {
+		margin-top:35%;
+	}
 }
