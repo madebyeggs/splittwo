@@ -68,15 +68,15 @@ $(document).ready(function(){
 	    $('.subMenu3').slideToggle('fast');
 	});
 	
-	$('.my_iFrame').load(function() {
-	    $('.loading').css('display', 'none');
-	    $('.js #my_iFrame').css('visibility', 'visible');
-	});
+//	$('.my_iFrame').load(function() {
+//		$('.loading').css('display', 'none');
+//		$('.js #my_iFrame').css('visibility', 'visible');
+//	});
 	
-	$('.plyr').load(function() {
-	    $('.loading').css('display', 'none');
-	    $('.js #my_iFrame').css('visibility', 'visible');
-	});
+//	$('.plyr').load(function() {
+//	  	$('.loading').css('display', 'none');
+//	  	$('.js #my_iFrame').css('visibility', 'visible');
+//	});
 	
 	var position = 0
 	$("#artistScrollPosition").animate({ scrollTop: window.position });
@@ -153,6 +153,15 @@ $(document).ready(function(){
 		$(".drawerMobileFix").addClass( "drawer--left" );
 		$(".draw-top").hide();
 		$(".draw-left").show();
+	}
+	
+	if ($(window).width() < 992) {
+		$('.videoDesktop').hide();
+		$('.videoMobile').show();
+	}
+	else {
+	   	$('.videoDesktop').show();
+		$('.videoMobile').hide();
 	}
 	
 });
