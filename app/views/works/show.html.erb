@@ -37,30 +37,30 @@
 			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
 		</div>
 		<hr class="artistSeparator" />
-		<div class="videoMaster">
-			<div class="videoDesktop">
-				<div class="fitvids responsiveVideo2">
-					<% if @work.vimeo? %>
+		<% if @work.vimeo? %>
+			<div class="videoMaster">
+				<div class="videoDesktop">
+					<div class="fitvids responsiveVideo2">
+						<div class="plyr js-player">
+						    <div data-video-id="<%= @work.vimeo %>" data-type="<%= @work.platform %>"></div>
+						</div>
+					</div>
+				</div>
+				<div class="videoMobile">
+					<div class="fitvids responsiveVideo2">
+					<% if @work.platform == 'vimeo' %>
+						<div class="plyr js-player">
+							<% work_vimeo_mobile = @work.vimeo[18..-1] %>
+						    <iframe src="https://player.vimeo.com/video/<%= work_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+					<% else %>
 						<div class="plyr js-player">
 						    <div data-video-id="<%= @work.vimeo %>" data-type="<%= @work.platform %>"></div>
 						</div>
 					<% end %>
 				</div>
 			</div>
-			<div class="videoMobile">
-				<div class="fitvids responsiveVideo2">
-					<% if @work.vimeo? && @work.platform == 'vimeo' %>
-						<div class="plyr js-player">
-						    <iframe src="https://player.vimeo.com/video/<%= @work_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-						</div>
-					<% elsif @work.vimeo? %>
-						<div class="plyr js-player">
-						    <div data-video-id="<%= @work.vimeo %>" data-type="<%= @work.platform %>"></div>
-						</div>
-					<% end %>
-				</div>
-			</div>
-		</div>
+		<% end %>
 		<% if @work.vimeo? %><hr class="projectSeparator" /><% end %>
 		<% if @work.description? %><p class="projectDetail">
 			<%= simple_format @work.description, :class => "projectDetail descriptionSize1" %></p>

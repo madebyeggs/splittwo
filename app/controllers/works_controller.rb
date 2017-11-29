@@ -61,7 +61,6 @@ class WorksController < ApplicationController
     
     def show
       @work = Work.find_by_slug(params[:id])
-      @work_vimeo_mobile = Work.find_by_slug(params[:id]).vimeo[18..-1]
       set_meta_tags og: {
         url: "#{@currentUrl}",
         image: "#{@work.fb_image}",

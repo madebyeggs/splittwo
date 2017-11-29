@@ -17,12 +17,34 @@
 		<div class="videosWrapper">
 			<div class="videoPositionFix">
 				<div class="responsiveVideo frame_container">
-					<div class="plyr js-player">
-					    <div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+					<div class="videoMaster">
+						<div class="customVideoDesktop">
+							<div class="plyr js-player">
+					    		<div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+							</div>
+							<h1 class="artistName titleSize1 customVideoTitle">
+								<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+							</h1>
+						</div>
+						<div class="customVideoMobile">
+							<% if @custom.platform == 'vimeo' %>
+								<div class="plyr js-player">
+									<% custom_vimeo_mobile = @custom.vimeo_1[18..-1] %>
+								    <iframe src="https://player.vimeo.com/video/<%= custom_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								</div>
+								<h1 class="artistName titleSize1 customVideoTitle">
+									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+								</h1>
+							<% else %>
+								<div class="plyr js-player">
+								    <div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+								</div>
+								<h1 class="artistName titleSize1 customVideoTitle">
+									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+								</h1>
+							<% end %>
+						</div>
 					</div>
-					<h1 class="artistName titleSize1 customVideoTitle">
-						<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
-					</h1>
 				</div>
 				<div class="responsiveVideo frame_container">
 					<div class="plyr js-player">
@@ -71,3 +93,13 @@
 		</div>
 	</div>
 </div>
+<script>
+	if ($(window).width() < 992) {
+		$('.customVideoDesktop').hide();
+		$('.customVideoMobile').show();
+	}
+	else {
+	   	$('.customVideoDesktop').show();
+		$('.customVideoMobile').hide();
+	}
+</script>

@@ -32,9 +32,26 @@
 		</div>
 		<hr class="artistSeparator" />
 		<% if @slide.vimeo? %>
-			<div class="fitvids responsiveVideo2">
-	        	<div class="plyr js-player">
-				    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+			<div class="videoMaster">
+				<div class="videoDesktop">
+					<div class="fitvids responsiveVideo2">
+						<div class="plyr js-player">
+						    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+						</div>
+					</div>
+				</div>
+				<div class="videoMobile">
+					<div class="fitvids responsiveVideo2">
+					<% if @slide.platform == 'vimeo' %>
+						<div class="plyr js-player">
+							<% slide_vimeo_mobile = @slide.vimeo[18..-1] %>
+						    <iframe src="https://player.vimeo.com/video/<%= slide_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+					<% else %>
+						<div class="plyr js-player">
+						    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+						</div>
+					<% end %>
 				</div>
 			</div>
 			<hr class="projectSeparator" />
