@@ -1,20 +1,27 @@
 <header role="banner">
 	<button type="button" class="drawer-toggle drawer-hamburger">
 		<span class="sr-only">toggle navigation</span>
-		<span class="drawer-hamburger-icon"></span>
+		<%= image_tag('boxLogoWhite.png', class: "RSlogo") %>
 	</button>
 	<nav class="drawer-nav draw-left mobileResearchMenu" role="navigation">
 	    <ul class="drawer-menu spacer">
-			<li class="navButton largeTextAndMargin">
-				<a href="https://researchlabel.bandcamp.com/album/spheres" target="_blank">Buy 12"</a>
-			</li>
-	    	<li class="navButton largeTextAndMargin">
-				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
-				from%20the%20website" target="_top">Contact</a>
-			</li>
+			<div class="social">
+				<div class="centerSocial researchSocials">
+					<a href="https://www.facebook.com/researchlondon" target="_blank">
+						<i class="fa fa-facebook fa-lg"></i>
+					</a>
+					<a href="http://smarturl.it/researchspheres" target="_blank">
+						<i class="fa fa-shopping-cart fa-lg"></i>
+					</a>
+					<a class="fixMute" href="mailto:research@splitmusic.co.uk?Subject=Contact%20
+					from%20the%20website" target="_top">
+						<i class="fa fa-envelope-o fa-lg"></i>
+					</a>
+				</div>
+			</div>
 			<li class="mailer">
 				<br/><br/>
-				<h3 class="signUpTitle">Sign up to our newsletter</h3>
+				<h3 class="signUpTitle">Newsletter</h3>
 				<form class="singUpForm" action="https://carbonlogic.createsend.com/t/r/s/uidthhu/" method="post" id="subForm">
 				    <p>
 				        <label for="fieldName">Name</label><br />
@@ -31,38 +38,6 @@
 			</li>
 		</ul>
 	</nav>
-	<nav class="drawer-nav draw-top" role="navigation">
-	    <ul class="drawer-menu spacerMobile">
-			<li class="navButton largeTextAndMargin">
-				<a href="https://researchlabel.bandcamp.com/album/spheres" target="_blank">Buy 12"</a>
-			</li>
-	    	<li class="navButton largeTextAndMargin">
-				<a class="navigationButton clearFixer" href="mailto:briefs@splitmusic.co.uk?Subject=Contact%20
-				from%20the%20website" target="_top">Contact</a>
-			</li>
-			<li class="mailer">
-				<br/><br/>
-				<h3 class="signUpTitle">Sign up to our newsletter</h3>
-				<form class="singUpForm" action="https://carbonlogic.createsend.com/t/r/s/uijjydl/" method="post" id="subForm">
-				    <p>
-				        <label for="fieldName">Name</label><br />
-				        <input id="fieldName" name="cm-name" type="text" />
-				    </p>
-				    <p>
-				        <label for="fieldEmail">Email</label><br />
-				        <input id="fieldEmail" name="cm-uijjydl-uijjydl" type="email" required />
-				    </p>
-				    <p>
-				        <button class="btn signUpSubmit" type="submit">Subscribe</button>
-				    </p>
-				</form>
-			</li>
-		</ul>
-    </nav>
-	<div class="sliderOverlay">
-		<%= image_tag("researchLogo.png", class: "researchLogo") %>
-		<h1 class="researchHash">#researchspheres</h1>
-	</div>
 	<div class="royalSlider researchSlider rsDefault">
 		<% @researches.each do |slide| %>
 		    <div>

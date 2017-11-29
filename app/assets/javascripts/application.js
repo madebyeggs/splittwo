@@ -133,7 +133,7 @@ $(document).ready(function(){
 	$('.responsiveVideo').fitVids();
 	$('.responsiveVideo2').fitVids();
 	
-	var options = {clickToPlay: true, controls: []}
+	var options = {clickToPlay: true, controls: ['fullscreen']}
 	
 	plyr.setup(document.querySelectorAll('.js-player'), options);
 	

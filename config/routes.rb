@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
     collection {post :import}
   end
-  resources :researches, :path => "re-search"
+  resources :researches, :path => "researchlondon"
   resources :researches do
     post :update_row_order, on: :collection
     collection {post :import}
