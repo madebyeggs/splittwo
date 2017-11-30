@@ -3,6 +3,8 @@ class Release < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   
+  before_create { |release| release.soundcloud = release.soundcloud[147..-177]}
+  
   require 'csv'
   
   def self.import(file)

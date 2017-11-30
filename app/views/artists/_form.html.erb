@@ -3,7 +3,7 @@
 	<%= bootstrap_form_for(@artist) do |f| %>
 	  	<div class="vimeoSectionInForm">
 			<div class="textField"><%= f.text_field :name, label: "Artist name" %></div>
-			<div class="textField"><%= f.text_field :soundcloud, label: "Soundcloud (e.g. 102276575)" %></div>
+			<div class="textField"><%= f.text_field :soundcloud, label: "Soundcloud embed code" %></div>
 			<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
 		</div>
 	  	<div class="vimeoSectionInForm">

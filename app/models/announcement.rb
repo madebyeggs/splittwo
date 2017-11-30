@@ -1,6 +1,7 @@
 class Announcement < ActiveRecord::Base
   
   belongs_to :slide
+  before_create { |announcement| announcement.soundcloud = announcement.soundcloud[147..-177]}
   
   extend FriendlyId
   friendly_id :slide_title, use: :slugged

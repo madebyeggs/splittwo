@@ -1,6 +1,7 @@
 class Artist < ActiveRecord::Base
   
   belongs_to :slide
+  before_create { |artist| artist.soundcloud = artist.soundcloud[147..-177]}
   
   extend FriendlyId
   friendly_id :name, use: :slugged
