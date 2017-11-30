@@ -1,11 +1,10 @@
 <header role="banner">
-	<button type="button" class="drawer-toggle drawer-hamburger">
-		<span class="sr-only">toggle navigation</span>
-		<%= image_tag('boxLogoWhite.png', class: "RSlogo") %>
-	</button>
-	<nav class="drawer-nav draw-left mobileResearchMenu" role="navigation">
-	    <ul class="drawer-menu spacer">
-			<div class="social">
+	<div class="researchMenuWrapper rsContent">
+		<div class="mobileResearchMenuTrigger">
+			<%= link_to(image_tag('boxLogoWhite.png', class: "RSlogo"), 'javascript:;', class: "mobileResearchMenuTriggerButton") %>
+		</div>
+		<nav class="mobileResearchMenuDropdown" role="navigation" style="z-index:4147483647;display:none;">
+			<div class="researchSocial">
 				<div class="centerSocial researchSocials">
 					<a href="https://www.facebook.com/researchlondon" target="_blank">
 						<i class="fa fa-facebook fa-lg"></i>
@@ -19,7 +18,7 @@
 					</a>
 				</div>
 			</div>
-			<li class="mailer">
+			<div class="mailer">
 				<br/><br/>
 				<h3 class="signUpTitle">Newsletter</h3>
 				<form class="singUpForm" action="https://carbonlogic.createsend.com/t/r/s/uidthhu/" method="post" id="subForm">
@@ -35,9 +34,9 @@
 				        <button class="btn signUpSubmit" type="submit">Subscribe</button>
 				    </p>
 				</form>
-			</li>
-		</ul>
-	</nav>
+			</div>
+		</nav>
+	</div>
 	<div class="royalSlider researchSlider rsDefault">
 		<% @researches.each do |slide| %>
 		    <div>
@@ -60,6 +59,23 @@
 		loop: true,
 		arrowsNav: true
 	}).data("researchSlider");
+	
+	if($(window).width() > 992){
+		$('.mobileResearchMenuTriggerButton').mouseover(function() {
+			$('.mobileResearchMenuDropdown').slideToggle("fast");
+		});
+
+		setTimeout(function() { 
+			if ($('.mobileResearchMenuTriggerButton').is(":hover") === false && $('.researchMenuWrapper').is(":hover") === false) {
+				$('.mobileResearchMenuDropdown').slideToggle("fast");
+			}
+		},6000);
+	} else {
+		$('.mobileResearchMenuTriggerButton').click(function() {
+			$('.mobileResearchMenuDropdown').slideToggle("fast");
+		});
+	}
+	
 	
 		
 </script>
