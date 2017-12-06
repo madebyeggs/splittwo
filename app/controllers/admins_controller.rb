@@ -41,6 +41,14 @@ class AdminsController < ApplicationController
     end
   end
   
+  def newsletter
+    define_newsletters
+    respond_to do |format|
+      format.html
+      format.json {render :json => @newsletters}
+    end
+  end
+  
   def researches
     @researches = Research.rank(:row_order).all
   end

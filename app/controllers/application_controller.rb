@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
     @sorted_custom_displays = @custom_displays.rank(:row_order).all
   end
   
+  def define_newsletters
+    @first_newsletter_work = Work.where('newsletter = ?', true).order(:newsletterposition).first
+    @rest_newsletter_works = Work.where('newsletter = ?', true).order(:newsletterposition).all[1..-1]
+    @newsletters_works = Work.where('newsletter = ?', true).order(:newsletterposition)
+    @newsletters_releases = Release.where('newsletter = ?', true).order(:newsletterposition)
+  end
+  
 end

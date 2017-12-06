@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112142125) do
+ActiveRecord::Schema.define(version: 20171206191106) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(version: 20171112142125) do
     t.text     "slide_title2"
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
+    t.boolean  "newsletter"
+    t.integer  "newsletterposition"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
@@ -226,6 +228,12 @@ ActiveRecord::Schema.define(version: 20171112142125) do
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
     t.string   "platform"
+    t.boolean  "newsletter"
+    t.integer  "newsletterposition"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
   end
 
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true

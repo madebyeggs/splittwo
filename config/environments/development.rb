@@ -45,6 +45,11 @@ Rails.application.configure do
     :convert_options => { :all => '-quality 80' }
   }
   
+  HERO_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '564X235>'},
+    :convert_options => { :all => '-quality 80' }
+  }
+  
   CUSTOM_IMAGE_PAPERCLIP_STORAGE_OPTS = {
     :styles => {:main => '555X370>'},
     :convert_options => { :all => '-quality 80' }

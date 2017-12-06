@@ -1,0 +1,48 @@
+<%= render :partial => 'admins/navigation' %>
+<div class="col-md-10 cmsTable canScroll">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles2 placements">Placements included in the newsletter</h2>
+	<table class="table table-striped" id="">
+	 		<thead>
+	   		<tr>
+				<th>Image</th>
+				<th>Hero image</th>
+	     		<th>Title</th>
+				<th>Newsletter?</th>
+				<th>Newsletter placements grid Position</th>
+	   		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @newsletters_works.each do |nl| %>
+     			<tr data-item-id=<%= "" %> class="item">
+					<td><%= image_tag(nl.image, class: "thumb3") %></td>
+					<td><%= image_tag(nl.hero, class: "thumb3") %></td>
+       				<td><%= best_in_place nl, :campaign_title %></td>
+					<td><%= best_in_place nl, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+					<td><%= best_in_place nl, :newsletterposition %></td>
+     			</tr>
+	   		<% end %>
+	 		</tbody>
+	</table><br/><hr/><br/>
+	<h2 class="titles2 placements">Releases included in the newsletter</h2>
+	<table class="table table-striped" id="">
+	 		<thead>
+	   		<tr>
+				<th>Image</th>
+	     		<th>Title</th>
+				<th>Newsletter?</th>
+				<th>Newsletter releases list Position</th>
+	   		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @newsletters_releases.each do |nl| %>
+     			<tr data-item-id=<%= "" %> class="item">
+					<td><%= image_tag(nl.image, class: "thumb3") %></td>
+       				<td><%= best_in_place nl, :title %></td>
+					<td><%= best_in_place nl, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+					<td><%= best_in_place nl, :newsletterposition %></td>
+     			</tr>
+	   		<% end %>
+	 		</tbody>
+	</table>
+</div>

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   end
   resources :contacts, :path => "contact"
   resources :share_closes
+  resources :newsletters
   
   match "admins/artists" => "admins#artists", via: [:get, :post]
   match "admins/customs" => "admins#customs", via: [:get, :post]
@@ -47,5 +48,6 @@ Rails.application.routes.draw do
   match "admins/researches" => "admins#researches", via: [:get, :post]
   match "admins/slideshow" => "admins#slideshow", via: [:get, :post]
   match "admins/announcements" => "admins#announcements", via: [:get, :post]
+  match "admins/newsletter" => "admins#newsletter", via: [:get, :post]
   
 end
