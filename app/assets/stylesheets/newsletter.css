@@ -584,7 +584,7 @@ p{
 
 }     @media only screen and (max-width: 480px){
 	
-	.mobile {display:none;!important}
+	.mobile {display:none;}
 /*
 @tab Mobile Styles
 @section Footer Text
