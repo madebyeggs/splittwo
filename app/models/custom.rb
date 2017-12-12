@@ -1,6 +1,7 @@
 class Custom < ActiveRecord::Base
   
-  before_create { |custom| custom.lowqual = custom.lowqual.sub! 'dl=0', 'dl=1', custom.soundcloud = custom.soundcloud[147..-177] }
+  before_create { |custom| custom.lowqual = custom.lowqual.sub! 'dl=0', 'dl=1' }
+  before_create { |custom| custom.soundcloud = custom.soundcloud[147..-177] }
   
   extend FriendlyId
   friendly_id :name, use: :slugged
