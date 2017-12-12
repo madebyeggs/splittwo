@@ -4,7 +4,7 @@ p{
   }
 .small {font-size:18px;width:220px;font-family:'avenir'}
 .smaller {font-size:16px;font-style:italic;font-family:'avenir';line-height:16px;}
-h5 {line-height:18px;width:200px;font-family:'avenir';color:white;font-size:24px;}
+h5 {line-height:18px;width:200px;font-family:'avenir';color:white;font-size:24px;text-align:left;}
 .firstPlacement {height:235px;}
 .noGap {margin:0;}
 .tiny, .tinyImage {width:100px;height:100px;line-height:100px;text-align:center;display:inline;}
