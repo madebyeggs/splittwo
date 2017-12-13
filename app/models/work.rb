@@ -92,11 +92,11 @@ class Work < ActiveRecord::Base
   
   def self.search(search)
     if search.to_s.include? "slide"
-      where('slideshow = TRUE')
+      where('slideshow = TRUE') # Needs to be - where('slideshow = "t"') in development and - where('slideshow = TRUE') in production
     elsif search.to_s.include? "news"
       where('newsletter = TRUE')
     elsif search
-      where('brand_name LIKE :search OR campaign_title LIKE :search OR platform LIKE :search', search: "%#{search}%")
+      where('LOWER(brand_name) LIKE :search OR campaign_title LIKE :search OR platform LIKE :search', search: "%#{search}%")
     else
       all
     end
