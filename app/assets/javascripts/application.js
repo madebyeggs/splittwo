@@ -165,3 +165,9 @@ $(document).ready(function(){
 	}
 	
 });
+$(function() {
+	$("#works_search input").keyup(function() {
+    	$.get($("#works_search").attr("action"), $("#works_search").serialize(), null, "script");
+    	return false;
+  	});
+});

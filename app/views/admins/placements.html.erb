@@ -3,63 +3,13 @@
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2 placements">Placements</h2>
 	<%= link_to 'Add New Work', new_work_path, class: "btn btn-success csvInput4"  %>
-	<table class="table table-striped" id="sortableWork">
-	 		<thead>
-	   		<tr>
-				<th>Image</th>
-	     		<th>Brand Name</th>
-	     		<th>Title</th>
-				<th>Agency</th>
-				<th>Video URL</th>
-				<th>Platform</th>
-				<th>Slideshow?</th>
-				<th>Newsletter?</th>
-				<th></th>
-	   		</tr>
-	 		</thead>
-	 		<tbody>
-	   		<% @works.each do |work| %>
-	     		<tr data-item-id=<%= "#{work.id}" %> class="item">
-					<td><%= image_tag(work.image, class: "thumb2") %></td>
-	       			<td>
-						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-							data-attribute="brand_name" data-placeholder="Brand name">
-					  		<%= work.brand_name %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-							data-attribute="campaign_title" data-placeholder="Campaign title">
-					  		<%= work.campaign_title %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-							data-attribute="agency" data-placeholder="Agency name">
-							<%= work.agency %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-							data-attribute="vimeo" data-placeholder="Video URL">
-							<%= work.vimeo %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-							data-attribute="platform" data-placeholder="ADD PLATFORM">
-							<%= work.platform %>
-						</span>
-					</td>
-					<td><%= best_in_place work, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td><%= best_in_place work, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td class="align-right">
-						<%= link_to 'Edit', edit_work_path(work), class: "btn btn-success" %>
-						<%= link_to 'Delete', work, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, 
-						class: "btn btn-success" %>
-					</td>
-	     		</tr>
-	   		<% end %>
-	 	</tbody>
-	</table>
+	<div style="float:right;">
+		<%= form_tag admins_placements_path, :method => 'get', :id => "works_search" do %>
+			<p class="csvInput4" style="padding-left:10px;padding-top:0px;">
+				<%= text_field_tag :search, params[:search], :style => "margin-left:10px;" %>
+				<%= submit_tag "Search", :brand_name && :campaign_title && :platform && :slideshow && :newsletter => nil, :class => "btn btn-success", :style => "margin-left:6px;" %>
+			</p>
+		<% end %>
+	</div>
+	<div id="works"><%= render 'works' %></div>
 </div>
