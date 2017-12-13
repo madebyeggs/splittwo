@@ -96,7 +96,7 @@ class Work < ActiveRecord::Base
     elsif search.to_s.include? "news"
       where('newsletter = TRUE')
     elsif search
-      where('LOWER(brand_name) LIKE :search OR campaign_title LIKE :search OR platform LIKE :search', search: "%#{search}%")
+      where('LOWER(brand_name) LIKE :search OR LOWER(campaign_title) LIKE :search OR LOWER(platform) LIKE :search', search: "%#{search}%")
     else
       all
     end
