@@ -7,7 +7,7 @@
 		<%= form_tag admins_placements_path, :method => 'get', :id => "works_search" do %>
 			<p class="csvInput4" style="padding-left:10px;padding-top:0px;">
 				<%= text_field_tag :search, params[:search], :style => "margin-left:10px;" %>
-				<%= submit_tag "Search", :brand_name && :campaign_title && :platform && :slideshow && :newsletter => nil, :class => "btn btn-success", :style => "margin-left:6px;" %>
+				<%= submit_tag "Search", :brand_name && :campaign_title && :agency && :vimeo && :platform && :slideshow && :newsletter => nil, :class => "btn btn-success", :style => "margin-left:6px;" %>
 			</p>
 		<% end %>
 	</div>
