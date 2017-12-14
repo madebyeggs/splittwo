@@ -1,0 +1,29 @@
+<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
+	<h2 class="titles">Newsletter content</h2>
+	<%= bootstrap_form_for(@newsletter) do |f| %>
+		<div class="vimeoSectionInForm">
+			<div class="textField2"><%= f.file_field :logo, label: "Logo (crop to 250px X 250px before upload)" %>
+				<% if @newsletter.logo.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @newsletter.logo_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField2"><%= f.file_field :mainimage, label: "Main image/gif (crop to 312px X 312px before upload)" %>
+				<% if @newsletter.mainimage.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @newsletter.mainimage_file_name %>" }</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.text_field :title1, label: "Title1" %></div>
+			<div class="textField"><%= f.text_field :title2, label: "Title2" %></div>
+			<div class="textField"><%= f.text_field :downloadlink, label: "Download ALL Releases link" %></div>
+		</div>
+		<div class="vimeoSectionInForm">
+			<div class="textField"><%= f.text_field :facebook, label: "Facebook" %></div>
+			<div class="textField"><%= f.text_field :twitter, label: "Twitter" %></div>
+			<div class="textField"><%= f.text_field :instagram, label: "Instagram" %></div>
+			<div class="textField"><%= f.text_field :website, label: "Website" %></div>
+		</div>
+	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+	<% end %>
+</div>

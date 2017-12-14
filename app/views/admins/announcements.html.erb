@@ -17,6 +17,7 @@
 				<th>Video URL</th>
 				<th>Platform</th>
 				<th>Slideshow?</th>
+				<th>Newsletter?</th>
 				<th></th>
 	   		</tr>
 	 		</thead>
@@ -47,6 +48,7 @@
 						</span>
 					</td>
 					<td><%= best_in_place announcement, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+					<td><%= best_in_place announcement, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td class="align-right">
 						<%= link_to 'Edit', edit_announcement_path(announcement), class: "btn btn-success" %>
 						<%= link_to 'Delete', announcement, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>

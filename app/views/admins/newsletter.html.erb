@@ -1,37 +1,49 @@
 <%= render :partial => 'admins/navigation' %>
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
-	<h2 class="titles2 placements">Placements included in the newsletter</h2>
+	<%= link_to 'Launch Newsletter', newsletters_path, class: "btn btn-success", target: "blank", style: "float:left;clear:both;"  %>
+	<%= link_to 'Edit Newsletter images and links', edit_newsletter_path(@first_newsletter), class: "btn btn-success", 
+	target: "blank", style: "margin-left:5px;"  %><br/>
+	<h2 class="titles2 placements" style="float:left;clear:both!important;margin-top:40px;"><%= best_in_place @first_newsletter, :title1 %></h2>
 	<table class="table table-striped" id="">
 	 		<thead>
 	   		<tr>
 				<th>Image</th>
 				<th>Hero image</th>
 	     		<th>Title</th>
+				<th>Subtitle</th>
 				<th>Newsletter?</th>
-				<th>Newsletter placements grid Position</th>
+				<th>Newsletter grid Position</th>
 	   		</tr>
 	 		</thead>
 	 		<tbody>
-	   		<% @newsletters_works.each do |nl| %>
+	   		<% @sorted_newsletters.each do |nl| %>
      			<tr data-item-id=<%= "" %> class="item">
-					<td><%= image_tag(nl.image, class: "thumb3") %></td>
+					<td>
+						<% if nl.slide_image? %>
+							<%= image_tag(nl.slide_image, class: "thumb3") %>
+						<% else %>
+							<%= image_tag(nl.image, class: "thumb3") %>
+						<% end %>
+					</td>
 					<td><%= image_tag(nl.hero, class: "thumb3") %></td>
-       				<td><%= best_in_place nl, :campaign_title %></td>
+       				<td><%= best_in_place nl, :nltitle %></td>
+					<td><%= best_in_place nl, :nlsubtitle %></td>
 					<td><%= best_in_place nl, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><%= best_in_place nl, :newsletterposition %></td>
      			</tr>
 	   		<% end %>
 	 		</tbody>
 	</table><br/><hr/><br/>
-	<h2 class="titles2 placements">Releases included in the newsletter</h2>
+	<h2 class="titles2 placements"><%= best_in_place @first_newsletter, :title2 %></h2>
 	<table class="table table-striped" id="">
 	 		<thead>
 	   		<tr>
 				<th>Image</th>
 	     		<th>Title</th>
+				<th>Download link?</th>
 				<th>Newsletter?</th>
-				<th>Newsletter releases list Position</th>
+				<th>Newsletter list Position</th>
 	   		</tr>
 	 		</thead>
 	 		<tbody>
@@ -39,6 +51,7 @@
      			<tr data-item-id=<%= "" %> class="item">
 					<td><%= image_tag(nl.image, class: "thumb3") %></td>
        				<td><%= best_in_place nl, :title %></td>
+					<td><% if nl.downloadlink? %>Yes<% else %>No<% end %></td>
 					<td><%= best_in_place nl, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><%= best_in_place nl, :newsletterposition %></td>
      			</tr>

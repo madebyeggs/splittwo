@@ -14,6 +14,7 @@
 	     		<th>Title</th>
 	     		<th>Description?</th>
 				<th>Soundcloud</th>
+				<th>Download Link?</th>
 				<th>Slideshow?</th>
 				<th>Newsletter?</th>
 				<th>FB Image?</th>
@@ -35,6 +36,7 @@
 					  		<%= release.soundcloud %>
 						</span>
 					</td>
+					<td><% if release.downloadlink? %>Yes<% else %>No<% end %></td>
 					<td><%= best_in_place release, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><%= best_in_place release, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
 					<td><% if release.fb_image? %>Yes<% else %>No<% end %></td>

@@ -2,9 +2,9 @@ p{
        margin:10px 0;
        padding:0;
   }
-.small {font-size:18px;width:220px;font-family:'avenir'}
-.smaller {font-size:16px;font-style:italic;font-family:'avenir';line-height:16px;}
-h5 {line-height:18px;width:200px;font-family:'avenir';color:white;font-size:24px;text-align:left;}
+.small {font-size:11px;width:100%;font-family:'avenir';text-transform:uppercase;letter-spacing:0.7px;line-height:14px;}
+.small a {text-decoration:none;}
+h5 {line-height:18px;width:50%;font-family:'avenir';color:white;font-size:24px;text-align:left;}
 .firstPlacement {height:235px;}
 .noGap {margin:0;}
 .tiny, .tinyImage {width:100px;height:100px;line-height:100px;text-align:center;display:inline;}

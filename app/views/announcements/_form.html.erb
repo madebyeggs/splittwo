@@ -12,6 +12,7 @@
 		<div class="vimeoSectionInForm">
 			<div class="textField"><%= f.text_field :soundcloud, label: "Soundcloud playlist embed code" %></div>
 			<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
+			<div class="textField smallText"><%= f.check_box :newsletter, label: "Add to newsletter?" %></div>
 		</div>
 		<div class="vimeoSectionInForm">
 			<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title" %></div>
@@ -29,6 +30,11 @@
 				<%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
 				<% if @announcement.fb_image.exists? %>
 					<p class="existingImageName">{ Current Image: "<%= @announcement.fb_image_file_name %>" }</p>
+				<% end %>
+			</div>
+			<div class="textField"><%= f.file_field :hero, label: "Newsletter hero image (crop to 564px X 235px before upload)" %>
+				<% if @announcement.hero.exists? %>
+					<p class="existingImageName">{ Current Image: "<%= @announcement.hero_file_name %>" }</p>
 				<% end %>
 			</div>
 		</div>

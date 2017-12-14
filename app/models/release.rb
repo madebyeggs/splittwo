@@ -3,7 +3,8 @@ class Release < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   
-  before_create { |release| release.soundcloud = release.soundcloud[147..-177]}
+  before_save { |release| if release.soundcloud_changed? then release.soundcloud = release.soundcloud[147..-177] end}
+  before_save { |release| if release.downloadlink_changed? then release.downloadlink = release.downloadlink.sub! 'dl=0', 'dl=1' end }
   
   require 'csv'
   

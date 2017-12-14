@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   
   belongs_to :slide
-  before_create { |artist| artist.soundcloud = artist.soundcloud[147..-177]}
+  before_save { |artist| if artist.soundcloud_changed? then artist.soundcloud = artist.soundcloud[147..-177] end }
   
   extend FriendlyId
   friendly_id :name, use: :slugged

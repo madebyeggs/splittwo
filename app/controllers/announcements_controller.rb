@@ -59,6 +59,7 @@ class AnnouncementsController < ApplicationController
   
   def announcement_params
     params.require(:announcement).permit(:announcement_id, :slide_title, :slide_title2, :slide_title3, :description, 
-    :soundcloud, :soundcloudtracks, :vimeo, :slide_image, :row_order_position, :slideshow, :Slideshowposition, :fb_image, :platform)
+    :soundcloud, :soundcloudtracks, :vimeo, :slide_image, :row_order_position, :slideshow, :Slideshowposition, :fb_image, :platform,
+    :newsletter, :newsletterposition, :hero, :nltitle, :nlsubtitle)
   end
 end

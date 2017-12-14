@@ -60,6 +60,16 @@ Rails.application.configure do
     :convert_options => { :all => '-quality 80' }
   }
   
+  NEWSLETTER_LOGO_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '250X250>'},
+    :convert_options => { :all => '-quality 80' }
+  }
+  
+  NEWSLETTER_MAIN_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '312X312>'},
+    :convert_options => { :all => '-quality 80' }
+  }
+  
   SLIDE_PAPERCLIP_STORAGE_OPTS = {
     :styles => {:main => '1115X952>'},
     :convert_options => { :all => '-quality 80' }

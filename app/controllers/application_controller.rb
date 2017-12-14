@@ -20,9 +20,13 @@ class ApplicationController < ActionController::Base
   end
   
   def define_newsletters
-    @first_newsletter_work = Work.where('newsletter = ?', true).order(:newsletterposition).first
-    @rest_newsletter_works = Work.where('newsletter = ?', true).order(:newsletterposition).all[1..-1]
-    @newsletters_works = Work.where('newsletter = ?', true).order(:newsletterposition)
+    @newsletters_works = Work.where('newsletter = ?', true)
+    @newsletters_announcement = Announcement.where('newsletter = ?', true)
+    @newsletters = [@newsletters_works, @newsletters_announcement].flatten
+    @first_newsletter = Newsletter.first
+    @sorted_newsletters = @newsletters.sort_by {|nl| [nl.newsletterposition ? 0 : 1,nl.newsletterposition || 0]}
+    @first_newsletter_work =  @sorted_newsletters.first
+    @rest_newsletter_works = @sorted_newsletters[1..-1]
     @newsletters_releases = Release.where('newsletter = ?', true).order(:newsletterposition)
   end
   

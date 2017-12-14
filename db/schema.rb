@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206191106) do
+ActiveRecord::Schema.define(version: 20171214122845) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20171206191106) do
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
     t.string   "platform"
+    t.boolean  "newsletter"
+    t.integer  "newsletterposition"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
+    t.string   "nltitle"
+    t.string   "nlsubtitle"
   end
 
   add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true
@@ -128,6 +136,26 @@ ActiveRecord::Schema.define(version: 20171206191106) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "newsletters", force: :cascade do |t|
+    t.string   "title1"
+    t.string   "title2"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "website"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "mainimage_file_name"
+    t.string   "mainimage_content_type"
+    t.integer  "mainimage_file_size"
+    t.datetime "mainimage_updated_at"
+    t.string   "downloadlink"
+  end
+
   create_table "releases", force: :cascade do |t|
     t.string   "title"
     t.string   "soundcloud"
@@ -156,6 +184,7 @@ ActiveRecord::Schema.define(version: 20171206191106) do
     t.integer  "Slideshowposition"
     t.boolean  "newsletter"
     t.integer  "newsletterposition"
+    t.string   "downloadlink"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
@@ -234,6 +263,8 @@ ActiveRecord::Schema.define(version: 20171206191106) do
     t.string   "hero_content_type"
     t.integer  "hero_file_size"
     t.datetime "hero_updated_at"
+    t.string   "nltitle"
+    t.string   "nlsubtitle"
   end
 
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true

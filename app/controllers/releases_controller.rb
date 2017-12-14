@@ -93,7 +93,7 @@ class ReleasesController < ApplicationController
     
     def release_params
       params.require(:release).permit(:release_id, :title, :soundcloud, :description, :image, :fb_image, :row_order_position, 
-      :slideshow, :slide_image, :slide_title ,:slide_title2, :slide_title3, :Slideshowposition, :newsletter, :newsletterposition)
+      :slideshow, :slide_image, :slide_title ,:slide_title2, :slide_title3, :Slideshowposition, :newsletter, :newsletterposition, :downloadlink)
     end
   
 end
