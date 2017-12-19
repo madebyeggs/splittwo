@@ -205,7 +205,16 @@
 													<tr>
                           								<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
 														padding-top: 0; padding-bottom: 0; text-align:center;">
-															<a href="<%= newsletter_path(@first_newsletter_work) %>" target="_blank" style="text-decoration:none;">	
+															
+															<a href=
+															<% if @first_newsletter_work.class.to_s.downcase == 'announcement' %>
+																"<%= slide_path(@first_newsletter_work) %>" 
+															<% else %>
+																"<%= work_path(@first_newsletter_work) %>"
+															<% end %>
+																target="_blank" style="text-decoration:none;">
+																
+																<%= @first_newsletter_work.class %>	
 																<img align="center" alt="" src="<%= @first_newsletter_work.hero %>" 
 																width="564" style="max-width:610px; padding-bottom: 0; display: inline !important; 
 																vertical-align: bottom;" class="mcnImage">
@@ -213,7 +222,6 @@
 																	<h4 class="small" style="color:black;">
 																		<%= @first_newsletter_work.nltitle %><br/>
 																		<%= @first_newsletter_work.nlsubtitle %><br/>
-																		<%= @first_newsletter_work.class %>
 																	</h4>
 																</div>
 															</a>
