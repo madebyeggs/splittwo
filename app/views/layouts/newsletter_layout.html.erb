@@ -205,7 +205,6 @@
 													<tr>
                           								<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
 														padding-top: 0; padding-bottom: 0; text-align:center;">
-															
 															<a href=
 															<% if @first_newsletter_work.class.to_s.downcase == 'announcement' %>
 																"<%= slide_path(@first_newsletter_work) %>" 
@@ -240,7 +239,13 @@
                            						<tbody>
 													<tr>
                                							<td class="mcnImageGroupContent" valign="top" style="padding: 9px;" style="position:relative">
-															<a href="<%= work_path(nl) %>" target="_blank" style="text-decoration:none;">
+															<a href=
+																<% if nl.class.to_s.downcase == 'announcement' %>
+																	"<%= slide_path(nl) %>" 
+																<% else %>
+																	"<%= work_path(nl) %>"
+																<% end %>
+																target="_blank" style="text-decoration:none;">
 																<% if nl.slide_image?  %>
                                 									<img alt="" src="<%= nl.slide_image %>.jpg" 
 																	width="291" style="max-width:100%; padding-bottom: 0; z-index:-1;max-height:273px;" 
