@@ -43,12 +43,14 @@
 												class="mcnImageContentContainer" style="min-width:100%;">
 	                       							<tbody>
 														<tr>
-	                           								<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
+															<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
 															padding-top: 0; padding-bottom: 0; text-align:center;">
-	                               								<img align="center" alt="" src="<%= @first_newsletter.logo %>" 
-																width="250" style="max-width:250px; padding-bottom: 10px; display: inline 
-																!important; vertical-align: bottom;" class="mcnImage">
-	                                   						</td>
+		                               							<a href="<%= root_path %>" target="_blank" style="text-decoration:none;">
+																	<img align="center" alt="" src="<%= @first_newsletter.logo %>" 
+																	width="250" style="max-width:250px; padding-bottom: 10px; display: inline 
+																	!important; vertical-align: bottom;" class="mcnImage">
+																</a>
+		                                   					</td>
 														</tr>
 	                   								</tbody>
 												</table>
@@ -71,9 +73,11 @@
 														<tr>
 	                           								<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
 															padding-top: 0; padding-bottom: 0; text-align:center;">
-	                               								<img align="center" alt="" src="<%= @first_newsletter.mainimage %>" 
-																width="312" style="max-width:312px; display: inline 
-																!important; vertical-align: bottom;" class="mcnImage">
+																<a href="<%= root_path %>" target="_blank" style="text-decoration:none;">
+	                               									<img align="center" alt="" src="<%= @first_newsletter.mainimage %>" 
+																	width="312" style="max-width:312px; display: inline 
+																	!important; vertical-align: bottom;" class="mcnImage">
+																</a>
 	                                   						</td>
 														</tr>
 	                   								</tbody>
@@ -88,7 +92,7 @@
       								<tr>
           								<td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
               								<table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" 
-										style="min-width: 100%;border-top: 2px none #EAEAEA;">
+											style="min-width: 100%;border-top: 2px none #EAEAEA;">
                   								<tbody>
 												<tr>
                       									<td>
@@ -201,14 +205,15 @@
 													<tr>
                           								<td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; 
 														padding-top: 0; padding-bottom: 0; text-align:center;">
-															<a href="<%= work_path(@first_newsletter_work) %>" target="_blank" style="text-decoration:none;">	
+															<a href="<%= newsletter_path(@first_newsletter_work) %>" target="_blank" style="text-decoration:none;">	
 																<img align="center" alt="" src="<%= @first_newsletter_work.hero %>" 
 																width="564" style="max-width:610px; padding-bottom: 0; display: inline !important; 
 																vertical-align: bottom;" class="mcnImage">
 																<div style="position:relative;margin:5px 0px 0px 0px;z-index:4;">
 																	<h4 class="small" style="color:black;">
 																		<%= @first_newsletter_work.nltitle %><br/>
-																		<%= @first_newsletter_work.nlsubtitle %>
+																		<%= @first_newsletter_work.nlsubtitle %><br/>
+																		<%= @first_newsletter_work.class %>
 																	</h4>
 																</div>
 															</a>
@@ -605,7 +610,7 @@
 													<tr>
 			              									<td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-style: normal; 
 														font-weight: bold; line-height: 50%; text-align: center;">
-			              										<h5 class="null" style="text-align: center;"><unsubscribe>unsubscribe</unsubscribe></h5>
+			              									<h5 class="" style="text-align: center;"><unsubscribe>unsubscribe</unsubscribe></h5>
 														</td>
 			          									</tr>
 			      									</tbody>
