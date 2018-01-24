@@ -2,7 +2,7 @@ class Custom < ActiveRecord::Base
   
   before_save { |custom| if custom.lowqual_changed? then custom.lowqual = custom.lowqual.sub! 'dl=0', 'dl=1' end }
   before_save { |custom| if custom.fullqual_changed? then custom.fullqual = custom.fullqual.sub! 'dl=0', 'dl=1' end }
-  before_save { |custom| if custom.soundcloud_changed? then custom.soundcloud = custom.soundcloud[147..-177] end }
+  before_save { |custom| if custom.soundcloud_changed? then custom.soundcloud = custom.soundcloud[154..-177] end }
   
   extend FriendlyId
   friendly_id :name, use: :slugged
