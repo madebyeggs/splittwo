@@ -4,9 +4,9 @@ class Custom < ActiveRecord::Base
   before_save { |custom| if custom.fullqual_changed? then custom.fullqual = custom.fullqual.sub! 'dl=0', 'dl=1' end }
   before_save { |custom| 
     if custom.soundcloud_changed? then 
-      str1_markerstring = "playlists/"
-      str2_markerstring = "&amp;color"
-      custom.soundcloud = custom.soundcloud[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+      str_marker1 = "playlists/"
+      str_marker2 = "&amp;color"
+      custom.soundcloud = custom.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
     end
   }
   
