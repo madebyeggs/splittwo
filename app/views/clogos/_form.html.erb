@@ -1,0 +1,15 @@
+<div class="deviseStyling col-md-12 abouts marginTopOverride canScroll">
+	<div class="formContent">
+		<h2 class="titles">Add your custom logo here!</h2>
+		<%= bootstrap_form_for(@clogo) do |f| %>
+			<div class="vimeoSectionInForm">
+				<div class="textField"><%= f.file_field :image, label: "Image (crop to 197px X 201px before upload)" %>
+					<% if @clogo.image.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @clogo.image_file_name %>" }</p>
+					<% end %>
+				</div>
+			</div>
+		  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success btnLarge"  %></div>
+		<% end %>
+	</div>
+</div>

@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def define_customs
     @custom_count = Custom.where('display = ?', true).count
     @custom_displays = Custom.where('display = ?', true)
+    @clogo = Clogo.first
     @sorted_custom_displays = @custom_displays.rank(:row_order).all
   end
   

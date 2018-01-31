@@ -56,6 +56,7 @@ class AdminsController < ApplicationController
     custom_not_displays = Custom.where('display = ?', false)
     @customs_d = custom_display.rank(:row_order).all
     @customs_nd = custom_not_displays
+    @clogo = Clogo.first
     respond_to do |format|
       format.html
       format.json {render :json => @customs}

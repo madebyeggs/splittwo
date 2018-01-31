@@ -5,6 +5,20 @@
 	<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
 	<%= link_to 'Launch Custom Page', customs_path, class: "btn btn-success csvInput3", target: "blank"  %>
 	<table class="table table-striped" id="sortableCustom">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<td><%= image_tag(@clogo.image, class: "thumb2") %></td>
+			<td class="align-right">
+				<%= link_to 'Edit', edit_clogo_path(@clogo), class: "btn btn-success" %>
+			</td>
+		</tbody>
+	</table>
+	<table class="table table-striped" id="sortableCustom">
 	 		<thead>
 	   		<tr>
 				<th>Image</th>

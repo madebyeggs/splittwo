@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'slides#index'
   
   resources :announcements
+  resources :clogos
   resources :announcements do
     post :update_row_order, on: :collection
     collection {post :import}

@@ -79,4 +79,8 @@ Rails.application.configure do
     :styles => {:main => '1200X630>'},
     :convert_options => { :all => '-quality 80' }
   }
+  CLOGO_PAPERCLIP_STORAGE_OPTS = {
+    :styles => {:main => '197X201>'},
+    :convert_options => { :all => '-quality 80' }
+  }
 end
