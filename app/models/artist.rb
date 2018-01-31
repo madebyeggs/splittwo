@@ -1,7 +1,13 @@
 class Artist < ActiveRecord::Base
   
   belongs_to :slide
-  before_save { |artist| if artist.soundcloud_changed? then artist.soundcloud = artist.soundcloud[147..-177] end }
+  before_save { |artist| 
+    if artist.soundcloud_changed? then 
+      str_marker1 = "playlists/"
+      str_marker2 = "&amp;color"
+      artist.soundcloud = artist.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+    end
+  }
   
   extend FriendlyId
   friendly_id :name, use: :slugged

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214122845) do
+ActiveRecord::Schema.define(version: 20180131102212) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20171214122845) do
     t.string   "platform"
     t.string   "platform2"
     t.string   "platform3"
+    t.string   "souncloudtype"
   end
 
   add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true

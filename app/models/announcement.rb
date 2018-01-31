@@ -1,7 +1,13 @@
 class Announcement < ActiveRecord::Base
   
   belongs_to :slide
-  before_save { |announcement| if announcement.soundcloud_changed? then announcement.soundcloud = announcement.soundcloud[147..-177] end }
+  before_save { |announcement| 
+    if announcement.soundcloud_changed? then 
+      str_marker1 = "playlists/"
+      str_marker2 = "&amp;color"
+      announcement.soundcloud = announcement.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+    end
+  }
   
   extend FriendlyId
   friendly_id :slide_title, use: :slugged
