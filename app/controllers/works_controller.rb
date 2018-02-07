@@ -66,7 +66,7 @@ class WorksController < ApplicationController
         image: "#{@work.fb_image}",
         title: "#{@work.campaign_title}",
         description: "#{@work.description}",
-        type: "musician"
+        type: "placement"
       }
       set_meta_tags twitter: {
         card: "summary_large_image",

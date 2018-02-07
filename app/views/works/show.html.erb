@@ -35,6 +35,15 @@
 				class="socialLinksHidden"
 			>
 			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
+			<input id="linkedin" type="hidden" 
+				data-url="https://vimeo.com/<%= @work.vimeo %>" 
+				data-media="<%= @work.fb_image %>"
+				data-description="Split Music | NEW WORK: <%= @work.campaign_title %> for <%= @work.brand_name %> 
+				featuring <%= @work.track_name %> by <%= @work.artist_name %>"
+				data-title="<%= @work.brand_name %> - <%= @work.campaign_title %>"
+				class="socialLinksHidden"
+			>
+			<%= link_to "", "#", data: { type: 'linkedin' }, :class => 'prettySocial fa fa-linkedin socialLinks' %>
 		</div>
 		<hr class="artistSeparator" />
 		<% if @work.vimeo? %>
