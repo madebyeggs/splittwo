@@ -22,7 +22,7 @@
 							<div class="plyr js-player">
 					    		<div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
 							</div>
-							<h1 class="artistName titleSize1 customVideoTitle">
+							<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 								<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
 							</h1>
 						</div>
@@ -32,14 +32,14 @@
 									<% custom_vimeo_mobile = @custom.vimeo_1[18..-1] %>
 								    <iframe src="https://player.vimeo.com/video/<%= custom_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
-								<h1 class="artistName titleSize1 customVideoTitle">
+								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
 								</h1>
 							<% else %>
 								<div class="plyr js-player">
 								    <div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
 								</div>
-								<h1 class="artistName titleSize1 customVideoTitle">
+								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
 								</h1>
 							<% end %>
@@ -50,7 +50,7 @@
 					<div class="plyr js-player">
 					    <div data-video-id="<%= @custom.vimeo_2 %>" data-type="<%= @custom.platform2 %>"></div>
 					</div>
-					<h1 class="artistName titleSize1 customVideoTitle">
+					<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 						<%= @custom.work_brand_name2 %> "<%= @custom.work_campaign_title2 %>"
 					</h1>
 				</div>
@@ -58,7 +58,7 @@
 					<div class="plyr js-player">
 					    <div data-video-id="<%= @custom.vimeo_3 %>" data-type="<%= @custom.platform3 %>"></div>
 					</div>
-					<h1 class="artistName titleSize1 customVideoTitle">
+					<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 						<%= @custom.work_brand_name3 %> "<%= @custom.work_campaign_title3 %>"
 					</h1>
 				</div>
