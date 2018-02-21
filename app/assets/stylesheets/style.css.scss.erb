@@ -126,6 +126,8 @@ th:after {
     transform: translate(-50%, -48%);
 	z-index:2000000;
 }
+.imageMobile {display:none;}
+.imageFull {width:100%;} .imageFull img {max-width:100%;}
 .halfHeight {height:50%;background-color:#ff0000;}
 .bespokeHeader {text-transform:uppercase;font-family:'SplitCustomGotham';font-weight:100;font-size:40px;line-height:35px;}
 .bespokeHeaderUnder {font-style:italic;font-family:'SplitCustomMrsEaves';font-weight:100;font-size:20px;margin-top:-25px;line-height:20px;}
@@ -266,6 +268,8 @@ li.researchNavButton {text-transform:lowercase!important;padding-top:20px;}
 /*MOBILE*/
 
 @media (max-width: 992px) {
+	
+	.imageMobile {display:inline;}
 	
 	body {height:100vh;overflow-y: scroll;}
 	.slideTitle {

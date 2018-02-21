@@ -40,6 +40,7 @@
 //= require plyr
 //= require iscroll
 //= require drawer
+//= require jquery.jplayer.js
 
 $(document).ready(function(){
 	

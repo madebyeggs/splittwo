@@ -6,8 +6,8 @@ class Release < ActiveRecord::Base
   
   before_save { |release| 
     if release.soundcloud_changed? then 
-      str_marker1 = "playlists/"
-      str_marker2 = "&amp;color"
+      str_marker1 = "code="
+      str_marker2 = "&art"
       release.soundcloud = release.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
     end
   }
