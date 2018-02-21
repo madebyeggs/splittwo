@@ -1,7 +1,7 @@
 <div class="canScroll">
 	<div class="workInfo">
 		<%= link_to '', works_path, :class => "closeIcon" %>
-		<h1 class="artistName titleSize1"><%= @work.brand_name %> "<%= @work.campaign_title %>"</h1>
+		<h1 class="artistName titleSize1"><%= @work.brand_name %> <%= @work.campaign_title %></h1>
 		<h3 class="projectSubtitle fixerSpace descriptionSize1 upcase"><%= @work.agency %></h3>
 		<h3 class="projectSubtitle spacer descriptionSize1 upcase italics">
 			<em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %>
