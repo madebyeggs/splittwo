@@ -14,11 +14,7 @@ class AdminsController < ApplicationController
   end
   
   def releases
-    @releases = Release.rank(:row_order).all
-    respond_to do |format|
-      format.html
-      format.json {render :json => @releases}
-    end
+    @releases = Release.search(params[:search]).rank(:row_order).all
   end
   
   def announcements

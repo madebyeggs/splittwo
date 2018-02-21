@@ -2,6 +2,7 @@ class Release < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :title, use: :slugged
+  include Filterable
   
   before_save { |release| 
     if release.soundcloud_changed? then 
@@ -77,6 +78,10 @@ class Release < ActiveRecord::Base
     :s3_host_alias => 'd9gj9tfjl21as.cloudfront.net', 
     :bucket => 'split-two',
     :path => "releases/slide_images/:id_partition/:style/:filename"
+  end
+  
+  def self.search(search)
+      where('LOWER(title) LIKE :search', search: "%#{search}%")
   end
   
   # Validate the attached image is image/jpg, image/png, etc

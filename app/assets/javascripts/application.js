@@ -171,4 +171,9 @@ $(function() {
     	return false;
 		e.PreventDefault()
   	});
+	$("#releases_search input").keyup(function(e) {
+    	$.get($("#releases_search").attr("action"), $("#releases_search").serialize(), null, "script");
+    	return false;
+		e.PreventDefault()
+  	});
 });
