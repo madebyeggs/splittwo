@@ -9,11 +9,21 @@ class Work < ActiveRecord::Base
   def slug_candidates
     if self.brand_name    
       [
-        :brand_name, :campaign_title
+        :brand_name, 
+        [:brand_name, :campaign_title],
       ]
     else
       :brand_name
     end
+  end
+  
+  def remake_slug
+    self.update_attribute(:slug, nil)
+    self.save!
+  end
+  
+  def should_generate_new_friendly_id?
+    new_record? || self.slug.nil?
   end
   
   def self.import(file)
