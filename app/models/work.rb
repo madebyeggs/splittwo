@@ -1,10 +1,20 @@
 class Work < ActiveRecord::Base
   
   extend FriendlyId
-  friendly_id :brand_name, use: :slugged
+  friendly_id :slug_candidates, use: %i(slugged history finders)
   include Filterable
   
   require 'csv'
+  
+  def slug_candidates
+    [
+      [:brand_name, :campaign_title],
+    ]
+  end
+  
+  def should_generate_new_friendly_id?
+    brand_name_changed? || campaign_title_changed?
+  end
   
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
