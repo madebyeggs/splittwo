@@ -35,13 +35,13 @@
 			<div class="col-md-5"><%= image_tag(@release.image, class: "image") %></div>
 			<div class="col-md-7">
 				<div class="fitvids fluidMedia">
-					<iframe src="https://splitmusic.sourceaudio.com/embed.php?code=274556751500d2a0de23d867fbfa196204518" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+					<iframe src="https://splitmusic.sourceaudio.com/embed.php?code=<%= @release.soundcloud %>" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 				</div>
 			</div>
 		</div>
 		<%= image_tag(@release.image, class: "imageMobile imageFull") %>
 		<div class="fitvids fluidMediaSmall">
-			<iframe src="https://splitmusic.sourceaudio.com/embed.php?code=274556751500d2a0de23d867fbfa196204518" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+			<iframe src="https://splitmusic.sourceaudio.com/embed.php?code=<%= @release.soundcloud %>" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 		</div>
 		<hr class="projectSeparator" style="clear:both;" />
 		<% if @release.description? %><p class="projectDetail"><%= simple_format @release.description, :class => "projectDetail descriptionSize1" %></p><% end %>
