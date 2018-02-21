@@ -7,7 +7,13 @@ class Work < ActiveRecord::Base
   require 'csv'
   
   def slug_candidates
-    :brand_name :campaign_title
+    if self.campaign_title    
+      [
+        :brand_name, :campaign_title
+      ]
+    else
+      :brand_name
+    end
   end
   
   def self.import(file)
