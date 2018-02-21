@@ -7,7 +7,7 @@ class Work < ActiveRecord::Base
   require 'csv'
   
   def slug_candidates
-    if self.brand_name.exists?    
+    if self.brand_name    
       [
         :brand_name && :campaign_title
       ]
