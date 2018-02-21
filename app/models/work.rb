@@ -9,7 +9,7 @@ class Work < ActiveRecord::Base
   def slug_candidates
     if self.brand_name    
       [
-        :brand_name && :campaign_title
+        :brand_name, :campaign_title
       ]
     else
       :brand_name
