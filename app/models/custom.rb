@@ -1,5 +1,7 @@
 class Custom < ActiveRecord::Base
   
+  has_many :customvideos
+  
   before_save { |custom| if custom.lowqual_changed? then custom.lowqual = custom.lowqual.sub! 'dl=0', 'dl=1' end }
   before_save { |custom| if custom.fullqual_changed? then custom.fullqual = custom.fullqual.sub! 'dl=0', 'dl=1' end }
   before_save { |custom| 

@@ -1,1 +1,52 @@
-Showreel
+<div class="parent3">
+	<%= link_to '', customs_path, :class => "customCloseIcon" %>
+</div>
+<div class="parent3Small">
+	<%= link_to '', customs_path, :class => "customCloseIconSmall" %>
+</div>
+<div class="canScroll">	
+	<div class="parent2">
+		<%#= image_tag(@mainshowreel.image, :lazy => true, class: "lazy child-image2 customSquareImage") %>
+		<%= image_tag("monomother.jpg", :lazy => true, class: "lazy child-image2 customSquareImage") %>
+		<div class="child2 projectInfo">
+			<h1 class="bespokeHeader"><%#= @mainshowreel.title %>Title</h1>
+			<h1 class="bespokeHeaderUnder"><%#= @mainshowreel.subtitle %>Subtitle</h1>
+		</div>
+	</div>
+	<div class="customInfo">
+		<h1 class="customTitle">Showreel</h1>
+		<div class="videosWrapper">
+			<div class="videoPositionFix">
+				<% @sorted_showreelvideos.each do |showreel| %>
+					<div class="responsiveVideo frame_container">
+						<div class="videoMaster">
+							<div class="">
+								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
+									<%= showreel.work_brand_name %> "<%= showreel.work_campaign_title %>"
+								</h1>
+								<div class="plyr js-player">
+					    			<div data-video-id="<%= showreel.vimeo %>" data-type="<%= showreel.platform %>"></div>
+								</div>
+								<p class="customVideoDescription"><%= showreel.description.truncate(320, separator: '.') %></p>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	if ($(window).width() < 992) {
+		$('.customVideoDesktop').hide();
+		$('.customSoundcloudDesktop').hide();
+		$('.customVideoMobile').show();
+		$('.customSoundcloudMobile').show();
+	}
+	else {
+	   	$('.customVideoDesktop').show();
+		$('.customSoundcloudDesktop').show();
+		$('.customVideoMobile').hide();
+		$('.customSoundcloudMobile').hide();
+	}
+</script>

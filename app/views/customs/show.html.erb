@@ -16,52 +16,38 @@
 		<h1 class="customTitle">Watch</h1>
 		<div class="videosWrapper">
 			<div class="videoPositionFix">
-				<div class="responsiveVideo frame_container">
+				<% @custom.customvideos.each do |c| %>
+					<div class="responsiveVideo frame_container">
 					<div class="videoMaster">
 						<div class="customVideoDesktop">
 							<div class="plyr js-player">
-					    		<div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+					    		<div data-video-id="<%= c.vimeo %>" data-type="<%= c.platform %>"></div>
 							</div>
 							<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
-								<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+								<%= c.work_brand_name %> "<%= c.work_campaign_title %>"
 							</h1>
 						</div>
 						<div class="customVideoMobile">
-							<% if @custom.platform == 'vimeo' %>
+							<% if c.platform == 'vimeo' %>
 								<div class="plyr js-player">
-									<% custom_vimeo_mobile = @custom.vimeo_1[18..-1] %>
+									<% custom_vimeo_mobile = c.vimeo[18..-1] %>
 								    <iframe src="https://player.vimeo.com/video/<%= custom_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
 								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
-									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+									<%= c.work_brand_name %> "<%= c.work_campaign_title %>"
 								</h1>
 							<% else %>
 								<div class="plyr js-player">
-								    <div data-video-id="<%= @custom.vimeo_1 %>" data-type="<%= @custom.platform %>"></div>
+								    <div data-video-id="<%= c.vimeo %>" data-type="<%= c.platform %>"></div>
 								</div>
 								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
-									<%= @custom.work_brand_name %> "<%= @custom.work_campaign_title %>"
+									<%= c.work_brand_name %> "<%= c.work_campaign_title %>"
 								</h1>
 							<% end %>
 						</div>
 					</div>
 				</div>
-				<div class="responsiveVideo frame_container">
-					<div class="plyr js-player">
-					    <div data-video-id="<%= @custom.vimeo_2 %>" data-type="<%= @custom.platform2 %>"></div>
-					</div>
-					<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
-						<%= @custom.work_brand_name2 %> "<%= @custom.work_campaign_title2 %>"
-					</h1>
-				</div>
-				<div class="responsiveVideo frame_container">
-					<div class="plyr js-player">
-					    <div data-video-id="<%= @custom.vimeo_3 %>" data-type="<%= @custom.platform3 %>"></div>
-					</div>
-					<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
-						<%= @custom.work_brand_name3 %> "<%= @custom.work_campaign_title3 %>"
-					</h1>
-				</div>
+				<% end %>
 			</div>
 		</div>
 		<hr class="customSeparator" />

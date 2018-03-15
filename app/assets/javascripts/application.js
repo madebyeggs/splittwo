@@ -28,6 +28,7 @@
 //= require update_announcements_row_order
 //= require update_customs_row_order
 //= require update_researches_row_order
+//= require update_showreels_row_order
 //= require jquery.slicknav
 //= require jquery.prettySocial
 //= require imagesloaded

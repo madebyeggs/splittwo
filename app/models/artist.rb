@@ -5,7 +5,7 @@ class Artist < ActiveRecord::Base
     if artist.soundcloud_changed? then 
       str_marker1 = "playlists/"
       str_marker2 = "&amp;color"
-      artist.soundcloud = artist.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+      artist.soundcloud = artist.soundcloud[/{str_marker1}(.*?){str_marker2}/m, 1]
     end
   }
   

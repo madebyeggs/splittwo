@@ -53,10 +53,15 @@ class AdminsController < ApplicationController
     @customs_d = custom_display.rank(:row_order).all
     @customs_nd = custom_not_displays
     @clogo = Clogo.first
+    @customvideos = Customvideo.all
     respond_to do |format|
       format.html
       format.json {render :json => @customs}
     end
+  end
+  
+  def showreel
+    define_showreels
   end
   
 end

@@ -1,0 +1,48 @@
+<%= render :partial => 'admins/navigation' %>
+<div class="col-md-10 cmsTable canScroll">
+	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
+	<h2 class="titles2">Showreel pieces</h2>
+	<%= link_to 'Add New Showreel video', new_showreel_path, class: "btn btn-success csvInput2"  %>
+	<%= link_to 'Launch Showreel Page', compositions_showreel_path, class: "btn btn-success csvInput3", target: "blank"  %>
+	<table class="table table-striped" id="sortableShowreel">
+		<thead>
+	   		<tr>
+				<th>Brand Name</th>
+	     		<th>Campaign Title</th>
+				<th>Description?</th>
+				<th>Video</th>
+				<th>Platform</th>
+				<th>Slideshow Position</th>
+				<th>Showreel Page?</th>
+	   		</tr>
+	 	</thead>
+	 	<tbody>
+   			<% @sorted_showreelvideos.each do |showreel| %>
+     			<tr data-item-id=<%= "#{showreel.id}" %> class="item">
+       				<td>
+						<span class="rest-in-place" data-url="/showreels/<%= showreel.work_brand_name %>" data-object="showreel" 
+							data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
+				  			<%= showreel.work_brand_name %>
+						</span>
+					</td>
+					<td>
+						<span class="rest-in-place" data-url="/showreels/<%= showreel.work_campaign_title %>" data-object="showreel" 
+							data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
+							<%= showreel.work_campaign_title %>
+						</span>
+					</td>
+					<td><% if showreel.description? %>Yes<% else %>No<% end %></td>
+					<td>
+						<span class="rest-in-place" data-url="/showreels/<%= showreel.vimeo %>" data-object="showreel" 
+							data-attribute="vimeo" data-placeholder="VIMEO LINK">
+							<%= showreel.vimeo %>
+						</span>
+					</td>
+					<td><%= showreel.platform %></td>
+					<td><%= best_in_place showreel, :showreelposition %></td>
+					<td><%= best_in_place showreel, :showreel, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+     			</tr>
+   			<% end %>
+	 	</tbody>
+	</table>
+</div>

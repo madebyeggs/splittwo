@@ -6,7 +6,7 @@ class CustomsController < ApplicationController
     end
     
     def showreel
-      
+      define_showreels
     end
 
     def create

@@ -1,4 +1,6 @@
-class Showreel < ActiveRecord::Base
+class Customvideo < ActiveRecord::Base
+  
+  belongs_to :customs
   
   extend FriendlyId
   friendly_id :work_campaign_title, use: :slugged

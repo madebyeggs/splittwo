@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228172508) do
+ActiveRecord::Schema.define(version: 20180315155127) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -129,6 +129,24 @@ ActiveRecord::Schema.define(version: 20180228172508) do
 
   add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true
 
+  create_table "customvideos", force: :cascade do |t|
+    t.text     "description"
+    t.string   "work_brand_name"
+    t.string   "work_campaign_title"
+    t.string   "platform"
+    t.string   "vimeo"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "row_order"
+    t.string   "slug"
+    t.integer  "custom_id"
+    t.integer  "showreelposition"
+    t.boolean  "showreel"
+  end
+
+  add_index "customvideos", ["custom_id"], name: "index_customvideos_on_custom_id"
+  add_index "customvideos", ["slug"], name: "index_customvideos_on_slug", unique: true
+
   create_table "customvids", force: :cascade do |t|
     t.string   "vimeo_id"
     t.string   "brand_name"
@@ -229,7 +247,13 @@ ActiveRecord::Schema.define(version: 20180228172508) do
     t.string   "vimeo"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "row_order"
+    t.string   "slug"
+    t.integer  "showreelposition"
+    t.boolean  "showreel"
   end
+
+  add_index "showreels", ["slug"], name: "index_showreels_on_slug", unique: true
 
   create_table "slides", force: :cascade do |t|
     t.datetime "created_at", null: false

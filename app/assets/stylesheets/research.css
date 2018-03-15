@@ -30,3 +30,6 @@ li.largeTextAndMargin {font-size:20px!important;margin:12px 0px!important;}
 	.mailer {margin:40px 0px 0px 23px;}
 	.researchSocial {margin-left:58px;}
 }
+
+.drawer-overlay {display:none!important;}
+.titling {display:inline-block;float:left;clear:both;font-size:18px;}

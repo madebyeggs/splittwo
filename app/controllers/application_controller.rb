@@ -24,6 +24,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def define_showreels
+    @showreels = Showreel.where('showreel = ?', true)
+    @customvideos = Customvideo.where('showreel = ?', true)
+    @showreelvideos = [@showreels, @customvideos].flatten
+    @sorted_showreelvideos = @showreelvideos.sort_by {|srv| [srv.showreelposition ? 0 : 1,srv.showreelposition || 0]}
+  end
+  
   def define_newsletters
     @newsletters_works = Work.where('newsletter = ?', true)
     @newsletters_announcement = Announcement.where('newsletter = ?', true)
