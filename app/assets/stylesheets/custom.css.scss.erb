@@ -31,6 +31,11 @@
 	cursor: url(<%= asset_path 'more.png' %>) 40 40, crosshair;
 }
 
+a:hover {
+	cursor: url('	'), crosshair;
+	cursor: url(<%= asset_path 'more.png' %>) 40 40, crosshair;
+}
+
 .projectlist a:hover .projectinfo { 
 	background: #202326; 
 	-webkit-transition: background .25s linear;
@@ -54,6 +59,8 @@
 	-moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
 }
+
+.drawer-toggle {position:absolute!important;z-index:10000000000!important;}
 
 .customName {text-align:left;margin:30px 0px 22px 0px;}
 .customSeparator {color:#ffffff; margin:54px 5%;width:90%;}

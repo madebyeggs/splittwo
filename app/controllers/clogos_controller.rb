@@ -39,6 +39,6 @@ class ClogosController < ApplicationController
   end
   
   def clogos_params
-    params.require(:clogo).permit(:image)
+    params.require(:clogo).permit(:image, :randombox)
   end
 end

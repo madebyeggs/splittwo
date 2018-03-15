@@ -50,5 +50,6 @@ Rails.application.routes.draw do
   match "admins/slideshow" => "admins#slideshow", via: [:get, :post]
   match "admins/announcements" => "admins#announcements", via: [:get, :post]
   match "admins/newsletter" => "admins#newsletter", via: [:get, :post]
+  match "composition/showreel" => "showreels#index", via: [:get, :post]
   
 end

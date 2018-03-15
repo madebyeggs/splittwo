@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221152505) do
+ActiveRecord::Schema.define(version: 20180228172508) do
 
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180221152505) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "randombox"
   end
 
   create_table "compositonlogos", force: :cascade do |t|
@@ -123,6 +124,7 @@ ActiveRecord::Schema.define(version: 20180221152505) do
     t.string   "platform2"
     t.string   "platform3"
     t.string   "souncloudtype"
+    t.boolean  "randombox"
   end
 
   add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true
@@ -218,6 +220,16 @@ ActiveRecord::Schema.define(version: 20180221152505) do
   end
 
   add_index "researches", ["slug"], name: "index_researches_on_slug", unique: true
+
+  create_table "showreels", force: :cascade do |t|
+    t.text     "description"
+    t.string   "work_brand_name"
+    t.string   "work_campaign_title"
+    t.string   "platform"
+    t.string   "vimeo"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "slides", force: :cascade do |t|
     t.datetime "created_at", null: false

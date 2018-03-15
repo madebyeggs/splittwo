@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
     @custom_count = Custom.where('display = ?', true).count
     @custom_displays = Custom.where('display = ?', true)
     @clogo = Clogo.first
-    @sorted_custom_displays = @custom_displays.rank(:row_order).all
+    if Clogo.first.randombox?
+      @sorted_custom_displays = @custom_displays.order("RANDOM()").limit(5) 
+    else
+      @sorted_custom_displays = @custom_displays.rank(:row_order).all.limit(5)
+    end
   end
   
   def define_newsletters

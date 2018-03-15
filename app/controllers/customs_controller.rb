@@ -4,6 +4,10 @@ class CustomsController < ApplicationController
     def new
       @custom = Custom.new
     end
+    
+    def showreel
+      
+    end
 
     def create
       @custom = Custom.create(custom_params)
@@ -89,7 +93,7 @@ class CustomsController < ApplicationController
     def custom_params
       params.require(:custom).permit(:custom_id, :name, :description, :row_order_position, :vimeo_1, :vimeo_2, :vimeo_3, :genre, :image, 
       :soundcloud, :fullqual, :lowqual, :display, :Displayposition, :work_campaign_title, :work_brand_name, :work_campaign_title2, 
-      :work_brand_name2, :work_campaign_title3, :work_brand_name3, :platform, :platform2, :platform3)
+      :work_brand_name2, :work_campaign_title3, :work_brand_name3, :platform, :platform2, :platform3, :randombox)
     end
   
 end
