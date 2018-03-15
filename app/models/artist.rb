@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   
   belongs_to :slide
-  before_save { |artist| 
+  before_update { |artist| 
     if artist.soundcloud_changed? then 
       str_marker1 = "playlists/"
       str_marker2 = "&amp;color"
