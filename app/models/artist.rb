@@ -2,10 +2,12 @@ class Artist < ActiveRecord::Base
   
   belongs_to :slide
   before_update { |artist| 
-    if artist.soundcloud_changed? then 
-      str_marker1 = "playlists/"
-      str_marker2 = "&amp;color"
-      artist.soundcloud = artist.soundcloud[/{str_marker1}(.*?){str_marker2}/m, 1]
+    if artist.soundcloud_changed? then
+      input_string = artist.soundcloud.gsub(/\s+/, "").to_s
+      str1_markerstring = "playlists/"
+      str2_markerstring = "&color"
+      input_string_chop = input_string[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+      artist.soundcloud = input_string_chop
     end
   }
   

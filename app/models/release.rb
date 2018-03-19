@@ -4,11 +4,13 @@ class Release < ActiveRecord::Base
   friendly_id :title, use: :slugged
   include Filterable
   
-  before_save { |release| 
-    if release.soundcloud_changed? then 
-      str_marker1 = "code="
-      str_marker2 = "&art"
-      release.soundcloud = release.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+  before_save { |release|
+    if release.soundcloud_changed? then
+      input_string = release.soundcloud.gsub(/\s+/, "").to_s
+      str1_markerstring = "playlists/"
+      str2_markerstring = "&color"
+      input_string_chop = input_string[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+      release.soundcloud = input_string_chop
     end
   }
   before_save { |release| if release.downloadlink_changed? then release.downloadlink = release.downloadlink.sub! 'dl=0', 'dl=1' end }

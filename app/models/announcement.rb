@@ -1,11 +1,13 @@
 class Announcement < ActiveRecord::Base
   
   belongs_to :slide
-  before_save { |announcement| 
-    if announcement.soundcloud_changed? then 
-      str_marker1 = "playlists/"
-      str_marker2 = "&amp;color"
-      announcement.soundcloud = announcement.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+  before_save { |announcement|
+    if announcement.soundcloud_changed? then
+      input_string = announcement.soundcloud.gsub(/\s+/, "").to_s
+      str1_markerstring = "playlists/"
+      str2_markerstring = "&color"
+      input_string_chop = input_string[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+      announcement.soundcloud = input_string_chop
     end
   }
   

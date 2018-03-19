@@ -4,11 +4,13 @@ class Custom < ActiveRecord::Base
   
   before_save { |custom| if custom.lowqual_changed? then custom.lowqual = custom.lowqual.sub! 'dl=0', 'dl=1' end }
   before_save { |custom| if custom.fullqual_changed? then custom.fullqual = custom.fullqual.sub! 'dl=0', 'dl=1' end }
-  before_save { |custom| 
-    if custom.soundcloud_changed? then 
-      str_marker1 = "playlists/"
-      str_marker2 = "&amp;color"
-      custom.soundcloud = custom.soundcloud[/#{str_marker1}(.*?)#{str_marker2}/m, 1]
+  before_save { |custom|
+    if custom.soundcloud_changed? then
+      input_string = custom.soundcloud.gsub(/\s+/, "").to_s
+      str1_markerstring = "playlists/"
+      str2_markerstring = "&color"
+      input_string_chop = input_string[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+      custom.soundcloud = input_string_chop
     end
   }
   
