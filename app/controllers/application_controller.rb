@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     @customvideos = Customvideo.where('showreel = ?', true)
     @showreelvideos = [@showreels, @customvideos].flatten
     @sorted_showreelvideos = @showreelvideos.sort_by {|srv| [srv.showreelposition ? 0 : 1,srv.showreelposition || 0]}
+    @clogo = Clogo.first
   end
   
   def define_newsletters

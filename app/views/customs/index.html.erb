@@ -1,64 +1,48 @@
-<!--<header role="banner">
-	<button type="button" class="drawer-toggle drawer-hamburger">
-    	<span class="sr-only">toggle navigation</span>
-    	<span class="drawer-hamburger-icon"></span>
-    </button>
-	<button type="button" class="drawer-toggle">Drawer toggle</button>
-    <nav class="drawer-nav" role="navigation">
-    	<ul class="drawer-menu">
-        	<li><a class="drawer-brand" href="#">Brand</a></li>
-        	<li><a class="drawer-menu-item" href="#">Nav1</a></li>
-        	<li><a class="drawer-menu-item" href="#">Nav2</a></li>
-      	</ul>
-    </nav>
-</header> -->
-<main role="main">
-	<div class="col-md-12 mainContent projectlist">
-		<div class="desktop">
-			<% if @sorted_custom_displays.count == 7 %></h1>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/smallTile2", :c => c %>
-				<% end %>
-				<%= render 'smallBrandingTile2' %>
-			<% elsif @sorted_custom_displays.count == 6 %></h1>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/smallTile", :c => c %>
-				<% end %>
-			<% elsif @sorted_custom_displays.count == 5 %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/smallTile", :c => c %>
-				<% end %>
-				<%= render 'smallBrandingTile' %>
-			<% elsif @sorted_custom_displays.count == 4 %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/largeTile", :c => c %>
-				<% end %>
-			<% else %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/largeTile", :c => c %>
-				<% end %>
-				<%= render 'largeBrandingTile' %>
+<div class="col-md-12 mainContent projectlist">
+	<div class="desktop">
+		<% if @sorted_custom_displays.count == 7 %></h1>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile2", :c => c %>
 			<% end %>
-		</div>
-		<div class="mobile">
-			<% if @custom_count == 6 %></h1>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/smallTile", :c => c %>
-				<% end %>
-			<% elsif @custom_count == 5 %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/smallTile", :c => c %>
-				<% end %>
-			<% elsif @custom_count == 4 %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/largeTile", :c => c %>
-				<% end %>
-			<% else %>
-				<%= render 'largeBrandingTile' %>
-				<% @sorted_custom_displays.each do |c| %>
-					<%= render "customs/largeTile", :c => c %>
-				<% end %>
+			<%= render 'smallBrandingTile2' %>
+		<% elsif @sorted_custom_displays.count == 6 %></h1>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
 			<% end %>
-		</div>
+		<% elsif @sorted_custom_displays.count == 5 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+			<%= render 'smallBrandingTile' %>
+		<% elsif @sorted_custom_displays.count == 4 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+		<% else %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+			<%= render 'largeBrandingTile' %>
+		<% end %>
 	</div>
-</main>
+	<div class="mobile">
+		<% if @custom_count == 6 %></h1>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+		<% elsif @custom_count == 5 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/smallTile", :c => c %>
+			<% end %>
+		<% elsif @custom_count == 4 %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+		<% else %>
+			<%= render 'largeBrandingTile' %>
+			<% @sorted_custom_displays.each do |c| %>
+				<%= render "customs/largeTile", :c => c %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

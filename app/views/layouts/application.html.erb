@@ -26,8 +26,12 @@
 			<%= yield %>
 		</body>
 	<% elsif controller_name == "customs" %>
-		<body bgcolor="#000000" class="drawer drawer--left">
-			<%= yield %>
+		<body bgcolor="#000000" class="">
+			<%= render 'layouts/customnavigation' %>
+		    <main role="main">
+				<a href="#rightpanel2" class="push"><i class="fa fa-bars fa-2x"></i></a>
+				<%= yield %>
+		    </main>
 		</body>
 	<% else %>
 		<body bgcolor="#000000" class="drawer drawerMobileFix">

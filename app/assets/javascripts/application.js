@@ -166,6 +166,11 @@ $(document).ready(function(){
 		$('.videoMobile').hide();
 	}
 	
+	$("a.push").click(function() {
+		$("#rightpanel2").toggle( "slide" );
+       	return false;
+    }); 
+	
 });
 $(function() {
 	$("#works_search input").keyup(function(e) {

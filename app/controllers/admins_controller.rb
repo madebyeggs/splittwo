@@ -62,6 +62,7 @@ class AdminsController < ApplicationController
   
   def showreel
     define_showreels
+    @clogo = Clogo.first
   end
   
 end
