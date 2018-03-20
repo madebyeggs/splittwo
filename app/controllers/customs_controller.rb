@@ -17,6 +17,7 @@ class CustomsController < ApplicationController
     end
 
     def edit
+      define_customs
       @custom = Custom.find_by_slug(params[:id])
     end
 

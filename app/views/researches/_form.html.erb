@@ -9,6 +9,9 @@
 			</div>
 			<div class="textField2"><%= f.text_field :title, label: "Title" %></div>
 		</div>
-	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+	  	<div class="buttons">
+			<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+			<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
+		</div>
 	<% end %>
 </div>

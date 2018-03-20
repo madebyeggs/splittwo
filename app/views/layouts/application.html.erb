@@ -19,13 +19,15 @@
 		<%= favicon_link_tag 'favicon.png' %>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700|Open+Sans:300,700' rel='stylesheet' type='text/css'>
 	</head>
-	<% if controller_name == "admins" %>
+	<% if action_name == "edit" || action_name == "new" %>
+		<%= render 'layouts/edit' %>
+	<% elsif controller_name == "admins" %>
 		<%= yield %>
 	<% elsif controller_name == "researches" && action_name == "index" %>
 		<body bgcolor="#000000" class="drawer drawerMobileFix">
 			<%= yield %>
 		</body>
-	<% elsif controller_name == "customs" %>
+	<% elsif controller_name == "customs" && action_name != "edit" %>
 		<body bgcolor="#000000" class="">
 			<%= render 'layouts/customnavigation' %>
 		    <main role="main">

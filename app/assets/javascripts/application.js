@@ -16,8 +16,7 @@
 //= require 'rest_in_place'
 //= require best_in_place
 //= require jquery_ujs
-//= require jquery-ui/sortable
-//= require jquery-ui/effect-highlight
+//= require jquery-ui
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
@@ -170,6 +169,8 @@ $(document).ready(function(){
 		$("#rightpanel2").toggle( "slide" );
        	return false;
     }); 
+	
+	$( "#tabs" ).tabs();
 	
 });
 $(function() {

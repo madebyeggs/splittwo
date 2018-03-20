@@ -3,158 +3,171 @@
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2">Composition management</h2>
 	<%= link_to 'Launch Custom Page', customs_path, class: "btn btn-success csvInput3", target: "blank"  %>
-	<table class="table table-striped" id="sortableCustom">
-		<thead>
-			<tr>
-				<th>Composition Logo</th>
-				<th>Randomise artist display order?</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<td><%= image_tag(@clogo.image, class: "thumb2") %></td>
-			<td class="change"><%= best_in_place @clogo, :randombox, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-			<td class="align-right">
-				<%= link_to 'Edit', edit_clogo_path(@clogo), class: "btn btn-success" %>
-			</td>
-		</tbody>
-	</table>
-	<table class="table table-striped" id="sortableShowreel">
-		<thead>
-	   		<tr>
-				<th>Composition Videos</th>
-				<th>Brand Name</th>
-	     		<th>Campaign Title</th>
-				<th>Description?</th>
-				<th>Video</th>
-				<th>Platform</th>
-				<th>Asigned to?</th>
-				<th>Showreel page?</th>
-				<th></th>
-	   		</tr>
-	 	</thead>
-	 	<tbody>
-   			<% @customvideos.each do |cv| %>
-     			<tr data-item-id=<%= "#{cv.id}" %> class="item">
-					<td>
-						<div class="responsiveVideo frame_container">
-							<div class="videoMaster">
-								<div class="customVideoDesktop">
-									<div class="plyr js-player">
-							    		<div data-video-id="<%= cv.vimeo %>" data-type="<%= cv.platform %>"></div>
+	<div id="tabs">
+		<ul>
+	    	<li><a href="#tabs-1">Main grid page management</a></li>
+	    	<li><a href="#tabs-2">Videos</a></li>
+	    	<li><a href="#tabs-3">Artists</a></li>
+	  	</ul>
+	  	<div id="tabs-1">
+			  <table class="table table-striped" id="sortableCustom">
+			<thead>
+				<tr>
+					<th>Composition Logo</th>
+					<th>Randomise artist display order?</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<td><%= image_tag(@clogo.image, class: "thumb2") %></td>
+				<td class="change"><%= best_in_place @clogo, :randombox, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+				<td class="align-right">
+					<%= link_to 'Edit', edit_clogo_path(@clogo), class: "btn btn-success" %>
+				</td>
+			</tbody>
+		</table>
+		</div>
+		<div id="tabs-2">
+			<table class="table table-striped" id="sortableShowreel">
+			<thead>
+		   		<tr>
+					<th>Composition Videos</th>
+					<th>Brand Name</th>
+		     		<th>Campaign Title</th>
+					<th>Description?</th>
+					<th>Video</th>
+					<th>Platform</th>
+					<th>Asigned to?</th>
+					<th>Showreel page?</th>
+					<th></th>
+		   		</tr>
+		 	</thead>
+		 	<tbody>
+	   			<% @customvideos.each do |cv| %>
+	     			<tr data-item-id=<%= "#{cv.id}" %> class="item">
+						<td>
+							<div class="responsiveVideo frame_container">
+								<div class="videoMaster">
+									<div class="customVideoDesktop">
+										<div class="plyr js-player">
+								    		<div data-video-id="<%= cv.vimeo %>" data-type="<%= cv.platform %>"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</td>
-       				<td>
-						<span class="rest-in-place" data-url="/customvideos/<%= cv.work_brand_name %>" data-object="customvideo" 
-							data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
-				  			<%= cv.work_brand_name %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customvideos/<%= cv.work_campaign_title %>" data-object="customvideo" 
-							data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
-							<%= cv.work_campaign_title %>
-						</span>
-					</td>
-					<td><% if cv.description? %>Yes<% else %>No<% end %></td>
-					<td>
-						<span class="rest-in-place" data-url="/customvideos/<%= cv.vimeo %>" data-object="customvideo" 
-							data-attribute="vimeo" data-placeholder="VIMEO LINK">
-							<%= cv.vimeo %>
-						</span>
-					</td>
-					<td><%= cv.platform %></td>
-					<td>
-						<%= best_in_place cv, :custom_id, :type => :select, :collection => Custom.all.map { |i| [i.id, i.name] } %>
-					</td>
-					<td><%= best_in_place cv, :showreel, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>					
-					<td class="align-right">
-						<%= link_to 'Edit', edit_customvideo_path(cv), class: "btn btn-success" %>
-						<%= link_to 'Delete', cv, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
-					</td>
-     			</tr>
-   			<% end %>
-	 	</tbody>
-	</table>
-	<%= link_to 'Add New Custom Video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
-	<table class="table table-striped" id="sortableCustom">
-		<thead>
-	   		<tr>
-				<th>Composition Artists</th>
-	     		<th>Name</th>
-				<th>Categories</th>
-				<th>Soundcloud</th>
-				<th>Wavs? / MP3s?</th>
-				<th>Show?</th>
-				<th></th>
-	   		</tr>
-	 	</thead>
-	 	<tbody>
-   			<% @customs_d.each do |custom| %>
-     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
-					<td><%= image_tag(custom.image, class: "thumb2") %></td>
-       				<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-							data-attribute="name" data-placeholder="Name">
-				  			<%= custom.name %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-							data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
-							<%= custom.genre %>
-						</span>
-					</td>
-					<td>
-						<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-							data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD EMBED CODE">
-							<%= custom.soundcloud %>
-						</span>
-					</td>
-					<td><% if custom.fullqual? %>Yes<% else %>No<% end %> / <% if custom.lowqual? %>Yes<% else %>No<% end %></td>
-					<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td class="align-right">
-						<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
-						<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
-					</td>
-     			</tr>
-   			<% end %>
-			<% if @customs_nd.count != 0 %>
-				<td class="noBackground" colspan="12" style="padding:30px 0px 10px 0px">NOT SORTABLE</td>
-				<% @customs_nd.each do |custom| %>
-	     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
-						<td><%= image_tag(custom.image, class: "thumb2") %></td>
+						</td>
 	       				<td>
-							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-								data-attribute="name" data-placeholder="Name">
-					  			<%= custom.name %>
+							<span class="rest-in-place" data-url="/customvideos/<%= cv.work_brand_name %>" data-object="customvideo" 
+								data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
+					  			<%= cv.work_brand_name %>
 							</span>
 						</td>
 						<td>
-							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-								data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
-								<%= custom.genre %>
+							<span class="rest-in-place" data-url="/customvideos/<%= cv.work_campaign_title %>" data-object="customvideo" 
+								data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
+								<%= cv.work_campaign_title %>
 							</span>
 						</td>
+						<td><% if cv.description? %>Yes<% else %>No<% end %></td>
 						<td>
-							<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
-								data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD EMBED CODE">
-								<%= custom.soundcloud %>
+							<span class="rest-in-place" data-url="/customvideos/<%= cv.vimeo %>" data-object="customvideo" 
+								data-attribute="vimeo" data-placeholder="VIMEO LINK">
+								<%= cv.vimeo %>
 							</span>
 						</td>
-						<td><% if custom.fullqual? %>Yes<% else %>No<% end %> / <% if custom.lowqual? %>Yes<% else %>No<% end %></td>
-						<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+						<td><%= cv.platform %></td>
+						<td>
+							<%= best_in_place cv, :custom_id, :type => :select, :collection => Custom.all.map { |i| [i.id, i.name] } %>
+						</td>
+						<td><%= best_in_place cv, :showreel, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>					
 						<td class="align-right">
-							<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
-							<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+							<%= link_to 'Edit', edit_customvideo_path(cv), class: "btn btn-success" %>
+							<%= link_to 'Delete', cv, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
 						</td>
 	     			</tr>
 	   			<% end %>
-			<% end %>
-	 	</tbody>
-	</table>
-	<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
+		 	</tbody>
+		</table>
+			<%= link_to 'Add New Custom Video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
+	  </div>
+	  	<div id="tabs-3">
+			<table class="table table-striped" id="sortableCustom">
+				<thead>
+			   		<tr>
+						<th>Composition Artists</th>
+			     		<th>Name</th>
+						<th>Categories</th>
+						<th>Soundcloud</th>
+						<th>Wavs? / MP3s?</th>
+						<th>Show?</th>
+						<th></th>
+			   		</tr>
+			 	</thead>
+			 	<tbody>
+		   			<% @customs_d.each do |custom| %>
+		     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
+							<td><%= image_tag(custom.image, class: "thumb2") %></td>
+		       				<td>
+								<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+									data-attribute="name" data-placeholder="Name">
+						  			<%= custom.name %>
+								</span>
+							</td>
+							<td>
+								<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+									data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
+									<%= custom.genre %>
+								</span>
+							</td>
+							<td>
+								<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+									data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD EMBED CODE">
+									<%= custom.soundcloud %>
+								</span>
+							</td>
+							<td><% if custom.fullqual? %>Yes<% else %>No<% end %> / <% if custom.lowqual? %>Yes<% else %>No<% end %></td>
+							<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+							<td class="align-right">
+								<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
+								<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+							</td>
+		     			</tr>
+		   			<% end %>
+					<% if @customs_nd.count != 0 %>
+						<td class="noBackground" colspan="12" style="padding:30px 0px 10px 0px">NOT SORTABLE</td>
+						<% @customs_nd.each do |custom| %>
+			     			<tr data-item-id=<%= "#{custom.id}" %> class="item">
+								<td><%= image_tag(custom.image, class: "thumb2") %></td>
+			       				<td>
+									<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+										data-attribute="name" data-placeholder="Name">
+							  			<%= custom.name %>
+									</span>
+								</td>
+								<td>
+									<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+										data-attribute="genre" data-placeholder="ADD CATEGORIES (Separate with '/')">
+										<%= custom.genre %>
+									</span>
+								</td>
+								<td>
+									<span class="rest-in-place" data-url="/customs/<%= custom.slug %>" data-object="custom" 
+										data-attribute="soundcloud" data-placeholder="ADD SOUNDCLOUD EMBED CODE">
+										<%= custom.soundcloud %>
+									</span>
+								</td>
+								<td><% if custom.fullqual? %>Yes<% else %>No<% end %> / <% if custom.lowqual? %>Yes<% else %>No<% end %></td>
+								<td class="change"><%= best_in_place custom, :display, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+								<td class="align-right">
+									<%= link_to 'Edit', edit_custom_path(custom), class: "btn btn-success" %>
+									<%= link_to 'Delete', custom, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+								</td>
+			     			</tr>
+			   			<% end %>
+					<% end %>
+			 	</tbody>
+			</table>
+			<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
+	  	</div>
+	</div>
 </div>

@@ -18,34 +18,10 @@
 				<div class="textField"><%= f.text_field :fullqual, label: "Add link to zipped wavs" %></div>
 				<div class="textField"><%= f.text_field :lowqual, label: "Add link to zipped mp3s" %></div>
 			</div>
-		  	<div class="vimeoSectionInForm">
-				<h4 class="customTitles">First video link</h4>
-				<div class="textField2"><%= f.text_field :vimeo_1, label: "Video URL" %></div>
-				<div class="textField2">
-					<%= f.select :platform, options_for_select(["vimeo", "youtube"], @custom.platform) %>
-				</div>
-				<div class="textField2"><%= f.text_field :work_brand_name, label: "Brand name" %></div>
-				<div class="textField2"><%= f.text_field :work_campaign_title, label: "Campaign title" %></div>
+		  	<div class="buttons">
+				<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+				<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
 			</div>
-			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Second video link</h4>
-				<div class="textField2"><%= f.text_field :vimeo_2, label: "Video URL" %></div>
-				<div class="textField2">
-					<%= f.select :platform2, options_for_select(["vimeo", "youtube"], @custom.platform2) %>
-				</div>
-				<div class="textField2"><%= f.text_field :work_brand_name2, label: "Brand name" %></div>
-				<div class="textField2"><%= f.text_field :work_campaign_title2, label: "Campaign title" %></div>
-			</div>
-			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Third video link</h4>
-				<div class="textField2"><%= f.text_field :vimeo_3, label: "Video URL" %></div>
-				<div class="textField2">
-					<%= f.select :platform3, options_for_select(["vimeo", "youtube"], @custom.platform3) %>
-				</div>
-				<div class="textField2"><%= f.text_field :work_brand_name3, label: "Brand name" %></div>
-				<div class="textField2"><%= f.text_field :work_campaign_title3, label: "Campaign title" %></div>
-			</div>
-		  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success btnLarge"  %></div>
 		<% end %>
 	</div>
 </div>

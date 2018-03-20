@@ -24,6 +24,9 @@
 			<div class="textField"><%= f.text_field :instagram, label: "Instagram" %></div>
 			<div class="textField"><%= f.text_field :website, label: "Website" %></div>
 		</div>
-	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+	  	<div class="buttons">
+			<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+			<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
+		</div>
 	<% end %>
 </div>

@@ -1,18 +1,21 @@
-<div class="deviseStyling col-md-12 abouts marginTopOverride canScroll">
+<div class="deviseStyling abouts marginTopOverride canScroll">
 	<div class="formContent">
-		<h2 class="titles">Add your showreel piece!</h2>
+		<h2 class="titles">Add your showreel video!</h2>
 		<%= bootstrap_form_for(@showreel) do |f| %>
 		  	<div class="vimeoSectionInForm">
-				<h4 class="customTitles">First video link</h4>
-				<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
+				<h4 class="customTitles">VIDEO</h4>
+				<div class="textField2"><%= f.text_field :vimeo, label: "URL" %></div>
 				<div class="textField2">
 					<%= f.select :platform, options_for_select(["vimeo", "youtube"], @showreel.platform) %>
 				</div>
 				<div class="textField2"><%= f.text_field :work_brand_name, label: "Brand name" %></div>
 				<div class="textField2"><%= f.text_field :work_campaign_title, label: "Campaign title" %></div>
 			</div>
-			<div class="vimeoSectionInForm"><div class="textArea"><%= f.text_area :description, label: "Description" %></div></div>
-		  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success btnLarge"  %></div>
+			<div class="vimeoSectionInForm"><div class="textArea"><%= f.text_area :description, label: "Video description" %></div></div>
+		  	<div class="buttons">
+				<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+				<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
+			</div>
 		<% end %>
 	</div>
 </div>

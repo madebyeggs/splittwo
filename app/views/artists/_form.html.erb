@@ -1,4 +1,4 @@
-<div class="deviseStyling col-md-11 abouts marginTopOverride canScroll">
+<div class="deviseStyling abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your artist here!</h2>
 	<%= bootstrap_form_for(@artist) do |f| %>
 	  	<div class="vimeoSectionInForm">
@@ -33,6 +33,9 @@
 				<% end %>
 			</div>
 		</div>
-	  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+	  	<div class="buttons">
+			<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+			<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
+		</div>
 	<% end %>
 </div>

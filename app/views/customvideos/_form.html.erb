@@ -13,7 +13,10 @@
 			</div>
 			<div class="vimeoSectionInForm"><div class="textArea"><%= f.text_area :description, label: "Description" %></div></div>
 			<div class="vimeoSectionInForm"><%= f.collection_select(:custom_id, Custom.all, :id, :name) %></div>
-		  	<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success btnLarge"  %></div>
+		  	<div class="buttons">
+				<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
+				<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
+			</div>
 		<% end %>
 	</div>
 </div>
