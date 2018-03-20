@@ -16,7 +16,9 @@
 //= require 'rest_in_place'
 //= require best_in_place
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
+//= require jquery-ui/tabs
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks

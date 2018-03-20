@@ -1184,7 +1184,7 @@ html .ui-bar-a .ui-btn:visited,
 html .ui-body-a .ui-btn:visited,
 html body .ui-group-theme-a .ui-btn:visited,
 html head+body .ui-btn.ui-btn-a:visited {
-    background-color: #f6f6f6;
+    background-color: #191919;
     border-color: #ddd;
     color: #333;
     text-shadow: 0 1px 0 #f3f3f3

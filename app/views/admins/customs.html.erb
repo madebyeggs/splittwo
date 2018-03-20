@@ -10,35 +10,39 @@
 	    	<li><a href="#tabs-3">Artists</a></li>
 	  	</ul>
 	  	<div id="tabs-1">
-			  <table class="table table-striped" id="sortableCustom">
-			<thead>
-				<tr>
-					<th>Composition Logo</th>
-					<th>Randomise artist display order?</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<td><%= image_tag(@clogo.image, class: "thumb2") %></td>
-				<td class="change"><%= best_in_place @clogo, :randombox, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-				<td class="align-right">
-					<%= link_to 'Edit', edit_clogo_path(@clogo), class: "btn btn-success" %>
-				</td>
-			</tbody>
-		</table>
+			<h3>Organise how the main composition page looks.<br/><br/>
+				You can change the logo here and also decide whether the artists should be displayed <br/>
+				randomly (changes each time the page is reloaded) or not.</h3><br/>
+			<table class="table table-striped" id="sortableCustom">
+			  <thead>
+				  <tr>
+					  <th>Logo</th>
+					  <th>Randomise artist display order?</th>
+					  <th></th>
+				  </tr>
+			  </thead>
+			  <tbody>
+				  <td><%= image_tag(@clogo.image, class: "thumb2") %></td>
+				  <td class="change"><%= best_in_place @clogo, :randombox, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+				  <td class="align-right">
+					  <%= link_to 'Edit', edit_clogo_path(@clogo), class: "btn btn-success" %>
+				  </td>
+			  </tbody>
+			</table>
 		</div>
 		<div id="tabs-2">
+			<h3>Add/Edit videos, assign to artists and decide whether or not to add the the showreel page.</h3><br/>
 			<table class="table table-striped" id="sortableShowreel">
 			<thead>
 		   		<tr>
-					<th>Composition Videos</th>
+					<th>Video</th>
 					<th>Brand Name</th>
-		     		<th>Campaign Title</th>
+		     		<th>Title</th>
 					<th>Description?</th>
 					<th>Video</th>
 					<th>Platform</th>
-					<th>Asigned to?</th>
-					<th>Showreel page?</th>
+					<th>Artist</th>
+					<th>Showreel?</th>
 					<th></th>
 		   		</tr>
 		 	</thead>
@@ -88,13 +92,14 @@
 	   			<% end %>
 		 	</tbody>
 		</table>
-			<%= link_to 'Add New Custom Video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
+			<%= link_to 'Add new video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
 	  </div>
 	  	<div id="tabs-3">
+			<h3>Add/Edit artists</h3><br/>
 			<table class="table table-striped" id="sortableCustom">
 				<thead>
 			   		<tr>
-						<th>Composition Artists</th>
+						<th>Image</th>
 			     		<th>Name</th>
 						<th>Categories</th>
 						<th>Soundcloud</th>
