@@ -5,9 +5,9 @@
 	<%= link_to 'Launch Custom Page', customs_path, class: "btn btn-success csvInput3", target: "blank"  %>
 	<div id="tabs">
 		<ul>
-	    	<li><a href="#tabs-1">Main grid page management</a></li>
-	    	<li><a href="#tabs-2">Videos</a></li>
-	    	<li><a href="#tabs-3">Artists</a></li>
+	    	<li><a href="#tabs-1">Grid page management</a></li>
+	    	<li><a href="#tabs-2">Artists</a></li>
+	    	<li><a href="#tabs-3">Videos</a></li>
 	  	</ul>
 	  	<div id="tabs-1">
 			<h3>Organise how the main composition page looks.<br/><br/>
@@ -31,70 +31,6 @@
 			</table>
 		</div>
 		<div id="tabs-2">
-			<h3>Add/Edit videos, assign to artists and decide whether or not to add the the showreel page.</h3><br/>
-			<table class="table table-striped" id="sortableShowreel">
-			<thead>
-		   		<tr>
-					<th>Video</th>
-					<th>Brand Name</th>
-		     		<th>Title</th>
-					<th>Description?</th>
-					<th>Video</th>
-					<th>Platform</th>
-					<th>Artist</th>
-					<th>Showreel?</th>
-					<th></th>
-		   		</tr>
-		 	</thead>
-		 	<tbody>
-	   			<% @customvideos.each do |cv| %>
-	     			<tr data-item-id=<%= "#{cv.id}" %> class="item">
-						<td>
-							<div class="responsiveVideo frame_container">
-								<div class="videoMaster">
-									<div class="customVideoDesktop">
-										<div class="plyr js-player">
-								    		<div data-video-id="<%= cv.vimeo %>" data-type="<%= cv.platform %>"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</td>
-	       				<td>
-							<span class="rest-in-place" data-url="/customvideos/<%= cv.work_brand_name %>" data-object="customvideo" 
-								data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
-					  			<%= cv.work_brand_name %>
-							</span>
-						</td>
-						<td>
-							<span class="rest-in-place" data-url="/customvideos/<%= cv.work_campaign_title %>" data-object="customvideo" 
-								data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
-								<%= cv.work_campaign_title %>
-							</span>
-						</td>
-						<td><% if cv.description? %>Yes<% else %>No<% end %></td>
-						<td>
-							<span class="rest-in-place" data-url="/customvideos/<%= cv.vimeo %>" data-object="customvideo" 
-								data-attribute="vimeo" data-placeholder="VIMEO LINK">
-								<%= cv.vimeo %>
-							</span>
-						</td>
-						<td><%= cv.platform %></td>
-						<td>
-							<%= best_in_place cv, :custom_id, :type => :select, :collection => Custom.all.map { |i| [i.id, i.name] } %>
-						</td>
-						<td><%= best_in_place cv, :showreel, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>					
-						<td class="align-right">
-							<%= link_to 'Edit', edit_customvideo_path(cv), class: "btn btn-success" %>
-							<%= link_to 'Delete', cv, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
-						</td>
-	     			</tr>
-	   			<% end %>
-		 	</tbody>
-		</table>
-			<%= link_to 'Add new video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
-	  </div>
-	  	<div id="tabs-3">
 			<h3>Add/Edit artists</h3><br/>
 			<table class="table table-striped" id="sortableCustom">
 				<thead>
@@ -173,6 +109,71 @@
 			 	</tbody>
 			</table>
 			<%= link_to 'Add New Custom Artist', new_custom_path, class: "btn btn-success csvInput2"  %>
+	  	</div>
+	  	<div id="tabs-3">
+			<h3>Add/Edit videos, assign to artists and decide whether or not to add the the showreel page.</h3><br/>
+			<table class="table table-striped" id="sortableShowreel">
+				<thead>
+		   			<tr>
+						<th>Video</th>
+						<th>Brand Name</th>
+		     			<th>Title</th>
+						<th>Description?</th>
+						<th>Video</th>
+						<th>Platform</th>
+						<th>Artist</th>
+						<th>Showreel?</th>
+						<th></th>
+		   			</tr>
+		 		</thead>
+		 		<tbody>
+	   				<% @customvideos.each do |cv| %>
+	     				<tr data-item-id=<%= "#{cv.id}" %> class="item">
+							<td>
+								<div class="responsiveVideo frame_container">
+									<div class="videoMaster">
+										<div class="customVideoDesktop">
+											<div class="plyr js-player">
+								    			<div data-video-id="<%= cv.vimeo %>" data-type="<%= cv.platform %>"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+	       					<td>
+								<span class="rest-in-place" data-url="/customvideos/<%= cv.work_brand_name %>" data-object="customvideo" 
+									data-attribute="work_brand_name" data-placeholder="ADD BRAND NAME">
+					  				<%= cv.work_brand_name %>
+								</span>
+							</td>
+							<td>
+								<span class="rest-in-place" data-url="/customvideos/<%= cv.work_campaign_title %>" data-object="customvideo" 
+									data-attribute="work_campaign_title" data-placeholder="ADD CAMPAIGN TITLE">
+									<%= cv.work_campaign_title %>
+								</span>
+							</td>
+							<td><% if cv.description? %>Yes<% else %>No<% end %></td>
+							<td>
+								<span class="rest-in-place" data-url="/customvideos/<%= cv.vimeo %>" data-object="customvideo" 
+									data-attribute="vimeo" data-placeholder="VIMEO LINK">
+									<%= cv.vimeo %>
+								</span>
+							</td>
+							<td><%= cv.platform %></td>
+							<td>
+								<%= best_in_place cv, :custom_id, :type => :select, :collection => Custom.all.map { |i| [i.id, i.name] } %>
+							</td>
+							<td><%= best_in_place cv, :showreel, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>					
+							<td class="align-right">
+								<%= link_to 'Edit', edit_customvideo_path(cv), class: "btn btn-success" %>
+								<%= link_to 'Delete', cv, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, 
+								class: "btn btn-success" %>
+							</td>
+	     				</tr>
+	   				<% end %>
+		 		</tbody>
+			</table>
+			<%= link_to 'Add new video', new_customvideo_path, class: "btn btn-success csvInput2"  %>
 	  	</div>
 	</div>
 </div>
