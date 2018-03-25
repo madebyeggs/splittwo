@@ -9,14 +9,28 @@
 				<% @sorted_showreelvideos.each do |showreel| %>
 					<div class="responsiveVideo frame_container">
 						<div class="videoMaster">
-							<div class="">
+							<div class="videoContainer">
 								<h1 class="artistName titleSize1 customVideoTitle customVideoTitleOveride">
 									<%= showreel.work_brand_name %> "<%= showreel.work_campaign_title %>"
 								</h1>
 								<div class="plyr js-player">
 					    			<div data-video-id="<%= showreel.vimeo %>" data-type="<%= showreel.platform %>"></div>
 								</div>
-								<!-- <p class="customVideoDescription"><%#= showreel.description.truncate(220, separator: '.') %></p> -->
+								<p class="customVideoDescription">
+								  <% if showreel.description.length > 150 %>
+								    <%= truncate(showreel.description, length: 150) %>
+								    <%#= link_to 'more', '', class: "read-more-#{showreel.id} blue" %>
+								    <!--<script>
+								      $('.read-more-<%= showreel.id %>').on('click', function(e) {
+								        e.preventDefault()
+										  $(this).parent().html('<%= escape_javascript showreel.description %>');
+										  $(this).parent().parent().css('height:500px;');
+								      })
+								    </script>-->
+								  <% else %>
+								    <%= showreel.description %>
+								  <% end %>
+								<p>
 							</div>
 						</div>
 					</div>
