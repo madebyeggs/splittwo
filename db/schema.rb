@@ -147,17 +147,6 @@ ActiveRecord::Schema.define(version: 20180315155127) do
   add_index "customvideos", ["custom_id"], name: "index_customvideos_on_custom_id"
   add_index "customvideos", ["slug"], name: "index_customvideos_on_slug", unique: true
 
-  create_table "customvids", force: :cascade do |t|
-    t.string   "vimeo_id"
-    t.string   "brand_name"
-    t.string   "campaign_title"
-    t.integer  "custom_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "customvids", ["custom_id"], name: "index_customvids_on_custom_id"
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
