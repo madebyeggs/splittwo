@@ -33,18 +33,17 @@ gem 'newrelic_rpm'
 gem 'lazysizes_rails'
 gem 'fitvidsjs_rails'
 gem 'plyr-rails'
+gem 'pg', '~> 0.20'
 
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end

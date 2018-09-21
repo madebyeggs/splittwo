@@ -37,7 +37,7 @@
 //= require jquery.royalslider.min
 //= require underscore
 //= require FB_SDK
-//= require lazysizes_rails
+// require lazysizes_rails
 //= require fitvids.js
 //= require plyr
 //= require iscroll
