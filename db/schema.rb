@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180315155127) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "announcements", force: :cascade do |t|
     t.text     "slide_title"
     t.string   "vimeo"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.string   "nlsubtitle"
   end
 
-  add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true
+  add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true, using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -77,7 +80,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.integer  "Slideshowposition"
   end
 
-  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true
+  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
   create_table "clogos", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -127,7 +130,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.boolean  "randombox"
   end
 
-  add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true
+  add_index "customs", ["slug"], name: "index_customs_on_slug", unique: true, using: :btree
 
   create_table "customvideos", force: :cascade do |t|
     t.text     "description"
@@ -144,8 +147,8 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.boolean  "showreel"
   end
 
-  add_index "customvideos", ["custom_id"], name: "index_customvideos_on_custom_id"
-  add_index "customvideos", ["slug"], name: "index_customvideos_on_slug", unique: true
+  add_index "customvideos", ["custom_id"], name: "index_customvideos_on_custom_id", using: :btree
+  add_index "customvideos", ["slug"], name: "index_customvideos_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -155,10 +158,10 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "newsletters", force: :cascade do |t|
     t.string   "title1"
@@ -212,7 +215,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.string   "platform"
   end
 
-  add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true
+  add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true, using: :btree
 
   create_table "researches", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -226,7 +229,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.datetime "image_updated_at"
   end
 
-  add_index "researches", ["slug"], name: "index_researches_on_slug", unique: true
+  add_index "researches", ["slug"], name: "index_researches_on_slug", unique: true, using: :btree
 
   create_table "showreels", force: :cascade do |t|
     t.text     "description"
@@ -242,7 +245,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.boolean  "showreel"
   end
 
-  add_index "showreels", ["slug"], name: "index_showreels_on_slug", unique: true
+  add_index "showreels", ["slug"], name: "index_showreels_on_slug", unique: true, using: :btree
 
   create_table "slides", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -264,8 +267,8 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "works", force: :cascade do |t|
     t.string   "brand_name"
@@ -308,6 +311,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.string   "nlsubtitle"
   end
 
-  add_index "works", ["slug"], name: "index_works_on_slug", unique: true
+  add_index "works", ["slug"], name: "index_works_on_slug", unique: true, using: :btree
 
+  add_foreign_key "customvideos", "customs"
 end
