@@ -2,50 +2,29 @@
 	<div class="artistInfo">
 		<%= link_to '', artists_path, :class => "closeIcon" %>
 		<h1 class="artistName titleSize1"><%= @artist.name %></h1>
-		<div class="links">
-			<input id="twitter" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @artist.fb_image %>"
-				data-description="<%= truncate(@artist.description, :length => 50) %>" 
-				data-via="FairsplitMusic <% if @artist.twitter_name.blank? || @artist.twitter_name == '' %><% else %>@<%= @artist.twitter_name %><% end %>"
-				data-related="FairsplitMusic"   
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<a class="fa fa-facebook socialLinks" href="javascript:artistDialog.open()"></a>
-			<input id="googleplus" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @artist.fb_image %>"
-				data-description="<%= @artist.description %>"
-				data-title="<%= @artist.name %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'googleplus' }, :class => 'prettySocial fa fa-google-plus socialLinks' %>
-			<input id="pinterest" type="hidden" 
-				data-url="<%= @currentUrl %>" 
-				data-media="<%= @artist.fb_image %>"
-				data-description="<%= @artist.description %>"
-				data-title="<%= @artist.name %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
-		</div>
-		
 		<hr class="artistSeparator" />
 		<div class="artist-left">
-			<p class="artistDetail"><%= simple_format @artist.description, :class => "artistDetail descriptionSize1" %></p>
-		</div>
-		<div class="artist-right">
 			<div class="artistSquareImageContainer">
 				<div class="artistSquareImage">
 					<%= image_tag(@artist.image, :class => "artistSquareImage") %>
 				</div>
 			</div>
 		</div>
+		<div class="artist-right">
+			<p class="artistDetail"><%= simple_format @artist.description, :class => "artistDetail descriptionSize1" %></p>
+		</div>
 		<div class="artist-bottom">
-			<% if @artist.soundcloud? %>
-				<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @artist.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false">
-				</iframe>
+			<hr class="projectSeparator" />
+			<% if @artist.vimeo? %>
+				<div class="videoMaster spacer2">
+					<div class="videoDesktop">
+						<div class="fitvids responsiveVideo2">
+							<div class="plyr js-player">
+							    <div data-video-id="<%= @artist.vimeo %>" data-type="<%= @artist.platform %>"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 			<% end %>
 		</div>
 	</div>

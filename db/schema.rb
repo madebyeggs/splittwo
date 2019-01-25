@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315155127) do
+ActiveRecord::Schema.define(version: 20190125135329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180315155127) do
     t.text     "slide_title2"
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
+    t.string   "platform"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree

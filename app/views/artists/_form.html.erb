@@ -11,6 +11,13 @@
 			<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %></div>
 			<div class="textField"><%= f.text_field :slide_title3, label: "Slideshow title third" %></div>
 		</div>
+		<div class="vimeoSectionInForm">
+			<h4 class="customTitles">Video link</h4>
+			<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
+			<div class="textField2">
+				<%= f.select :platform, options_for_select(["vimeo", "youtube"], @artist.platform) %>
+			</div>
+		</div>
 		<div class="vimeoSectionInForm"><%= f.text_area :description, label: "Description" %></div>
 		<div class="vimeoSectionInForm">
 			<div class="textField2"><%= f.text_field :fb_url, label: "Artist's Facebook URL" %></div>

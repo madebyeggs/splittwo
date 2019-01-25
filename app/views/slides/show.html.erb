@@ -2,34 +2,6 @@
 	<div class="artistInfo">
 		<%= link_to '', slides_path, :class => "closeIcon" %>
 		<h1 class="artistName titleSize1"><%= @slide.slide_title %></h1>
-		<div class="links">
-			<input id="twitter" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @slide.fb_image %>"
-				data-description="<%= truncate(@slide.description, :length => 50) %>" 
-				data-via="FairsplitMusic"
-				data-related="FairsplitMusic"  
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'twitter' }, :class => 'prettySocial fa fa-twitter socialLinks' %>
-			<a class="fa fa-facebook socialLinks" href="javascript:slideDialog.open()"></a>
-			<input id="googleplus" type="hidden" 
-				data-url="<%= @currentUrl %>"
-				data-media="<%= @slide.fb_image %>"
-				data-description="<%= @slide.description %>"
-				data-title="<%= @slide.slide_title %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'googleplus' }, :class => 'prettySocial fa fa-google-plus socialLinks' %>
-			<input id="pinterest" type="hidden" 
-				data-url="<%= @currentUrl %>" 
-				data-media="<%= @slide.fb_image %>"
-				data-description="<%= @slide.description %>"
-				data-title="<%= @slide.slide_title %>"
-				class="socialLinksHidden"
-			>
-			<%= link_to "", "#", data: { type: 'pinterest' }, :class => 'prettySocial fa fa-pinterest socialLinks' %>
-		</div>
 		<hr class="artistSeparator" />
 		<% if @slide.vimeo? %>
 			<div class="videoMaster">

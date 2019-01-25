@@ -1,24 +1,22 @@
 <div class="">
 	<div class="royalSlider rsDefault">
 		<% @sorted_slides.each do |slide| %>
-		    <div>
-			<% if slide.slide_image? %>
-				<%= image_tag(slide.slide_image, class: "rsImg") %>
-			<% else %>
-				<%= image_tag(slide.image, class: "rsImg") %>
-			<% end %>
-				<div class="slideTitle">
-					<a href="<%= slide_path(slide) %>" class="slideShowClick">
-						<h5><%= slide.slide_title %></h5>
-						<h5 class="colour"><%= slide.slide_title2 %></h5>
-						<hr class="dots"/>
-						<p class="artistDescription">
-							<%= truncate(slide.slide_title3, :length => 130, :escape => false, 
-							separator: ' ', omission: '<br/><br/>... (read more)') %>
-						</p>
-					</a>
+			<a href="<%= slide_path(slide) %>">
+			    <div class="slideMaster">
+					<div class="slideOverlay">
+						<div class="rsGCaption">
+							<%= slide.slide_title %><br/><%= slide.slide_title2 %>
+						</div>
+					</div>
+					<div class="imageContainer">
+						<% if slide.slide_image? %>
+							<%= image_tag(slide.slide_image, class: "rsImg") %>
+						<% else %>
+							<%= image_tag(slide.image, class: "rsImg") %>
+						<% end %>
+					</div>
 				</div>
-			</div>
+			</a>
 		<% end %>
 	</div>
 </div>
@@ -30,7 +28,7 @@
 			// autoplay options go gere
 	    	enabled: true,
 	    	pauseOnHover: false,
-			delay: 5000
+			delay: 7000
 		},
 		imageAlignCenter: true,
 		imageScaleMode: 'fill',
@@ -39,23 +37,5 @@
 	}).data("royalSlider");
 	
 	var slider = $(".royalSlider").data('royalSlider');
-	
-	slider.slides[0].holder.on('rsAfterContentSet', function() {
-		$('.slideTitle').addClass('slide-up', 250);
-	});
-	
-	sliderInstance.ev.on('rsBeforeAnimStart', function(event) {
-		$('.slideTitle').fadeOut(function(){
-			$('.slideTitle').removeClass('slide-up');
-			$('.slideTitle').addClass('slide-down');
-		});
-	});
-
-	sliderInstance.ev.on('rsAfterSlideChange', function(event) {
-		$('.slideTitle').removeClass('slide-down');
-		$('.slideTitle').fadeIn(function(){
-			$('.slideTitle').addClass('slide-up', 250);	
-		});
-	});
 		
 </script>

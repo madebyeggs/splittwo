@@ -3,7 +3,10 @@
 	<%= bootstrap_form_for(@release) do |f| %>
 		<div class="vimeoSectionInForm">
 	  		<div class="textField2"><%= f.text_field :title, label: "Title" %></div>
-			<div class="textField2"><%= f.text_field :soundcloud, label: "Sourceaudio embed code" %></div>
+			<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
+			<div class="textField2">
+				<%= f.select :platform, options_for_select(["vimeo", "youtube"], @release.platform) %>
+			</div>
 			<div class="textField2 smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
 		</div>
 		<div class="vimeoSectionInForm">

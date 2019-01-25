@@ -1,17 +1,17 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: V3_development
+  database: splittwo_development
   pool: 5
-  username: mrehamilton
+  username: petersaville
   password:
   timeout: 5000
   
 test:
   adapter: postgresql
   encoding: unicode
-  database: V3_test
+  database: splittwo_test
   pool: 5
-  username: mrehamilton
+  username: petersaville
   password:
   timeout: 5000

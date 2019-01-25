@@ -82,6 +82,7 @@ th:after {
 .socialLinks {font-size:20px!important;margin-right:-5px;}
 .links {margin:-50px 0px -30px 0px;}
 .spacer {margin-top:-15px!important;margin-bottom:22px!important;}
+.spacer2 {margin-top:50px;}
 .leftSide {
 	margin:0;
 	height:100vh;
@@ -93,7 +94,7 @@ th:after {
 .closeIcon {
 	display:inline;
 	float:right;
-	margin-top:30px;
+	margin-top:40px;
 	width: 48px;
 	height: 48px;
 	background: url(<%= asset_path 'bg-close.png' %>) center no-repeat;
@@ -164,22 +165,60 @@ input {max-width:100}
 
 /*ARTIST-INDEX*/
 
-.artist {width:100%;}
-.info-wrapper {position:absolute;width:90%;bottom:6%;left:4%;background-color:rgba(0,0,0,0.8);padding:10px;display:none;}
-.artistDescription, h5 {font-family:"Raleway", sans-serif;font-size:12px;margin:0px;color:#ffffff;text-align:justify;}
-.colour {color:#ffa500;}
+.artist {width:100%;position:relative;}
+.info-wrapper {width:100%;height:100%;background-color:rgba(0,0,0,1);position:absolute;top:0;left:0;display:none;}
+.artistDescription, h5 {
+	text-transform: uppercase;
+	font-size: 0.5em !important;
+	color: #ffffff;
+	font-family: 'Raleway' sans-serif;
+	margin:0 auto;
+	padding:0px 20px;
+	text-align:center;
+	z-index:1;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.colour {color:white;}
 hr.dots {margin:6px 0px;border-top:1px dotted #fff;}
 .lazy {width:100%;} .lazy img {width:100%;height:100%;}
 .lazyload {width:100%;} .lazyload img {width:100%;height:100%;}
 
+.slideMaster {width:100%;height:100%;position:absolute;}
+.slideOverlay {width:100%;height:100%;background-color:rgba(0,0,0,0);position: absolute;top:0;left:0;transition: background-color 0.3s linear;}
+
+.rsGCaption {
+	opacity: 0;
+	transition: opacity 0.3s linear;
+	font-size: 0.5em !important;
+	padding:0% 15%;
+	margin:0 auto;
+	text-align:center;
+	color: #ffffff;
+	font-family: 'Raleway' sans-serif;
+	line-height:1.1em;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.royalSlider:hover .rsGCaption {
+	opacity: 1;
+}
+
+.royalSlider:hover .slideOverlay {
+	background-color:rgba(0,0,0,0.3);
+}
+
 /*ARTIST-SHOW*/
 
 .artistInfo, .workInfo {width:80%;margin:20px 10%;padding:2px 0px 40px 0px;}
-.artistName {text-align:left;margin:30px 0px 22px 0px;}
-.artistSeparator {color:#ffffff; margin:30px 0px 15px 0px;}
+.artistName {text-align:left;margin:57px 0px 24px 0px;}
+.artistSeparator {color:#ffffff; margin:23px 0px 15px 0px;}
 .artistDetail {margin:20px 0px 40px;text-align:justify;}
-.artist-left {width:55%;float:left;}
-.artist-right {width:40%;margin-left:5%;float:right;}
+.artist-left {width:30%;float:left;}
+.artist-right {width:65%;margin-left:5%;float:right;}
 .artistSquareImageContainer {margin-top:44px;}
 .artistSquareImage {width:100%;}
 .artistSquareImage img {max-width:100%;}
@@ -268,6 +307,16 @@ li.researchNavButton {text-transform:lowercase!important;padding-top:20px;}
 /*MOBILE*/
 
 @media (max-width: 992px) {
+	
+	.rsGCaption {
+		font-size: 40px !important;
+		padding:0% 15%;
+	}
+	.rsGCaption {opacity: 1;}
+	
+	.slideOverlay {background-color:rgba(0,0,0,0.3);}
+	
+	.info-wrapper {background-color:rgba(0,0,0,0.3);}
 	
 	.imageMobile {display:inline;}
 	

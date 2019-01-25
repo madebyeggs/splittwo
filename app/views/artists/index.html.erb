@@ -7,8 +7,8 @@
 				<div class="artist">
 					<div class="info-wrapper">
 						<h5 class="colour"><%= artist.name %></h5>
-						<hr class="dots"/>
-						<p class="artistDescription"><%= truncate(artist.description, :length => 220, :separator => ' ') %></p>
+						<!--<hr class="dots"/>
+						<p class="artistDescription"><%#= truncate(artist.description, :length => 220, :separator => ' ') %></p>-->
 					</div>
 					<%= image_tag "https://d9gj9tfjl21as.cloudfront.net/ajaxBig2.gif", data:{ src: image_path(artist.image) }, class: 'lazy lazyload' %>
 				</div>
