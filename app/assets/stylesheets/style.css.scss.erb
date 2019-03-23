@@ -7,6 +7,7 @@
   transform: translateY(-50%);
 }
 html, body {background-color:#000000;height:100%;color:#ffffff;}
+.mobileME {display:none;}
 p, h1, h2, h3, h4, h5 {color:#ffffff;}
 h2 {font-size:24px;text-transform:uppercase;}
 a, a:hover, a:visited {text-decoration:none;color:#ffffff!important;}
@@ -307,6 +308,9 @@ li.researchNavButton {text-transform:lowercase!important;padding-top:20px;}
 /*MOBILE*/
 
 @media (max-width: 992px) {
+	
+	.mobileME {display:inline;}
+	.desktopME {display:none;}
 	
 	.rsGCaption {
 		font-size: 40px !important;

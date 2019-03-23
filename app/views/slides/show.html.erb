@@ -5,14 +5,14 @@
 		<hr class="artistSeparator" />
 		<% if @slide.vimeo? %>
 			<div class="videoMaster">
-				<div class="videoDesktop">
+				<div class="videoDesktop desktopME">
 					<div class="fitvids responsiveVideo2">
 						<div class="plyr js-player">
 						    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
 						</div>
 					</div>
 				</div>
-				<div class="videoMobile">
+				<div class="videoMobile mobileME">
 					<div class="fitvids responsiveVideo2">
 					<% if @slide.platform == 'vimeo' %>
 						<div class="plyr js-player">
