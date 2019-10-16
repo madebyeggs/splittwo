@@ -13,7 +13,7 @@ class Release < ActiveRecord::Base
       release.soundcloud = input_string_chop
     end
   }
-  before_save { |release| if release.downloadlink_changed? then release.downloadlink = release.downloadlink.sub! 'dl=0', 'dl=1' end }
+  #before_save { |release| if release.downloadlink_changed? then release.downloadlink = release.downloadlink.sub! 'dl=0', 'dl=1' end }
   
   require 'csv'
   
