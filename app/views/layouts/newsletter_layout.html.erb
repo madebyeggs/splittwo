@@ -31,13 +31,13 @@
 										padding-top: 0; padding-bottom: 0; text-align:center;">
 											<a href=
 											<% if @first_newsletter_work.class.to_s.downcase == 'announcement' %>
-												"<%= slide_path(@first_newsletter_work) %>" 
+												"splitmusic.co.uk<%= slide_path(@first_newsletter_work) %>" 
 											<% elsif @first_newsletter_work.class.to_s.downcase == 'artist' %>
-												"<%= artist_path(@first_newsletter_work) %>"
+												"splitmusic.co.uk<%= artist_path(@first_newsletter_work) %>"
 											<% elsif @first_newsletter_work.class.to_s.downcase == 'release' %>
-												"<%= release_path(@first_newsletter_work) %>"
+												"splitmusic.co.uk<%= release_path(@first_newsletter_work) %>"
 											<% else %>
-												"<%= work_path(@first_newsletter_work) %>"
+												"splitmusic.co.uk<%= work_path(@first_newsletter_work) %>"
 											<% end %>
 												target="_blank" style="text-decoration:none;">
 												<img align="center" alt="" src="<%= @first_newsletter_work.hero %>" 
@@ -46,7 +46,7 @@
 												<div style="position:relative;margin:5px 0px 0px 0px;z-index:4;">
 													<h4 class="small" style="color:black;text-align:left;">
 														<%= @first_newsletter_work.nltitle %><br/>
-														<%= @first_newsletter_work.nlsubtitle %><br/>
+														<%= @first_newsletter_work.nlsubtitle %>
 													</h4>
 												</div>
 											</a>
@@ -59,10 +59,12 @@
 			  	</tbody>
 			</table>
 		</div>
-		<p style="text-align:left;text-transform:none;"><%= @first_newsletter_work.nldescription %></p><br/>
+		<p style="text-align:left;text-transform:none;margin-top:-5px;"><%= @first_newsletter_work.nldescription %></p>
+		<hr style="margin-top:25px;margin-bottom:-5px"/>
 		<% if @first_newsletter_work.class.to_s.downcase == 'release' && @first_newsletter_work.downloadlink? %>
-			<p style="margin-top:-25px;"><a href="@first_newsletter_work.downloadlink">Download mp3</a><br/><br/>
+			<p style="margin-top:-25px;"><a href="@first_newsletter_work.downloadlink">Download mp3</a><br/>
 		<% end %>
+		<br/>
 		<% @rest_newsletter_works.each do |nl| %>
 			<div class="div1" style="text-transform:uppercase;">
 				<table border="0" cellpadding="0" cellspacing="0" width="30%" class="mcnImageBlock" style="min-width:30%;">
@@ -77,13 +79,13 @@
 											padding-top: 0; padding-bottom: 0; text-align:center;">
 												<a href=
 												<% if nl.class.to_s.downcase == 'announcement' %>
-													"<%= slide_path(nl) %>" 
+													"splitmusic.co.uk<%= slide_path(nl) %>" 
 												<% elsif nl.class.to_s.downcase == 'artist' %>
-													"<%= artist_path(nl) %>"
+													"splitmusic.co.uk<%= artist_path(nl) %>"
 												<% elsif nl.class.to_s.downcase == 'release' %>
-													"<%= release_path(nl) %>"
+													"splitmusic.co.uk<%= release_path(nl) %>"
 												<% else %>
-													"<%= work_path(nl) %>"
+													"splitmusic.co.uk<%= work_path(nl) %>"
 												<% end %>
 													target="_blank" style="text-decoration:none;">
 													<img align="center" alt="" src="<%= nl.hero %>" 
@@ -92,9 +94,8 @@
 													<div style="position:relative;margin:5px 0px 0px 0px;z-index:4;">
 														<h4 class="small" style="color:black;text-align:left;">
 															<%= nl.nltitle %><br/>
-															<%= nl.nlsubtitle %><br/>
+															<%= nl.nlsubtitle %>
 														</h4>
-														<br/>
 													</div>
 												</a>
 		              						</td>
@@ -106,10 +107,11 @@
 				  	</tbody>
 				</table>
 			</div>
-			<p style="text-align:left;text-transform:none;margin-top:-25px;"><%= nl.nldescription %></p><br/>
+			<p style="text-align:left;text-transform:none;margin-top:-5px;"><%= nl.nldescription %></p>
 			<% if nl.class.to_s.downcase == 'release' && nl.downloadlink? %>
-				<p style="margin-top:-25px;"><a href="@first_newsletter_work.downloadlink">Download mp3</a><br/><br/>
+				<p style="margin-top:-25px;"><a href="@first_newsletter_work.downloadlink">Download mp3</a>
 			<% end %>
+			<hr style="margin-top:25px;margin-bottom:15px"/>
 		<% end %>
 	</div>
 </body>
