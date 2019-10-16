@@ -10,9 +10,9 @@
 	     		<th>Name</th>
 	     		<th>Description</th>
 				<th>Vimeo?</th>
-	     		<th>FB URL</th>
-				<th>Twitter Name</th>
-				<th>Add to slideshow</th>
+	     		<th>Video URL</th>
+				<th>Video Platform</th>
+				<th>Slideshow</th>
 				<th>FB Image?</th>
 				<th></th>
 	   		</tr>
@@ -35,13 +35,13 @@
 						<% end %>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="fb_url" data-placeholder="ADD FACEBOOK URL">
-							<%= artist.fb_url %>
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
+					  		<%= artist.vimeo %>
 						</span>
 					</td>
 					<td>
-						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="twitter_name" data-placeholder="ADD TWITTER NAME">
-							<%= artist.twitter_name %>
+						<span class="rest-in-place" data-url="/artists/<%= artist.slug %>" data-object="artist" data-attribute="platform" data-placeholder="ADD PLATFORM">
+							<%= artist.platform %>
 						</span>
 					</td>
 					<td><%= best_in_place artist, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>

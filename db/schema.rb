@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190125135329) do
+ActiveRecord::Schema.define(version: 20191016132100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20190125135329) do
     t.datetime "hero_updated_at"
     t.string   "nltitle"
     t.string   "nlsubtitle"
+    t.text     "newslettertitle2"
+    t.text     "newslettertitle"
+    t.text     "nldescription"
   end
 
   add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true, using: :btree
@@ -79,6 +82,17 @@ ActiveRecord::Schema.define(version: 20190125135329) do
     t.text     "slide_title3"
     t.integer  "Slideshowposition"
     t.string   "platform"
+    t.text     "nldescription"
+    t.string   "nltitle"
+    t.string   "nltitle2"
+    t.string   "subtitle"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
+    t.boolean  "newsletter"
+    t.string   "nlsubtitle"
+    t.integer  "newsletterposition"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
@@ -214,6 +228,13 @@ ActiveRecord::Schema.define(version: 20190125135329) do
     t.integer  "newsletterposition"
     t.string   "downloadlink"
     t.string   "platform"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
+    t.string   "nltitle"
+    t.string   "nlsubtitle"
+    t.text     "nldescription"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true, using: :btree
@@ -310,6 +331,7 @@ ActiveRecord::Schema.define(version: 20190125135329) do
     t.datetime "hero_updated_at"
     t.string   "nltitle"
     t.string   "nlsubtitle"
+    t.text     "nldescription"
   end
 
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true, using: :btree

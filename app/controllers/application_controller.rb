@@ -32,15 +32,28 @@ class ApplicationController < ActionController::Base
     @clogo = Clogo.first
   end
   
+  # old newsletter def
+  # def define_newsletters
+#     @newsletters_works = Work.where('newsletter = ?', true)
+#     @newsletters_announcement = Announcement.where('newsletter = ?', true)
+#     @newsletters = [@newsletters_works, @newsletters_announcement].flatten
+#     @first_newsletter = Newsletter.first
+#     @sorted_newsletters = @newsletters.sort_by {|nl| [nl.newsletterposition ? 0 : 1,nl.newsletterposition || 0]}
+#     @first_newsletter_work =  @sorted_newsletters.first
+#     @rest_newsletter_works = @sorted_newsletters[1..-1]
+#     @newsletters_releases = Release.where('newsletter = ?', true).order(:newsletterposition)
+#   end
+
   def define_newsletters
     @newsletters_works = Work.where('newsletter = ?', true)
+    @newsletters_releases = Release.where('newsletter = ?', true)
     @newsletters_announcement = Announcement.where('newsletter = ?', true)
-    @newsletters = [@newsletters_works, @newsletters_announcement].flatten
+    @newsletters_artists = Artist.where('newsletter = ?', true)
+    @newsletters = [@newsletters_works, @newsletters_announcement, @newsletters_releases, @newsletters_artists].flatten
     @first_newsletter = Newsletter.first
     @sorted_newsletters = @newsletters.sort_by {|nl| [nl.newsletterposition ? 0 : 1,nl.newsletterposition || 0]}
     @first_newsletter_work =  @sorted_newsletters.first
     @rest_newsletter_works = @sorted_newsletters[1..-1]
-    @newsletters_releases = Release.where('newsletter = ?', true).order(:newsletterposition)
   end
   
 end

@@ -1,46 +1,58 @@
 <div class="deviseStyling abouts marginTopOverride canScroll">
 	<h2 class="titles">Add your artist here!</h2>
 	<%= bootstrap_form_for(@artist) do |f| %>
-	  	<div class="vimeoSectionInForm">
-			<div class="textField"><%= f.text_field :name, label: "Artist name" %></div>
-			<div class="textField"><%= f.text_field :soundcloud, label: "Soundcloud embed code" %></div>
-			<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
-		</div>
-	  	<div class="vimeoSectionInForm">
-			<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title first" %></div>
-			<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title second (colour)" %></div>
-			<div class="textField"><%= f.text_field :slide_title3, label: "Slideshow title third" %></div>
-		</div>
-		<div class="vimeoSectionInForm">
-			<h4 class="customTitles">Video link</h4>
-			<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
-			<div class="textField2">
-				<%= f.select :platform, options_for_select(["vimeo", "youtube"], @artist.platform) %>
+		<div class="col-md-6" style="background-color: rgba(113, 113, 113, 0.5);padding:10px;border-radius:6px;margin:0px 0px 0px 0px">
+		  	<h2 style="margin:10px;">MAIN ARTIST CONTENT</h2>
+			<div class="vimeoSectionInForm">
+				<div class="textField2"><%= f.text_area :description, label: "Description" %></div>
+				<div class="textField2"><%= f.text_field :name, label: "Artist name" %></div>
+			</div>
+			<div class="vimeoSectionInForm">
+				<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
+				<div class="textField2">
+					<%= f.select :platform, options_for_select(["vimeo", "youtube"], @artist.platform) %>
+				</div>
+			</div>
+		  	<div class="vimeoSectionInForm">
+				<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
+				<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title first" %></div>
+				<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title 2" %></div>
+			</div>
+			<div class="vimeoSectionInForm">
+				<div class="textField"><%= f.file_field :image, label: "Main square image (crop to 400px X 400px before upload)" %>
+					<% if @artist.image.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @artist.image_file_name %>" }</p>
+					<% end %>
+				</div>
+				<div class="textField"><%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
+					<% if @artist.fb_image.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @artist.fb_image_file_name %>" }</p>
+					<% end %>
+				</div>
+				<div class="textField"><%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
+					<% if @artist.slide_image.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @artist.slide_image_file_name %>" }</p>
+					<% end %>
+				</div>
 			</div>
 		</div>
-		<div class="vimeoSectionInForm"><%= f.text_area :description, label: "Description" %></div>
-		<div class="vimeoSectionInForm">
-			<div class="textField2"><%= f.text_field :fb_url, label: "Artist's Facebook URL" %></div>
-	    	<div class="textField2"><%= f.text_field :twitter_name, label: "Artist's Twitter name" %></div>
+		<div class="col-md-6" style="background-color: rgba(113, 113, 113, 0.5);padding:10px;border-radius:6px;width:48%; margin:0px 1%;">
+			<h2 style="margin:10px;">NEWSLETTER CONTENT</h2>
+			<div class="vimeoSectionInForm">
+				<div class="textField smallText"><%= f.check_box :newsletter, label: "Add to newsletter?" %></div>
+				<div class="textField3"><%= f.file_field :hero, label: "Newsletter hero image (crop to 564px X 235px before upload)" %>
+					<% if @artist.hero.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @artist.hero_file_name %>" }</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="vimeoSectionInForm">
+				<div class="textField2"><%= f.text_field :nltitle, label: "Newsletter title" %></div>
+				<div class="textField2"><%= f.text_field :nlsubtitle, label: "Newsletter title 2" %></div>
+			</div>
+			<div class="vimeoSectionInForm"><%= f.text_area :nldescription, label: "Newsletter description" %></div>
 		</div>
-		<div class="vimeoSectionInForm">
-			<div class="textField"><%= f.file_field :image, label: "Main square image (crop to 400px X 400px before upload)" %>
-				<% if @artist.image.exists? %>
-					<p class="existingImageName">{ Current Image: "<%= @artist.image_file_name %>" }</p>
-				<% end %>
-			</div>
-			<div class="textField"><%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
-				<% if @artist.fb_image.exists? %>
-					<p class="existingImageName">{ Current Image: "<%= @artist.fb_image_file_name %>" }</p>
-				<% end %>
-			</div>
-			<div class="textField"><%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
-				<% if @artist.slide_image.exists? %>
-					<p class="existingImageName">{ Current Image: "<%= @artist.slide_image_file_name %>" }</p>
-				<% end %>
-			</div>
-		</div>
-	  	<div class="buttons">
+	  	<div class="buttons" style="float:left;clear:both;margin:25px -6px;">
 			<div class="submitLarge"><%= f.submit 'Submit', class: "btn btn-success"  %></div>
 			<div class="cancelButton"><%= link_to('Cancel', :back ,class: "btn btn-success")  %></div>
 		</div>

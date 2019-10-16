@@ -3,30 +3,58 @@
 		<%= link_to '', artists_path, :class => "closeIcon" %>
 		<h1 class="artistName titleSize1"><%= @artist.name %></h1>
 		<hr class="artistSeparator" />
-		<div class="artist-left">
-			<div class="artistSquareImageContainer">
-				<div class="artistSquareImage">
-					<%= image_tag(@artist.image, :class => "artistSquareImage") %>
-				</div>
-			</div>
-		</div>
-		<div class="artist-right">
-			<p class="artistDetail"><%= simple_format @artist.description, :class => "artistDetail descriptionSize1" %></p>
-		</div>
-		<div class="artist-bottom">
-			<hr class="projectSeparator" />
-			<% if @artist.vimeo? %>
-				<div class="videoMaster spacer2">
-					<div class="videoDesktop">
-						<div class="fitvids responsiveVideo2">
-							<div class="plyr js-player">
-							    <div data-video-id="<%= @artist.vimeo %>" data-type="<%= @artist.platform %>"></div>
-							</div>
+		<% if @artist.vimeo? %>
+			<div class="videoMaster">
+				<div class="videoDesktop desktopME">
+					<div class="fitvids responsiveVideo2">
+						<div class="plyr js-player">
+						    <div data-video-id="<%= @artist.vimeo %>" data-type="<%= @artist.platform %>"></div>
 						</div>
 					</div>
 				</div>
-			<% end %>
-		</div>
+				<div class="videoMobile mobileME">
+					<div class="fitvids responsiveVideo2">
+						<% if @artist.platform == 'vimeo' %>
+							<div class="plyr js-player">
+								<% slide_vimeo_mobile = @artist.vimeo[18..-1] %>
+						    	<iframe src="https://player.vimeo.com/video/<%= artist_vimeo_mobile %>" 
+								width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+								</iframe>
+							</div>
+						<% else %>
+							<div class="plyr js-player">
+						    	<div data-video-id="<%= @artist.vimeo %>" data-type="<%= @artist.platform %>"></div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+				<hr class="projectSeparator" />
+				<div class="artist-left">
+					<div class="artistSquareImageContainer">
+						<div class="artistSquareImage">
+							<%= image_tag(@artist.image, :class => "artistSquareImage") %>
+						</div>
+					</div>
+				</div>
+				<div class="artist-right">
+					<p class="artistDetail"><%= simple_format @artist.description, :class => "artistDetail descriptionSize1" %></p>
+				</div>
+			</div>
+		<% else %>
+			<div class="artist-left">
+				<div class="artistSquareImageContainer">
+					<div class="artistSquareImage">
+						<%= image_tag(@artist.image, :class => "artistSquareImage") %>
+					</div>
+				</div>
+			</div>
+			<div class="artist-right">
+				<p class="artistDetail"><%= simple_format @artist.description, :class => "artistDetail descriptionSize1" %></p>
+			</div>
+			<div class="artist-bottom">
+				<hr class="projectSeparator" />
+			</div>
+		<% end %>
 	</div>
 </div>
 <script>

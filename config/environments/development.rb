@@ -83,4 +83,6 @@ Rails.application.configure do
     :styles => {:main => '197X201>'},
     :convert_options => { :all => '-quality 80' }
   }
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options.merge!(:command_path => "/usr/bin")
 end

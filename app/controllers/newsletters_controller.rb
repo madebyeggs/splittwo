@@ -45,7 +45,7 @@ class NewslettersController < ApplicationController
   end
   
   def newsletter_params
-    params.require(:newsletter).permit(:title1, :title2, :facebook, :twitter, :instagram, :website, :logo, :mainimage, :downloadlink)
+    params.require(:newsletter).permit(:title1, :title2, :facebook, :twitter, :instagram, :website, :logo, :mainimage, :downloadlink, :newslettertitle, :newslettertitle2)
   end
 
 end
