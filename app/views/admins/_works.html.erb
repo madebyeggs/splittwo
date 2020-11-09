@@ -6,6 +6,8 @@
     	<th>Brand Name</th>
     	<th>Title</th>
 		<th>Agency</th>
+		<th>Artist Name</th>
+		<th>Track title</th>
 		<th>Video URL</th>
 		<th>Platform</th>
 		<th>Slideshow?</th>
@@ -33,6 +35,18 @@
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
 					data-attribute="agency" data-placeholder="Agency name">
 					<%= work.agency %>
+				</span>
+			</td>
+			<td>
+				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
+					data-attribute="artist_name" data-placeholder="Artist name">
+					<%= work.artist_name %>
+				</span>
+			</td>
+			<td>
+				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
+					data-attribute="track_name" data-placeholder="Track title">
+					<%= work.track_name %>
 				</span>
 			</td>
 			<td>

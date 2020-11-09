@@ -4,7 +4,11 @@
 		<h1 class="artistName titleSize1"><%= @work.brand_name %> <%= @work.campaign_title %></h1>
 		<h3 class="projectSubtitle fixerSpace descriptionSize1 upcase"><%= @work.agency %></h3>
 		<h3 class="projectSubtitle spacer descriptionSize1 upcase italics">
-			<em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %>
+			<% if @work.track_name? %>
+				<em>MUSIC - </em>"<%= @work.track_name %>" by <%= @work.artist_name %>
+			<% else %>
+				<em>MUSIC by <%= @work.artist_name %>
+			<% end %>
 		</h3>
 		<hr class="artistSeparator" />
 		<% if @work.vimeo? %>
