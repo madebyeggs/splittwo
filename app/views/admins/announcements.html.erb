@@ -2,6 +2,10 @@
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2 placements">Announcements</h2>
+	<div>
+		Line 1A & Line 1B are only visible on the slideshow.<br/>
+		Line 2A and Line 2B are not displayed for announcements.<br/><br/>
+	</div>
 	<%= form_tag import_announcements_path, class: "csvInput marginCsv", multipart: true do %>
 		<%= file_field_tag :file %><br/>
 		<%= submit_tag "Import CSV", class: "btn btn-success marginCsv2" %>
@@ -10,12 +14,12 @@
 	<table class="table table-striped" id="sortableAnnouncement">
 	 		<thead>
 	   		<tr>
-				<th>FB Image</th>
-	     		<th>Title</th>
-	     		<th>Description?</th>
-				<th>Soundcloud</th>
+				<th>Image</th>
+	     		<th>Line1 A</th>
+				<th>Line1 B</th>
+	     		<th>Line2 A</th>
+				<th>Line2 B</th>
 				<th>Video URL</th>
-				<th>Platform</th>
 				<th>Slideshow?</th>
 				<th>Newsletter?</th>
 				<th></th>
@@ -23,28 +27,36 @@
 	 		</thead>
 	 		<tbody>
 	   		<% @announcements.each do |announcement| %>
-	     			<tr data-item-id=<%= "#{announcement.id}" %> class="item">
-					<td><%= image_tag(announcement.fb_image, class: "thumb2") %></td>
+	     		<tr data-item-id=<%= "#{announcement.id}" %> class="item">
+					<td><%= image_tag(announcement.image, class: "thumb2") %></td>
 	       			<td>
-						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" data-attribute="slide_title" data-placeholder="Title">
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
+							data-attribute="slide_title" data-placeholder="empty">
 					  		<%= announcement.slide_title %>
 						</span>
 					</td>
-					<td><% if announcement.description? %>Yes<% else %>No<% end %></td>
-					<td>
-						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" data-attribute="soundcloud" data-placeholder="Soundcloud">
-					  		<%= announcement.soundcloud %>
+	       			<td>
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
+							data-attribute="slide_title2" data-placeholder="empty">
+					  		<%= announcement.slide_title2 %>
 						</span>
 					</td>
-					<td>
-						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
-					  		<%= announcement.vimeo %>
+	       			<td>
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
+							data-attribute="artist_name" data-placeholder="empty">
+					  		<%= announcement.artist_name %>
+						</span>
+					</td>
+	       			<td>
+						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
+							data-attribute="track_name" data-placeholder="empty">
+					  		<%= announcement.track_name %>
 						</span>
 					</td>
 					<td>
 						<span class="rest-in-place" data-url="/announcements/<%= announcement.slug %>" data-object="announcement" 
-							data-attribute="platform" data-placeholder="ADD PLATFORM">
-							<%= announcement.platform %>
+							data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
+					  		<%= announcement.vimeo %>
 						</span>
 					</td>
 					<td><%= best_in_place announcement, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>

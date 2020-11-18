@@ -182,6 +182,11 @@ $(function() {
     	return false;
 		e.PreventDefault()
   	});
+	$("#artists_search input").keyup(function(e) {
+    	$.get($("#artists_search").attr("action"), $("#artists_search").serialize(), null, "script");
+    	return false;
+		e.PreventDefault()
+  	});
 	$("#releases_search input").keyup(function(e) {
     	$.get($("#releases_search").attr("action"), $("#releases_search").serialize(), null, "script");
     	return false;

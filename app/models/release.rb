@@ -13,9 +13,27 @@ class Release < ActiveRecord::Base
       release.soundcloud = input_string_chop
     end
   }
+  
   #before_save { |release| if release.downloadlink_changed? then release.downloadlink = release.downloadlink.sub! 'dl=0', 'dl=1' end }
   
   require 'csv'
+  
+  before_save :upcase_fields
+  
+  def upcase_fields
+    unless self.slide_title.to_s.strip.empty?
+      self.slide_title.upcase!
+    end
+    unless self.slide_title2.to_s.strip.empty?
+      self.slide_title2.upcase!
+    end
+    unless self.artist_name.to_s.strip.empty?
+      self.artist_name.upcase!
+    end
+    unless self.track_name.to_s.strip.empty?
+      self.track_name.upcase!
+    end
+  end
   
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|

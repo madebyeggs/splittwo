@@ -13,8 +13,26 @@ class Announcement < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :slide_title, use: :slugged
+  include Filterable
   
   require 'csv'
+  
+  before_save :upcase_fields
+  
+  def upcase_fields
+    unless self.slide_title.to_s.strip.empty?
+      self.slide_title.upcase!
+    end
+    unless self.slide_title2.to_s.strip.empty?
+      self.slide_title2.upcase!
+    end
+    unless self.artist_name.to_s.strip.empty?
+      self.artist_name.upcase!
+    end
+    unless self.track_name.to_s.strip.empty?
+      self.track_name.upcase!
+    end
+  end
   
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
@@ -26,6 +44,25 @@ class Announcement < ActiveRecord::Base
   
   include RankedModel
   ranks :row_order
+  
+  if Rails.env.development?
+    has_attached_file :image, IMAGE_PAPERCLIP_STORAGE_OPTS
+  else
+    has_attached_file :image,
+    :convert_options => { :all => '-quality 92' }, 
+    styles: {main: '300x300>'},
+    :storage => :s3,
+    :s3_credentials => {
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET'] },
+    :url => ':s3_alias_url',
+    :s3_host_alias => 'd9gj9tfjl21as.cloudfront.net', 
+    :bucket => 'split-two',
+    :path => "announcements/images/:id_partition/:style/:filename"
+  end
+  
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   
   if Rails.env.development?
     has_attached_file :slide_image, SLIDE_PAPERCLIP_STORAGE_OPTS

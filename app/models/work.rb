@@ -6,6 +6,23 @@ class Work < ActiveRecord::Base
   
   require 'csv'
   
+  before_save :upcase_fields
+  
+  def upcase_fields
+    unless self.slide_title.to_s.strip.empty?
+      self.slide_title.upcase!
+    end
+    unless self.slide_title2.to_s.strip.empty?
+      self.slide_title2.upcase!
+    end
+    unless self.artist_name.to_s.strip.empty?
+      self.artist_name.upcase!
+    end
+    unless self.track_name.to_s.strip.empty?
+      self.track_name.upcase!
+    end
+  end
+  
   def slug_candidates
     if self.brand_name    
       [
@@ -53,6 +70,9 @@ class Work < ActiveRecord::Base
     :path => "works/images/:id_partition/:style/:filename"
   end
   
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  
   if Rails.env.development?
     has_attached_file :hero, HERO_PAPERCLIP_STORAGE_OPTS
   else
@@ -70,7 +90,7 @@ class Work < ActiveRecord::Base
   end
   
   # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :hero, :content_type => /\Aimage\/.*\Z/
   
   if Rails.env.development?
     has_attached_file :fb_image, FB_IMAGE_PAPERCLIP_STORAGE_OPTS

@@ -3,13 +3,11 @@
 		<thead>
   		<tr>
 		<th>Image</th>
-    	<th>Brand Name</th>
-    	<th>Title</th>
-		<th>Agency</th>
-		<th>Artist Name</th>
-		<th>Track title</th>
+    	<th>Line1 A</th>
+    	<th>Line1 B</th>
+		<th>Line2 A</th>
+		<th>Line2 B</th>
 		<th>Video URL</th>
-		<th>Platform</th>
 		<th>Slideshow?</th>
 		<th>Newsletter?</th>
 		<th></th>
@@ -21,31 +19,25 @@
 			<td><%= image_tag(work.image, class: "thumb2") %></td>
       			<td>
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="brand_name" data-placeholder="Brand name">
-			  		<%= work.brand_name %>
+					data-attribute="slide_title" data-placeholder="empty">
+			  		<%= work.slide_title %>
 				</span>
 			</td>
 			<td>
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="campaign_title" data-placeholder="Campaign title">
-			  		<%= work.campaign_title %>
+					data-attribute="slide_title2" data-placeholder="empty">
+			  		<%= work.slide_title2 %>
 				</span>
 			</td>
 			<td>
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="agency" data-placeholder="Agency name">
-					<%= work.agency %>
-				</span>
-			</td>
-			<td>
-				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="artist_name" data-placeholder="Artist name">
+					data-attribute="artist_name" data-placeholder="empty">
 					<%= work.artist_name %>
 				</span>
 			</td>
 			<td>
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="track_name" data-placeholder="Track title">
+					data-attribute="track_name" data-placeholder="empty">
 					<%= work.track_name %>
 				</span>
 			</td>
@@ -53,12 +45,6 @@
 				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
 					data-attribute="vimeo" data-placeholder="Video URL">
 					<%= work.vimeo %>
-				</span>
-			</td>
-			<td>
-				<span class="rest-in-place" data-url="/works/<%= work.slug %>" data-object="work" 
-					data-attribute="platform" data-placeholder="ADD PLATFORM">
-					<%= work.platform %>
 				</span>
 			</td>
 			<td><%= best_in_place work, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>

@@ -64,14 +64,14 @@ class ArtistsController < ApplicationController
       set_meta_tags og: {
         url: "#{@currentUrl}",
         image: "#{@artist.fb_image}",
-        title: "#{@artist.name}",
+        title: "#{@artist.artist_name}",
         description: "#{@artist.description}",
         type: "musician"
       }
       set_meta_tags twitter: {
         card: "summary_large_image",
         site: "@fairsplitmusic",
-        title: "#{@artist.name}",
+        title: "#{@artist.artist_name}",
         description: "#{@artist.description}",
         image: "#{@artist.fb_image}"
       }
@@ -92,8 +92,9 @@ class ArtistsController < ApplicationController
     end
     
     def artist_params
-      params.require(:artist).permit(:artist_id, :name, :description, :soundcloud, :fb_url, :twitter_name, :image, :fb_image, :hero, :row_order_position, 
-      :slideshow, :slide_image, :slide_title, :slide_title2, :slide_title3, :vimeo, :Slideshowposition, :platform, :nltitle, :nltitle2, :nlsubtitle, :nldescription, :nlsubtitle, :newsletter, :newsletterposition)
+      params.require(:artist).permit(:artist_id, :artist_name, :description, :soundcloud, :fb_url, :twitter_name, :image, :fb_image, :hero, :row_order_position, 
+      :slideshow, :slide_image, :slide_title, :slide_title2, :slide_title3, :vimeo, :Slideshowposition, :platform, :nltitle, :nltitle2, :nlsubtitle, :nldescription, 
+      :nlsubtitle, :newsletter, :newsletterposition, :track_name)
     end
 
 end

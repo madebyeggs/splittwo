@@ -1,70 +1,99 @@
 <div class="canScroll">
-	<div class="artistInfo">
-		<%= link_to '', slides_path, :class => "closeIcon" %>
-		<h1 class="artistName titleSize1"><%= @slide.slide_title %></h1>
-		<hr class="artistSeparator" />
-		<% if @slide.vimeo? %>
-			<div class="videoMaster">
-				<div class="videoDesktop desktopME">
-					<div class="fitvids responsiveVideo2">
-						<div class="plyr js-player">
-						    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
-						</div>
-					</div>
-				</div>
-				<div class="videoMobile mobileME">
-					<div class="fitvids responsiveVideo2">
-					<% if @slide.platform == 'vimeo' %>
-						<div class="plyr js-player">
-							<% slide_vimeo_mobile = @slide.vimeo[18..-1] %>
-						    <iframe src="https://player.vimeo.com/video/<%= slide_vimeo_mobile %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-						</div>
-					<% else %>
-						<div class="plyr js-player">
-						    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
-						</div>
-					<% end %>
-				</div>
-			</div>
-			<hr class="projectSeparator" />
-			<p class="projectDetail"><%= simple_format @slide.description, :class => "projectDetail descriptionSize1" %></p>
-		<% elsif @slide.soundcloud? %>
-			<div class="soundContainer col-md-12">
-				<% if @slide.slide_image? %>
-					<div class="col-md-5"><%= image_tag(@slide.slide_image, class: "image") %></div>
-				<% else %>
-					<div class="col-md-5"><%= image_tag(@slide.image, class: "image") %></div>
+	<% if @slide.model_name == 'Work' %>
+		<div class="workInfo">
+			<%= link_to '', slides_path, :class => "closeIcon" %>
+			<h1 class="artistName titleSize1"><%= @slide.slide_title %> / <%= @slide.slide_title2 %></h1>
+			<h3 class="projectSubtitle spacer descriptionSize1 upcase italics">
+				<% if @slide.track_name? && @slide.artist_name? %>
+					<em>MUSIC - </em>"<%= @slide.track_name %>" by <%= @slide.artist_name %>
+				<% elsif @slide.artist_name? %>
+					<em>MUSIC by <%= @slide.artist_name %>
+				<% else%>
 				<% end %>
-				<div class="col-md-7">
-					<div class="fitvids fluidMedia">
-						<iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @slide.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false" src="about:blank">
-						</iframe>
+			</h3>
+			<hr class="artistSeparator" />
+			<% if @slide.vimeo? %>
+				<div class="videoMaster">
+					<div class="videoDesktop">
+						<div class="fitvids responsiveVideo2">
+							<div class="plyr js-player">
+							    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="fitvids fluidMediaSmall">
-				<iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/<%= @slide.soundcloud %>&amp;color=bdbdbd&amp;background_color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_artwork=false" src="about:blank">
-				</iframe>
-			</div>
-			<hr class="projectSeparator" style="clear:both;" />
-			<p class="projectDetail"><%= simple_format @slide.description, :class => "projectDetail descriptionSize1" %></p>
-		<% else %>
-			<div class="artist-left">
-				<p class="artistDetail"><%= simple_format @slide.description, :class => "artistDetail descriptionSize1" %></p>
-			</div>
-			<div class="artist-right">
-				<div class="artistSquareImageContainer">
-					<div class="artistSquareImage">
-						<% if @slide.slide_image? %>
-							<%= image_tag(@slide.slide_image, :class => "artistSquareImage") %>
-						<% else %>
+			<% end %>
+			<% if @slide.vimeo? %><hr class="projectSeparator" /><% end %>
+			<% if @slide.description? %><p class="projectDetail">
+				<%= simple_format @slide.description, :class => "projectDetail descriptionSize1" %></p>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="artistInfo">
+			<%= link_to '', slides_path, :class => "closeIcon" %>
+			<h1 class="artistName titleSize1">
+				<%= @slide.slide_title %>
+				<% if @slide.slide_title2? %>
+					/ <%= @slide.slide_title2 %>
+				<% else %>
+				
+				<% end %>
+			</h1>
+			<hr class="artistSeparator" />
+			<% if @slide.vimeo? %>
+				<div class="videoMaster">
+					<div class="videoDesktop desktopME">
+						<div class="fitvids responsiveVideo2">
+							<div class="plyr js-player">
+							    <div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+							</div>
+						</div>
+					</div>
+					<div class="videoMobile mobileME">
+						<div class="fitvids responsiveVideo2">
+							<% if @slide.platform == 'vimeo' %>
+								<div class="plyr js-player">
+									<% slide_vimeo_mobile = @slide.vimeo[18..-1] %>
+							    	<iframe src="https://player.vimeo.com/video/<%= slide_vimeo_mobile %>" 
+									width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+									</iframe>
+								</div>
+							<% else %>
+								<div class="plyr js-player">
+							    	<div data-video-id="<%= @slide.vimeo %>" data-type="<%= @slide.platform %>"></div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+					<hr class="projectSeparator" />
+					<div class="artist-left">
+						<div class="artistSquareImageContainer">
+							<div class="artistSquareImage">
+								<%= image_tag(@slide.image, :class => "artistSquareImage") %>
+							</div>
+						</div>
+					</div>
+					<div class="artist-right">
+						<p class="artistDetail"><%= simple_format @slide.description, :class => "artistDetail descriptionSize1" %></p>
+					</div>
+				</div>
+			<% else %>
+				<div class="artist-left">
+					<div class="artistSquareImageContainer">
+						<div class="artistSquareImage">
 							<%= image_tag(@slide.image, :class => "artistSquareImage") %>
-						<% end %>
+						</div>
 					</div>
 				</div>
-			</div>
-		<% end %>
-	</div>
+				<div class="artist-right">
+					<p class="artistDetail"><%= simple_format @slide.description, :class => "artistDetail descriptionSize1" %></p>
+				</div>
+				<div class="artist-bottom">
+					<hr class="projectSeparator" />
+				</div>
+			<% end %>
+		</div>
+	<% end %>
 </div>
 <script>
 	var slideDialog = new FacebookFeedDialog(838327899644745,'<%= request.original_url %>','http://www.splitmusic.co.uk/share_closes');

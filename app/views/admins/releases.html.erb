@@ -2,6 +2,10 @@
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2 placements">Releases</h2>
+	<div>
+		Line 1A & Line 1B are displayed on the slideshow but NOT displayed on the releases index page or release display page<br/>
+		Line 2A and Line 2B are not displayed on the slideshow but ARE displayed on the releases index page & release display page<br/><br/>
+	</div>
 	<%= form_tag import_releases_path, class: "csvInput marginCsv", multipart: true do %>
 		<%= file_field_tag :file %><br/>
 		<%= submit_tag "Import CSV", class: "btn btn-success marginCsv2" %>

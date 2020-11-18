@@ -2,6 +2,10 @@
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2 placements">Placements</h2>
+	<div>
+		Line 1A & Line 1B are displayed on the slideshow, placements index page and placement display page<br/>
+		Line 2A and Line 2B are displayed on the slideshow and placement display page but NOT on the placements index page<br/><br/>
+	</div>
 	<%= link_to 'Add New Work', new_work_path, class: "btn btn-success csvInput4"  %>
 	<div style="float:right;">
 		<%= form_tag admins_placements_path, :method => 'get', :id => "works_search" do %>

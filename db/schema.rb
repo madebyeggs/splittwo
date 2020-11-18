@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191016132100) do
+ActiveRecord::Schema.define(version: 20201118141011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,12 +49,18 @@ ActiveRecord::Schema.define(version: 20191016132100) do
     t.text     "newslettertitle2"
     t.text     "newslettertitle"
     t.text     "nldescription"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "artist_name"
+    t.string   "track_name"
   end
 
   add_index "announcements", ["slug"], name: "index_announcements_on_slug", unique: true, using: :btree
 
   create_table "artists", force: :cascade do |t|
-    t.string   "name"
+    t.string   "artist_name"
     t.text     "description"
     t.string   "soundcloud"
     t.string   "fb_url"
@@ -93,6 +99,7 @@ ActiveRecord::Schema.define(version: 20191016132100) do
     t.boolean  "newsletter"
     t.string   "nlsubtitle"
     t.integer  "newsletterposition"
+    t.string   "track_name"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
@@ -235,6 +242,8 @@ ActiveRecord::Schema.define(version: 20191016132100) do
     t.string   "nltitle"
     t.string   "nlsubtitle"
     t.text     "nldescription"
+    t.string   "track_name"
+    t.string   "artist_name"
   end
 
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true, using: :btree

@@ -2,15 +2,19 @@
 <div class="col-md-10 cmsTable canScroll">
 	<h2 style="color:#5cb85c"><em><%= flash[:notice] %></em></h2>
 	<h2 class="titles2 placements">Slides</h2>
+	<span>
+		Line 1A & Line 1B are always displayed.<br/>
+		Line 2A and Line 2B are only displayed if the record is a Placement.
+	</span>
 	<table class="table table-striped" id="sortableAnnouncement">
 	 		<thead>
 	   		<tr>
 				<th>Image</th>
-	     		<th>Title</th>
-	     		<th>Description?</th>
-				<th>Soundcloud</th>
-				<th>Vimeo</th>
-				<th>Image?</th>
+	     		<th>Line1 A</th>
+				<th>Line1 B</th>
+				<th>Line2 A</th>
+				<th>Line2 B</th>
+				<th>Video_URL</th>
 				<th>Slideshow?</th>
 				<th>Type</th>
 				<th>Slideshow Position</th>
@@ -20,13 +24,20 @@
 	   		<% @sorted_slides.each do |slide| %>
      			<tr data-item-id=<%= "" %> class="item">
 					<td><%= image_tag(slide.slide_image, class: "thumb2") %></td>
-       				<td><%= best_in_place slide, :slide_title %></td>
-					<td><% if slide.description? %>Yes<% else %>No<% end %></td>
-					<td><%= slide.soundcloud %></td>
+       				<!--<td><%#= best_in_place slide, :slide_title %></td>-->
+					<td><%= slide.slide_title %></td>
+					<td><%= slide.slide_title2 %></td>
+					<td><% if slide.model_name == "Work"%> <%= slide.artist_name %><% end %></td>
+					<td><% if slide.model_name == "Work"%> <%= slide.track_name %><% end %></td>
 					<td><%= slide.vimeo %></td>
-					<td><% if slide.slide_image? %>Yes<% else %>No<% end %></td>
 					<td><%= best_in_place slide, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-					<td><%= slide.model_name %></td>
+					<td>
+						<% if slide.model_name == 'Work' %>
+							Placement
+						<%else%> 
+							<%= slide.model_name %>
+						<% end %>
+					</td>
 					<td><%= best_in_place slide, :Slideshowposition %></td>
      			</tr>
 	   		<% end %>

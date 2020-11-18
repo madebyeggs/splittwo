@@ -4,45 +4,37 @@
 		<div class="col-md-12" style="background-color: rgba(113, 113, 113, 0.5);padding:10px;border-radius:6px;margin:0px 0px 10px 0px">
 			<h2 style="margin:10px;">IMAGES</h2>
 			<div class="vimeoSectionInForm">
-				<div class="textField"><%= f.file_field :image, label: "Placement main square image (crop to 400px X 400px before upload)" %>
+				<div class="textField"><%= f.file_field :image, label: "Square image (crop to 400px X 400px)" %>
 					<% if @work.image.exists? %>
 						<p class="existingImageName">{ Current Image: "<%= @work.image_file_name %>" }</p>
 					<% end %>
 				</div>
-				<div class="textField"><%= f.file_field :fb_image, label: "Facebook share image (crop to 1200px X 630px before upload)" %>
-					<% if @work.fb_image.exists? %>
-						<p class="existingImageName">{ Current Image: "<%= @work.fb_image_file_name %>" }</p>
-					<% end %>
-				</div>
-				<div class="textField"><%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px before upload)" %>
+				<div class="textField"><%= f.file_field :slide_image, label: "Slideshow image (crop to 1115px X 952px)" %>
 					<% if @work.slide_image.exists? %>
 						<p class="existingImageName">{ Current Image: "<%= @work.slide_image_file_name %>" }</p>
+					<% end %>
+				</div>
+				<div class="textField"><%= f.file_field :fb_image, label: "Facebook image (crop to 1200px X 630px)" %>
+					<% if @work.fb_image.exists? %>
+						<p class="existingImageName">{ Current Image: "<%= @work.fb_image_file_name %>" }</p>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-6" style="background-color: rgba(113, 113, 113, 0.5);padding:10px;border-radius:6px;margin:0px 0px 0px 0px">
 			<h2 style="margin:10px;">MAIN PLACEMENT CONTENT</h2>
-			<div class="vimeoSectionInForm"><%= f.text_area :description, label: "Description" %></div>
 			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Video link</h4>
+				<div class="textField2"><%= f.text_field :slide_title, label: "Line1 A" %></div>
+				<div class="textField2"><%= f.text_field :slide_title2, label: "Line1 B" %></div>
+				<div class="textField2"><%= f.text_field :artist_name, label: "Line2 A (Artist Name)" %></div>
+				<div class="textField2"><%= f.text_field :track_name, label: "Line2 B (Track Title)" %></div>
 				<div class="textField2"><%= f.text_field :vimeo, label: "Video URL" %></div>
 				<div class="textField2">
 					<%= f.select :platform, options_for_select(["vimeo", "youtube"], @work.platform) %>
 				</div>
-				<div class="textField2"><%= f.text_field :brand_name, label: "Brand name" %></div>
-				<div class="textField2"><%= f.text_field :campaign_title, label: "Campaign title" %></div>
-			</div>
-			<div class="vimeoSectionInForm">
-				<h4 class="customTitles">Music details</h4>
-				<div class="textField2"><%= f.text_field :artist_name, label: "Artist Name" %></div>
-				<div class="textField2"><%= f.text_field :track_name, label: "Track Title" %></div>
-			</div>
-		  	<div class="vimeoSectionInForm">
 				<div class="textField smallText"><%= f.check_box :slideshow, label: "Add to slideshow?" %></div>
-				<div class="textField"><%= f.text_field :slide_title, label: "Slideshow title" %></div>
-				<div class="textField"><%= f.text_field :slide_title2, label: "Slideshow title2" %></div>
 			</div>
+			<div class="vimeoSectionInForm"><%= f.text_area :description, label: "Description" %></div>
 		</div>
 		<div class="col-md-6" style="background-color: rgba(113, 113, 113, 0.5);padding:10px;border-radius:6px;width:48%; margin:0px 1%;">
 			<h2 style="margin:10px;">NEWSLETTER CONTENT</h2>

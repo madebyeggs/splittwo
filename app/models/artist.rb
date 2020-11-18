@@ -10,6 +10,23 @@ class Artist < ActiveRecord::Base
       artist.soundcloud = input_string_chop
     end
   }
+  before_save :upcase_fields
+  include Filterable
+  
+  def upcase_fields
+    unless self.slide_title.to_s.strip.empty?
+      self.slide_title.upcase!
+    end
+    unless self.slide_title2.to_s.strip.empty?
+      self.slide_title2.upcase!
+    end
+    unless self.artist_name.to_s.strip.empty?
+      self.artist_name.upcase!
+    end
+    unless self.track_name.to_s.strip.empty?
+      self.track_name.upcase!
+    end
+  end
   
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -99,5 +116,18 @@ class Artist < ActiveRecord::Base
   
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :slide_image, :content_type => /\Aimage\/.*\Z/
+  
+  def self.search(search)
+    if search.to_s.include? "slide"
+      where('slideshow = TRUE') # Needs to be - where('slideshow = "t"') in development and - where('slideshow = TRUE') in production
+    elsif search.to_s.include? "news"
+      where('newsletter = TRUE')
+    elsif search
+      where('LOWER(slide_title) LIKE :search OR LOWER(slide_title2) LIKE :search 
+      OR LOWER(artist_name) LIKE :search OR LOWER(vimeo) LIKE :search OR LOWER(platform) LIKE :search', search: "%#{search}%")
+    else
+      all
+    end
+  end
   
 end

@@ -5,7 +5,12 @@
 			    <div class="slideMaster">
 					<div class="slideOverlay">
 						<div class="rsGCaption">
-							<%= slide.slide_title %><br/><%= slide.slide_title2 %>
+							<% if slide.model_name == 'Work' %>
+								<%= slide.slide_title %> / <%= slide.slide_title2 %><br/>
+								<%= slide.track_name %> by <%= slide.artist_name %>
+							<% else %>
+								<%= slide.slide_title %> / <%= slide.slide_title2 %>
+							<% end %>
 						</div>
 					</div>
 					<div class="imageContainer">
