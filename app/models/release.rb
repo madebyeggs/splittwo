@@ -33,6 +33,9 @@ class Release < ActiveRecord::Base
     unless self.track_name.to_s.strip.empty?
       self.track_name.upcase!
     end
+    unless self.title.to_s.strip.empty?
+      self.title.upcase!
+    end
   end
   
   def self.import(file)
