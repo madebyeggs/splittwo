@@ -30,7 +30,7 @@
 </div>
 <script>
 	var workDialog = new FacebookFeedDialog(838327899644745,'<%= request.original_url %>','http://www.splitmusic.co.uk/share_closes');
-	workDialog.addParam('name','<%= @work.brand_name %> - <%= @work.campaign_title.split.join(' ') %>');
+	workDialog.addParam('name','<%= @work.slide_title %> - <%= @work.slide_title2.split.join(' ') %>');
 	workDialog.addParam('description','<%= @work.description.split.join(' ') rescue nil %>');
 	workDialog.addParam('picture','<%= @work.fb_image %>');
 </script>

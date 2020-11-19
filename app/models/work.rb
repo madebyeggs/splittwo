@@ -5,8 +5,15 @@ class Work < ActiveRecord::Base
   include Filterable
   
   require 'csv'
+  include RankedModel
+  ranks :row_order
   
   before_save :upcase_fields
+  before_validation :make_first, on: :create
+  
+  def make_first
+    self.row_order_position ||= :first
+  end
   
   def upcase_fields
     unless self.slide_title.to_s.strip.empty?
@@ -24,13 +31,10 @@ class Work < ActiveRecord::Base
   end
   
   def slug_candidates
-    if self.brand_name    
-      [
-        :brand_name, 
-        [:brand_name, :campaign_title],
-      ]
+    if self.slug
+      "#{slide_title}-#{slide_title2}-#{id}"
     else
-      :brand_name
+      "#{slide_title}-#{slide_title2}"
     end
   end
   
@@ -50,9 +54,6 @@ class Work < ActiveRecord::Base
       work.save!
     end
   end
-  
-  include RankedModel
-  ranks :row_order
   
   if Rails.env.development?
     has_attached_file :image, IMAGE_PAPERCLIP_STORAGE_OPTS

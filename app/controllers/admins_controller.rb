@@ -10,11 +10,13 @@ class AdminsController < ApplicationController
   end
   
   def placements
-    @works = Work.search(params[:search]).rank(:row_order).all
+    #@works = Work.search(params[:search]).rank(:row_order).all
+    @works = Work.rank(:row_order).all
   end
   
   def releases
-    @releases = Release.search(params[:search]).rank(:row_order).all
+    #@releases = Release.search(params[:search]).rank(:row_order).all
+    @releases = Release.rank(:row_order).all
   end
   
   def announcements

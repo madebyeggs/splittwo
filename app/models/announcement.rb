@@ -12,12 +12,17 @@ class Announcement < ActiveRecord::Base
   }
   
   extend FriendlyId
-  friendly_id :slide_title, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
   include Filterable
   
   require 'csv'
   
   before_save :upcase_fields
+  before_validation :make_first, on: :create
+  
+  def make_first
+    self.row_order_position ||= :first
+  end
   
   def upcase_fields
     unless self.slide_title.to_s.strip.empty?
@@ -31,6 +36,14 @@ class Announcement < ActiveRecord::Base
     end
     unless self.track_name.to_s.strip.empty?
       self.track_name.upcase!
+    end
+  end
+  
+  def slug_candidates
+    if self.slug
+      "#{slide_title}-#{slide_title2}-#{id}"
+    else
+      "#{slide_title}-#{slide_title2}"
     end
   end
   

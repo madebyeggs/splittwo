@@ -1,7 +1,7 @@
 class Release < ActiveRecord::Base
   
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
   include Filterable
   
   before_save { |release|
@@ -19,6 +19,11 @@ class Release < ActiveRecord::Base
   require 'csv'
   
   before_save :upcase_fields
+  before_validation :make_first, on: :create
+  
+  def make_first
+    self.row_order_position ||= :first
+  end
   
   def upcase_fields
     unless self.slide_title.to_s.strip.empty?
@@ -48,6 +53,14 @@ class Release < ActiveRecord::Base
   
   include RankedModel
   ranks :row_order
+  
+  def slug_candidates
+    if self.slug
+      "#{track_name}-by-#{artist_name}-#{id}"
+    else
+      "#{track_name}-by-#{artist_name}"
+    end
+  end
   
   if Rails.env.development?
     has_attached_file :image, IMAGE_PAPERCLIP_STORAGE_OPTS

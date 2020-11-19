@@ -11,6 +11,11 @@ class Artist < ActiveRecord::Base
     end
   }
   before_save :upcase_fields
+  before_validation :make_first, on: :create
+  
+  def make_first
+    self.row_order_position ||= :first
+  end
   include Filterable
   
   def upcase_fields
@@ -29,7 +34,7 @@ class Artist < ActiveRecord::Base
   end
   
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
   
   require 'csv'
   
@@ -43,6 +48,14 @@ class Artist < ActiveRecord::Base
   
   include RankedModel
   ranks :row_order
+  
+  def slug_candidates
+    if self.slug
+      "#{artist_name}-#{id}"
+    else
+      "#{artist_name}"
+    end
+  end
   
   if Rails.env.development?
     has_attached_file :image, IMAGE_PAPERCLIP_STORAGE_OPTS
