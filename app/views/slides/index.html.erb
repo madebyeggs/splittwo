@@ -8,8 +8,10 @@
 							<% if slide.model_name == 'Work' %>
 								<%= slide.slide_title %> / <%= slide.slide_title2 %><br/>
 								"<%= slide.track_name %>" BY <%= slide.artist_name %>
-							<% else %>
+							<% elsif slide.model_name == 'Work' && slide.slide_title2? %>
 								<%= slide.slide_title %> / <%= slide.slide_title2 %>
+							<% else %>
+								<%= slide.slide_title %>
 							<% end %>
 						</div>
 					</div>
