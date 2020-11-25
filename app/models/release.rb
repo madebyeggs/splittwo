@@ -56,9 +56,9 @@ class Release < ActiveRecord::Base
   
   def slug_candidates
     if self.slug
-      "#{track_name}-by-#{artist_name}-#{id}"
+      "#{artist_name}-#{track_name}-#{id}"
     else
-      "#{track_name}-by-#{artist_name}"
+      "#{artist_name}-#{track_name}"
     end
   end
   
