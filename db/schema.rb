@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201118141011) do
+ActiveRecord::Schema.define(version: 20201125132932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -244,8 +244,10 @@ ActiveRecord::Schema.define(version: 20201118141011) do
     t.text     "nldescription"
     t.string   "track_name"
     t.string   "artist_name"
+    t.integer  "artist_id"
   end
 
+  add_index "releases", ["artist_id"], name: "index_releases_on_artist_id", using: :btree
   add_index "releases", ["slug"], name: "index_releases_on_slug", unique: true, using: :btree
 
   create_table "researches", force: :cascade do |t|
@@ -346,4 +348,5 @@ ActiveRecord::Schema.define(version: 20201118141011) do
   add_index "works", ["slug"], name: "index_works_on_slug", unique: true, using: :btree
 
   add_foreign_key "customvideos", "customs"
+  add_foreign_key "releases", "artists"
 end

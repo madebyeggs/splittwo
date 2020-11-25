@@ -1,5 +1,5 @@
 <table class="table table-striped" id="sortableRelease">
- 		<thead>
+ 	<thead>
    		<tr>
 			<th>Image</th>
 			<th>Line1 A</th>
@@ -7,51 +7,59 @@
      		<th>Line2 A</th>
 			<th>Line2 B</th>
      		<th>Video_URL</th>
+			<th>Platform</th>
 			<th>Slideshow?</th>
 			<th>Newsletter?</th>
 			<th></th>
    		</tr>
- 		</thead>
- 		<tbody>
-   		<% @releases.each do |release| %>
-     			<tr data-item-id=<%= "#{release.id}" %> class="item">
-				<td><%= image_tag(release.image, class: "thumb2") %></td>
-       			<td>
-					<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
-						data-attribute="slide_title" data-placeholder="empty">
-				  		<%= release.slide_title %>
-					</span>
-				</td>
-       			<td>
-					<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
-						data-attribute="slide_title2" data-placeholder="empty">
-				  		<%= release.slide_title2 %>
-					</span>
-				</td>
-       			<td>
-					<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
-						data-attribute="artist_name" data-placeholder="empty">
-				  		<%= release.artist_name %>
-					</span>
-				</td>
-       			<td>
-					<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
-						data-attribute="track_name" data-placeholder="empty">
-				  		<%= release.track_name %>
-					</span>
-				</td>
-				<td>
-					<span class="rest-in-place" data-url="/artists/<%= release.slug %>" data-object="release" data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
-				  		<%= release.vimeo %>
-					</span>
-				</td>
-				<td><%= best_in_place release, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-				<td><%= best_in_place release, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-				<td>
-					<%= link_to 'Edit', edit_release_path(release), class: "btn btn-success" %>
-					<%= link_to 'Delete', release, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
-				</td>
-     			</tr>
-   		<% end %>
- 		</tbody>
+ 	</thead>
+	<tbody>
+		<% @releases.each do |release| %>
+ 			<tr data-item-id=<%= "#{release.id}" %> class="item">
+			<td><%= image_tag(release.image, class: "thumb2") %></td>
+   			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="slide_title" data-placeholder="empty">
+			  		<%= release.slide_title %>
+				</span>
+			</td>
+   			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="slide_title2" data-placeholder="empty">
+			  		<%= release.slide_title2 %>
+				</span>
+			</td>
+   			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="artist_name" data-placeholder="empty">
+			  		<%= release.artist_name %>
+				</span>
+			</td>
+   			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="track_name" data-placeholder="empty">
+			  		<%= release.track_name %>
+				</span>
+			</td>
+			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="vimeo" data-placeholder="ADD VIDEO URL">
+			  		<%= release.vimeo %>
+				</span>
+			</td>
+			<td>
+				<span class="rest-in-place" data-url="/releases/<%= release.slug %>" data-object="release" 
+					data-attribute="platform" data-placeholder="ADD VIDEO PLATFORM">
+			  		<%= release.platform %>
+				</span>					
+			</td>
+			<td><%= best_in_place release, :slideshow, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+			<td><%= best_in_place release, :newsletter, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
+			<td>
+				<%= link_to 'Edit', edit_release_path(release), class: "btn btn-success" %>
+				<%= link_to 'Delete', release, method: :delete, data: {confirm: "Are you sure you want to delete this record?"}, class: "btn btn-success" %>
+			</td>
+ 			</tr>
+		<% end %>
+	</tbody>
 </table>

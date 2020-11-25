@@ -1,5 +1,6 @@
 class Artist < ActiveRecord::Base
-  
+
+  has_many :releases
   belongs_to :slide
   before_update { |artist| 
     if artist.soundcloud_changed? then
